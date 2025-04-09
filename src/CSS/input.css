@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body::before {
+      @apply content-['X-Small_<576px'] bg-yellow-100 py-2 px-3 w-full block text-center border border-black font-sans text-xs fixed top-0 left-0 z-50;
+    }
+  
+    body {
+      @apply m-0;
+    }
+  
+    @screen sm {
+      body::before {
+        @apply content-['Small_sm_≥576px'];
+      }
+    }
+  
+    @screen md {
+      body::before {
+        @apply content-['Medium_md_≥768px'];
+      }
+    }
+  
+    @screen lg {
+      body::before {
+        @apply content-['Large_lg_≥992px'];
+      }
+    }
+  
+    @screen xl {
+      body::before {
+        @apply content-['Extra_large_xl_≥1200px'];
+      }
+    }
+  
+    @screen 2xl {
+      body::before {
+        @apply content-['Extra_extra_large_xxl_≥1400px'];
+      }
+    }
+}
+
+@layer utilities {
+    .condensed {
+        font-variation-settings: "wdth" 20, "wght" 700;
+    }
+
+    .extended {
+        font-variation-settings: "wdth" 400, "wght" 700;
+    }
+
+    .titre {
+      @apply font-aqva font-bold uppercase text-titre;
+    }
+
+    .soustitre {
+      @apply font-annuario font-bold capitalize text-soustitre;
+    }
+
+    .texte {
+      @apply font-annuario font-bold text-texte;
+    }
+}
