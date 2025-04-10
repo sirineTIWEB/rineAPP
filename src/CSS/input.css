@@ -66,4 +66,8 @@
     .bouton {
       @apply font-annuario font-bold text-bouton rounded-2xl bg-mybeige px-3 uppercase extended text-mydarkblue w-fit py-2 border-mydarkblue border-x-2 border-t-2 border-b-4 border-solid;
     }
+
+    .legend {
+      @apply font-annuario text-base font-bold text-legend;
+    }
 }

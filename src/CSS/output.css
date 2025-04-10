@@ -649,40 +649,16 @@ body {
   right: 0px;
 }
 
+.right-80 {
+  right: 20rem;
+}
+
 .right-\[7\%\] {
   right: 7%;
 }
 
 .top-\[-3\%\] {
   top: -3%;
-}
-
-.top-0 {
-  top: 0px;
-}
-
-.right-10 {
-  right: 2.5rem;
-}
-
-.top-10 {
-  top: 2.5rem;
-}
-
-.-top-10 {
-  top: -2.5rem;
-}
-
-.right-32 {
-  right: 8rem;
-}
-
-.right-8 {
-  right: 2rem;
-}
-
-.right-80 {
-  right: 20rem;
 }
 
 .z-10 {
@@ -718,10 +694,6 @@ body {
   margin-right: 1.25rem;
 }
 
-.mt-12 {
-  margin-top: 3rem;
-}
-
 .box-border {
   box-sizing: border-box;
 }
@@ -746,17 +718,16 @@ body {
   height: 8rem;
 }
 
+.h-\[20vh\] {
+  height: 20vh;
+}
+
 .h-\[243px\] {
   height: 243px;
 }
 
 .h-\[487px\] {
   height: 487px;
-}
-
-.h-fit {
-  height: -moz-fit-content;
-  height: fit-content;
 }
 
 .w-40 {
@@ -815,16 +786,16 @@ body {
   justify-content: space-evenly;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-6 {
   gap: 1.5rem;
 }
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
 }
 
 .overflow-hidden {
@@ -847,9 +818,13 @@ body {
   border-radius: 1.5rem;
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+.border-t-2 {
+  border-top-width: 2px;
+}
+
+.border-mylightblue {
+  --tw-border-opacity: 1;
+  border-color: rgb(147 181 201 / var(--tw-border-opacity, 1));
 }
 
 .bg-mybeige {
@@ -891,6 +866,11 @@ body {
   padding: 0.5rem;
 }
 
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -916,16 +896,6 @@ body {
   padding-bottom: 1.5rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.px-16 {
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
 .pb-14 {
   padding-bottom: 3.5rem;
 }
@@ -948,19 +918,6 @@ body {
 
 .text-end {
   text-align: end;
-}
-
-.font-annuario {
-  font-family: annuario-variable, sans-serif;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.text-legend {
-  font-size: clamp(0.625rem, 0.4167rem + 1.0417vw, 1rem);
 }
 
 .font-bold {
@@ -1008,10 +965,6 @@ body {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-.duration-200 {
-  transition-duration: 200ms;
 }
 
 .duration-300 {
@@ -1071,30 +1024,16 @@ body {
   font-variation-settings: "wdth" 400, "wght" 700;
 }
 
+.legend {
+  font-family: annuario-variable, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-size: clamp(0.625rem, 0.4167rem + 1.0417vw, 1rem);
+  font-weight: 700;
+}
+
 .hover\:h-96:hover {
   height: 24rem;
-}
-
-.hover\:h-1\/5:hover {
-  height: 20%;
-}
-
-.hover\:scale-50:hover {
-  --tw-scale-x: .5;
-  --tw-scale-y: .5;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.hover\:scale-105:hover {
-  --tw-scale-x: 1.05;
-  --tw-scale-y: 1.05;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.hover\:scale-150:hover {
-  --tw-scale-x: 1.5;
-  --tw-scale-y: 1.5;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .hover\:scale-110:hover {
@@ -1133,57 +1072,33 @@ body {
 }
 
 @media (min-width: 576px) {
-  .sm\:bottom-20 {
-    bottom: 5rem;
-  }
-
-  .sm\:right-20 {
-    right: 5rem;
-  }
-
-  .sm\:top-\[-7\%\] {
-    top: -7%;
-  }
-
-  .sm\:bottom-28 {
-    bottom: 7rem;
-  }
-
-  .sm\:right-44 {
-    right: 11rem;
-  }
-
-  .sm\:bottom-40 {
-    bottom: 10rem;
-  }
-
-  .sm\:right-96 {
-    right: 24rem;
+  .sm\:-top-10 {
+    top: -2.5rem;
   }
 
   .sm\:bottom-64 {
     bottom: 16rem;
   }
 
-  .sm\:-top-10 {
-    top: -2.5rem;
-  }
-
   .sm\:right-32 {
     right: 8rem;
-  }
-
-  .sm\:right-\[30rem\] {
-    right: 30rem;
   }
 
   .sm\:right-\[40rem\] {
     right: 40rem;
   }
 
+  .sm\:top-\[-7\%\] {
+    top: -7%;
+  }
+
   .sm\:mx-8 {
     margin-left: 2rem;
     margin-right: 2rem;
+  }
+
+  .sm\:mb-40 {
+    margin-bottom: 10rem;
   }
 
   .sm\:mb-52 {
@@ -1204,10 +1119,6 @@ body {
 
   .sm\:mr-9 {
     margin-right: 2.25rem;
-  }
-
-  .sm\:mb-40 {
-    margin-bottom: 10rem;
   }
 
   .sm\:mt-12 {
