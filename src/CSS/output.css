@@ -665,6 +665,10 @@ body {
   top: -7%;
 }
 
+.top-\[-3\%\] {
+  top: -3%;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -721,6 +725,14 @@ body {
 
 .mb-5 {
   margin-bottom: 1.25rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .box-border {
@@ -847,6 +859,10 @@ body {
   gap: 2rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -866,6 +882,16 @@ body {
 .bg-myyellow {
   --tw-bg-opacity: 1;
   background-color: rgb(242 218 145 / var(--tw-bg-opacity, 1));
+}
+
+.bg-mydarkblue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(65 91 104 / var(--tw-bg-opacity, 1));
+}
+
+.bg-mylightblue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 181 201 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[url\(\'\.\.\/assets\/images\/mockups\/rine\.png\'\)\] {
@@ -951,6 +977,10 @@ body {
 
 .text-texte {
   font-size: clamp(0.875rem, 0.7rem + 0.875vw, 1.25rem);
+}
+
+.text-titre {
+  font-size: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
 }
 
 .font-bold {
@@ -1069,6 +1099,10 @@ body {
     position: absolute;
   }
 
+  .sm\:top-\[-7\%\] {
+    top: -7%;
+  }
+
   .sm\:mx-8 {
     margin-left: 2rem;
     margin-right: 2rem;
@@ -1088,6 +1122,14 @@ body {
 
   .sm\:mb-60 {
     margin-bottom: 15rem;
+  }
+
+  .sm\:ml-12 {
+    margin-left: 3rem;
+  }
+
+  .sm\:mr-9 {
+    margin-right: 2.25rem;
   }
 
   .sm\:flex {
@@ -1132,6 +1174,10 @@ body {
 
   .sm\:max-w-none {
     max-width: none;
+  }
+
+  .sm\:gap-9 {
+    gap: 2.25rem;
   }
 
   .sm\:px-12 {
