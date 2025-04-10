@@ -17,31 +17,29 @@
     <header class="w-full flex justify-between items-center text-mydarkblue bg-myyellow py-5 px-8 font-annuario font-bold">
         <img src="#" alt="-RINE">
         <nav>
-            <ul class="flex gap-8">
+            <ul class="gap-8 hidden sm:flex">
                 <li><a class="capitalize p-2 text-base text-legend font-annuario" href="#">accueil</a></li>
                 <li><a class="capitalize p-2 text-base text-legend" href="#">à propos</a></li>
                 <li><a class="capitalize p-2 text-base text-legend" href="#">portfolio</a></li>
                 <li><a class="capitalize p-2 text-base text-legend" href="#">contact</a></li>
                 <li><a class="capitalize p-2 text-base text-legend" href="#">FR/ENG</a></li>
-
             </ul>
         </nav>
+        <img class="visible sm:hidden" src="assets/icons/burger.svg" alt="menu burger">
     </header>
-    <section class="bg-myyellow w-full box-border relative pb-16 mb-60">
-        <div class="grid grid-cols-2 grid-rows-4 h-[80vh] mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
-            <div class="row-start-4 row-end-5 font-annuario sm:pl-14 pl-3 ">
-                <h1 class="titre text-myyellow">rine's portfolio</h1>
-                <h2 class="font-bold condensed text-texte text-mybeige">Discover all projets I've done during my academic and free times. </h2>
-                <a href="#" class="extended uppercase text-bouton text-mybeige">explore my projects</a>
-            </div>
+    <section class="bg-myyellow w-full box-border relative pb-16 mb-36 sm:mb-60">
+        <div class="flex flex-col justify-end pb-5 px-2 sm:px-12 sm:pb-32 h-[487px] sm:h-[80vh] mx-4 sm:mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
+          <h1 class="titre text-myyellow">rine's portfolio</h1>
+          <h2 class="font-bold condensed text-texte text-mybeige max-w-52 sm:max-w-none">Discover all projets I've done during my academic and free times. </h2>
+          <a href="#" class="extended uppercase text-bouton text-mybeige">explore my projects</a>
         </div>
-        <img class="absolute bottom-[-5%] right-[7%]" src="assets/icons/gribouilli1.svg" alt="gribouilli1">
+        <img class="h-20 absolute bottom-[-5%] right-[7%] sm:h-36" src="assets/icons/gribouilli1.svg" alt="gribouilli1">
     </section>
-    <section class="relative flex flex-col items-center">
-        <h1 class="titre text-mydarkblue">RECENTS PROJECTS</h1>
+    <section class="relative flex flex-col items-center mb-16 sm:mb-52">
+        <h1 class="titre text-mydarkblue mb-6 sm:mb-8">RECENTS PROJECTS</h1>
         <div class="flex overflow-x-auto overflow-y-hidden max-w-full">
-            
-            <article class="group relative ml-12 h-[455px] w-72 overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 hover:w-[350px]">
+      
+            <article class="group relative ml-12 h-[243px] w-40 sm:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 focus:w-[170px] sm:h-[455px] sm:hover:w-96">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
               
@@ -54,7 +52,7 @@
                   </div>
                 </div>
             </article>
-            <article class="group relative ml-12 h-[455px] w-72 overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 hover:w-[350px]">
+            <article class="group relative ml-12 h-[243px] w-40 sm:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 focus:w-[170px] sm:h-[455px] sm:hover:w-96">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
               
@@ -67,20 +65,7 @@
                   </div>
                 </div>
             </article>
-            <article class="group relative ml-12 h-[455px] w-72 overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 hover:w-[350px]">
-                <!-- Overlay pour étendre la zone cliquable -->
-                <div class="absolute inset-0 z-10"></div>
-              
-                <!-- Détails du projet -->
-                <div class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-left">
-                  <h2 class="soustitre text-mydarkblue text-end ">Titre projet</h2>
-                  <div class="flex justify-end">
-                    <p class="texte lowercase text-mydarkblue text-end ">cat - </p>
-                    <p class="texte lowercase text-mydarkblue text-end "> JJ/MM/AA</p>
-                  </div>
-                </div>
-            </article>
-            <article class="group relative ml-12 h-[455px] w-72 overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 hover:w-[350px]">
+            <article class="group relative ml-12 h-[243px] w-40 sm:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 focus:w-[170px] sm:h-[455px] sm:hover:w-96">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
               
@@ -95,8 +80,7 @@
             </article>
               
         </div>
-        
-        <img class="absolute top-[-17%] left-[2%]" src="assets/icons/gribouilli2.svg" alt="gribouilli2">
+        <img class="h-24 absolute top-[-7%] left-[2%] sm:h-40" src="assets/icons/gribouilli2.svg" alt="gribouilli2">
     </section>
 </body>
 </html>
