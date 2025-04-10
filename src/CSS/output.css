@@ -783,6 +783,14 @@ body {
   height: 487px;
 }
 
+.h-56 {
+  height: 14rem;
+}
+
+.h-\[800px\] {
+  height: 800px;
+}
+
 .w-72 {
   width: 18rem;
 }
@@ -797,6 +805,10 @@ body {
 
 .w-1\/2 {
   width: 50%;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .max-w-full {
@@ -849,6 +861,10 @@ body {
 
 .justify-end {
   justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
