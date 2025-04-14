@@ -1238,6 +1238,10 @@ body {
     right: 20rem;
   }
 
+  .sm\:-top-6 {
+    top: -1.5rem;
+  }
+
   .sm\:z-10 {
     z-index: 10;
   }
@@ -1325,6 +1329,10 @@ body {
 
   .sm\:h-16 {
     height: 4rem;
+  }
+
+  .sm\:h-\[500px\] {
+    height: 500px;
   }
 
   .sm\:w-5\/12 {
