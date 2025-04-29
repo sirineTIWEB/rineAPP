@@ -912,6 +912,10 @@ body {
   height: 12rem;
 }
 
+.h-56 {
+  height: 14rem;
+}
+
 .w-2\/3 {
   width: 66.666667%;
 }
@@ -1098,6 +1102,10 @@ body {
 
 .bg-cover {
   background-size: cover;
+}
+
+.bg-\[size\:20px_20px\] {
+  background-size: 20px 20px;
 }
 
 .bg-center {
@@ -1565,6 +1573,14 @@ body {
 
   .sm\:gap-20 {
     gap: 5rem;
+  }
+
+  .sm\:bg-\[size\:20px_20px\] {
+    background-size: 20px 20px;
+  }
+
+  .sm\:bg-\[size\:30px_30px\] {
+    background-size: 30px 30px;
   }
 
   .sm\:p-2 {
