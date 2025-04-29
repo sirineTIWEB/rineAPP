@@ -70,4 +70,8 @@
     .legend {
       @apply font-annuario text-base font-bold text-legend;
     }
+
+    .input {
+      @apply font-annuario border-b border-mydarkblue placeholder:text-mydarkblue capitalize text-xl sm:text-2xl bg-myyellow text-mydarkblue font-semibold active:outline-none focus:outline-none focus:border-b-2 focus:border-mydarkblue;
+    }
 }
