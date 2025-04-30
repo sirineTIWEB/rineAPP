@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rine; Portfolio WEB de Sirine El Alami.">
-    <meta name="author" content="El Alami Sirine">
-    <meta property="og:title" content="Your Project Title">
-    <meta property="og:description" content="Rine; Découvre le portfolio WEB de Sirine El Alami.">
-    <meta property="og:image" content="http://example.com/image.jpg">
-    <meta property="og:url" content="http://example.com/page">
-    <title>portfolio RINE</title>
-    <link rel="stylesheet" href="https://use.typekit.net/imo5mqr.css">
-    <link rel="stylesheet" href="CSS/output.css">
-</head>
-<body class="overflow-x-hidden">
-    <header class="w-full flex justify-between items-center text-mydarkblue bg-myyellow py-5 px-8">
-        <img src="#" alt="-RINE">
-        <nav>
-            <ul class="gap-8 hidden sm:flex">
-                <li><a class="capitalize p-2 legend" href="#">accueil</a></li>
-                <li><a class="capitalize p-2 legend" href="about.html">à propos</a></li>
-                <li><a class="capitalize p-2 legend" href="projects.html">portfolio</a></li>
-                <li><a class="capitalize p-2 legend" href="#">contact</a></li>
-                <li><a class="capitalize p-2 legend" href="#">FR/ENG</a></li>
-            </ul>
-        </nav>
-        <img class="visible sm:hidden" src="assets/icons/burger.svg" alt="menu burger">
-    </header>
+
     <section class="bg-myyellow w-full box-border relative pb-16 mb-36 sm:mb-60">
         <div class="flex flex-col justify-end pb-5 px-2 sm:px-12 sm:pb-32 h-[487px] sm:h-[80vh] mx-4 sm:mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
           <h1 class="titre text-myyellow">rine's portfolio</h1>
@@ -95,24 +67,3 @@
       <a href="#"><img class="absolute right-3 -top-3 h-36 sm:h-60 sm:right-32 sm:-top-10 active:scale-110 hover:scale-110 transition-all duration-300" src="assets/icons/etoile.svg" alt="gribouilli4"></a>
       <h1 class="right-8 mt-11 sm:mt-12 titre absolute text-mydarkblue sm:right-80">want to know more ?</h1>
     </section>
-
-    <footer class="relative border-t-2 border-mylightblue">
-        <img class="absolute h-10 -top-4 sm:-top-6 left-3 sm:left-6 sm:h-16" src="assets/icons/gribouilli1.svg" alt="gribouilli1">
-        <nav class="h-fit flex justify-evenly px-8 sm:px-16 items-start sm:items-center w-full text-mydarkblue">
-          <ul class="flex flex-col sm:flex-row order-2 sm:gap-2 sm:order-1">
-            <li class="legend p-0 sm:p-2">Sirine El Alami</li>
-            <li class="legend p-0 sm:p-2"><a href="mailto:microsoft@rine.ovh">mail</a></li>
-            <li class="legend p-0 sm:p-2"><a href="">LinkedIn</a></li>
-            <li class="legend p-0 sm:p-2"><a href="">Charte Graphique</a></li>
-          </ul>
-          <img class="order-1 mt-2 sm:h-14 h-6 sm:order-2 sm:mb-3" src="assets/logo/jaunelong.svg" alt="-RINE">
-          <ul class="flex flex-col sm:flex-row sm:gap-2 order-3">
-            <li><a class="capitalize p-0 sm:p-2 legend" href="index.html">accueil</a></li>
-            <li><a class="capitalize p-0 sm:p-2 legend" href="about.html">à propos</a></li>
-            <li><a class="capitalize p-0 sm:p-2 legend" href="projects.html">portfolio</a></li>
-            <li><a class="capitalize p-0 sm:p-2 legend" href="contact.html">contact</a></li>
-          </ul>
-        </nav>
-    </footer>
-</body>
-</html>
