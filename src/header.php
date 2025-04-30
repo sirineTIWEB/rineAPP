@@ -11,7 +11,7 @@
     <meta property="og:url" content="http://example.com/page">
     <title>portfolio RINE</title>
     <link rel="stylesheet" href="https://use.typekit.net/imo5mqr.css">
-    <link rel="stylesheet" href="CSS/output.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="overflow-x-hidden">
     <header class="w-full flex justify-between items-center text-mydarkblue bg-myyellow py-5 px-8">
