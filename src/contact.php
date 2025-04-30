@@ -1,3 +1,4 @@
+<?php get_header() ?>
 
     <section class="flex flex-col justify-evenly sm:flex-row text-mydarkblue bg-myyellow h-[60vh] mb-[20vh]">
         <div class="flex flex-col sm:justify-center sm:items-start items-end sm:w-1/2 sm:pl-20">
@@ -27,3 +28,5 @@
         </div>
         
     </section>
+
+<?php get_footer() ?>

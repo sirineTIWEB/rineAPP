@@ -1,3 +1,4 @@
+<?php get_header() ?>
 
     <footer class="relative border-t-2 border-mylightblue">
         <img class="absolute h-10 -top-4 sm:-top-6 left-3 sm:left-6 sm:h-16" src="assets/icons/gribouilli1.svg" alt="gribouilli1">

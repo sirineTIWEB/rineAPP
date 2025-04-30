@@ -1,3 +1,4 @@
+<?php get_header() ?>
 
     <section class="bg-myyellow w-full box-border relative pb-16 mb-36 sm:mb-60">
         <div class="flex flex-col justify-end pb-5 px-2 sm:px-12 sm:pb-32 h-[487px] sm:h-[80vh] mx-4 sm:mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
@@ -67,3 +68,5 @@
       <a href="#"><img class="absolute right-3 -top-3 h-36 sm:h-60 sm:right-32 sm:-top-10 active:scale-110 hover:scale-110 transition-all duration-300" src="assets/icons/etoile.svg" alt="gribouilli4"></a>
       <h1 class="right-8 mt-11 sm:mt-12 titre absolute text-mydarkblue sm:right-80">want to know more ?</h1>
     </section>
+
+<?php get_footer() ?>

@@ -1,3 +1,4 @@
+<?php get_header() ?>
 
     <section class="sm:h-[500px] h-[25vh] bg-myyellow flex items-end sm:mb-64 mb-32">
         <div class="pl-10 sm:pl-20 pb-10 sm:pb-20">
@@ -73,3 +74,5 @@
             <a href="#" class="bouton text-mydarkblue border-myyellow sm:my-10 my-5">explore my projects</a>
         </div>
     </section>
+
+<?php get_footer() ?>

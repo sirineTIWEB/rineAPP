@@ -1,3 +1,4 @@
+<?php get_header() ?>
 
     <section class="sm:h-[500px] h-[25vh] bg-myyellow flex items-end sm:mb-64 mb-32">
         <div class="pl-10 sm:pl-20 pb-10 sm:pb-20">
@@ -27,3 +28,4 @@
         <article class="bg-moiPC sm:h-96 h-56 w-40 sm:w-64 bg-cover object-contain"></article>
         <article class="bg-moiPC sm:h-96 h-56 w-40 sm:w-64 bg-cover object-contain"></article>
     </section>
+    <?php get_footer() ?>
