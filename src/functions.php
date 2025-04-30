@@ -1,3 +1,4 @@
+<?php
 function mon_theme_scripts() {
     // Ajouter la feuille de style principale
     wp_enqueue_style('mon-style', get_stylesheet_uri());
