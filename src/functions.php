@@ -9,7 +9,7 @@ function mon_theme_scripts() {
     wp_enqueue_script('gsap-cdn', 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js', array(), null, true);
     
     // Ajouter des scripts JS si nécessaire
-    wp_enqueue_script('animejs', get_template_directory_uri() . '/js/animGSAP.js', array(), null, true);
+    wp_enqueue_script('animejs', get_template_directory_uri() . '/assets/js/animGSAP.js', array(), null, true);
     // wp_enqueue_script('mon-custom-script', get_template_directory_uri() . '/js/custom.js', array('animejs'), null, true);
 }
 
