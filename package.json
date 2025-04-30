@@ -2,12 +2,12 @@
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
     "tailwindcss": "^3.4.17"
   },
   "scripts": {
     "tw": "npx tailwindcss -i ./src/CSS/input.css -o ./src/CSS/output.css --watch",
-    "build": "npx postcss ./src/CSS/input.css -o ./style.css"
-
+    "build": "npx postcss ./src/CSS/input.css -o ./src/style.css"
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001713"
