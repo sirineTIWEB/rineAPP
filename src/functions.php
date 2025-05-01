@@ -1,7 +1,7 @@
 <?php
 function mon_theme_scripts() {
     // Ajouter la feuille de style principale
-    wp_enqueue_style('mon-style', get_stylesheet_uri());
+    wp_enqueue_style('theme-style', get_stylesheet_uri(), array(), time());
 
     // Ajouter GSAP via un CDN (si tu veux utiliser GSAP directement à partir du CDN)
     wp_enqueue_script('gsap-cdn', 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js', array(), null, true);

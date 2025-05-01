@@ -1,7 +1,9 @@
 module.exports = {
   mode: 'jit',
   content: [
-    "./src/**/*.{html,js,ts,jsx,tsx,php}",
+    "./*.php",  // Fichiers PHP à la racine
+    "./**/*.php",  // Tous les fichiers PHP dans tous les sous-dossiers
+    "./template-parts/**/*.php"  // Parties de template spécifiques
   ],
   theme: {
     extend: {
