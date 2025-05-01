@@ -1,7 +1,7 @@
 module.exports = {
   mode: 'jit',
   content: [
-    "./src/**/*.{html,js,ts,jsx,tsx}",
+    "./src/**/*.{html,js,ts,jsx,tsx,php}",
   ],
   theme: {
     extend: {
@@ -24,7 +24,7 @@ module.exports = {
         'aqva': ['rl-aqva', 'sans-serif'],
       },
       backgroundImage: {
-        'moiPC': "url('../assets/images/susana.jpg')",
+        'moiPC': "url('<?php echo get_template_directory_uri(); ?>/assets/images/susana.jpg')",
       },
       screens: {
         'sm': '576px',

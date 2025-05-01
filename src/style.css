@@ -1,7 +1,8 @@
 /*
-Theme Name: RINE
+Theme Name: RINE2.1
 Author: El Alami Sirine
-Version: 2.0
+Version: 2.1
+Text Domain: rine2
 */
 
 *, ::before, ::after {
@@ -623,6 +624,40 @@ body {
   }
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
 .visible {
   visibility: visible;
 }
@@ -1095,7 +1130,7 @@ body {
 }
 
 .bg-moiPC {
-  background-image: url('../assets/images/susana.jpg');
+  background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/susana.jpg');
 }
 
 .bg-\[size\:20px_20px\] {
@@ -1384,6 +1419,17 @@ body {
   }
 }
 
+#navbar li > a {
+  /* Ajoute ici tes styles Tailwind si tu utilises @apply */
+  padding: 0.5rem;
+  text-transform: capitalize;
+  font-family: annuario-variable, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-size: clamp(0.625rem, 0.4167rem + 1.0417vw, 1rem);
+  font-weight: 700;
+}
+
 .hover\:h-96:hover {
   height: 24rem;
 }
@@ -1395,7 +1441,7 @@ body {
 }
 
 .hover\:bg-moiPC:hover {
-  background-image: url('../assets/images/susana.jpg');
+  background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/susana.jpg');
 }
 
 .hover\:text-myyellow:hover {
@@ -1418,7 +1464,7 @@ body {
 }
 
 .active\:bg-moiPC:active {
-  background-image: url('../assets/images/susana.jpg');
+  background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/susana.jpg');
 }
 
 .group:hover .group-hover\:opacity-100 {

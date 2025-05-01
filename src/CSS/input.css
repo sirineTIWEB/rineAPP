@@ -1,3 +1,10 @@
+/*
+Theme Name: RINE2.1
+Author: El Alami Sirine
+Version: 2.1
+Text Domain: rine2
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -74,4 +81,14 @@
     .input {
       @apply font-annuario border-b border-mydarkblue placeholder:text-mydarkblue capitalize text-xl sm:text-2xl bg-myyellow text-mydarkblue font-semibold active:outline-none focus:outline-none focus:border-b-2 focus:border-mydarkblue;
     }
+
+    #navbar li > a {
+      /* Ajoute ici tes styles Tailwind si tu utilises @apply */
+      @apply capitalize p-2 legend;
+  }
+
+  .lang-item {
+    display: inline;
+  }
+  
 }
