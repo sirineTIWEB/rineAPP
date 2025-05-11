@@ -8,18 +8,33 @@
     <link rel="stylesheet" href="CSS/output.css">
     <?php wp_head(); ?>
 </head>
-<body class="overflow-x-hidden">
-    <header class="w-full flex justify-between items-center text-mydarkblue bg-myyellow py-5 px-8">
-        <img class="sm:h-14 h-6" src="<?php echo get_template_directory_uri(); ?>/assets/logo/courtBclair.svg" alt="-RINE">
+<body class="overflow-x-hidden bg-mybeige dark:bg-mydarkblue">
+    <header class="w-full flex justify-between items-center text-mydarkblue bg-myyellow dark:bg-mylightblue py-5 px-8 flex-wrap">
+        <img class="md:h-14 h-6 dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/logo/courtBclair.svg" alt="-RINE">
+        <img class="md:h-14 h-6 hidden dark:block" src="<?php echo get_template_directory_uri(); ?>/assets/logo/courtBfonce.svg" alt="-RINE">
         <?php
         wp_nav_menu(array(
             'theme_location' => 'primary',
             'container' => 'nav',
-            'container_class' => 'mon-nav-classe',  // classe sur <nav>
-            'menu_class' => 'gap-8 hidden sm:flex', // classe sur <ul>
-            'menu_id' => 'navbar',                   // id sur <ul>
-            'walker' => new Custom_Walker_Nav_Menu(), // classe personnalisée pour le menu
+            'container_class' => 'hidden deskmenu md:flex',  // classe sur <nav>
+            'menu_class' => 'flex gap-8', // classe sur <ul>
+            'menu_id' => 'deskmenu',                   // id sur <ul>
+            'walker' => new Custom_Walker_headNav_Menu(), // classe personnalisée pour le menu
         ));
         ?>
-        <img class="visible sm:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" alt="menu burger">
-</header>
+        
+        <button id="burger" aria-expanded="false" aria-controls="mobilemenu" class="visible md:hidden">
+            <img class="dark:hidden visible" src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" alt="Toggle menu">
+            <img class="dark:block hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/darkburger.svg" alt="Toggle menu">
+        </button>
+        <?php
+        wp_nav_menu(array(
+            'theme_location' => 'primary',
+            'container' => 'nav',
+            'container_class' => 'mobilemenu overflow-hidden flex h-0 w-full justify-center md:hidden my-4',  // classe sur <nav>
+            'menu_class' => 'flex gap-8', // classe sur <ul>
+            'menu_id' => 'mobilemenu',                   // id sur <ul>
+            'walker' => new Custom_Walker_headNav_Menu(), // classe personnalisée pour le menu
+        ));
+        ?>
+    </header>

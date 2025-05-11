@@ -9,45 +9,6 @@ Text Domain: rine2
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    body::before {
-      @apply content-['X-Small_<576px'] bg-yellow-100 py-2 px-3 w-full block text-center border border-black font-sans text-xs fixed top-0 left-0 z-50;
-    }
-  
-    body {
-      @apply m-0;
-    }
-  
-    @screen sm {
-      body::before {
-        @apply content-['Small_sm_≥576px'];
-      }
-    }
-  
-    @screen md {
-      body::before {
-        @apply content-['Medium_md_≥768px'];
-      }
-    }
-  
-    @screen lg {
-      body::before {
-        @apply content-['Large_lg_≥992px'];
-      }
-    }
-  
-    @screen xl {
-      body::before {
-        @apply content-['Extra_large_xl_≥1200px'];
-      }
-    }
-  
-    @screen 2xl {
-      body::before {
-        @apply content-['Extra_extra_large_xxl_≥1400px'];
-      }
-    }
-}
 
 @layer utilities {
     .condensed {
@@ -71,7 +32,7 @@ Text Domain: rine2
     }
 
     .bouton {
-      @apply font-annuario font-bold text-bouton rounded-2xl bg-mybeige px-3 uppercase extended text-mydarkblue w-fit py-2 border-x-2 border-t-2 border-b-4 border-solid;
+      @apply font-annuario font-bold text-bouton rounded-2xl bg-mybeige dark:bg-mydarkblue px-3 uppercase extended text-mydarkblue dark:text-mybeige w-fit py-2 border-x-2 border-t-2 border-b-4 border-solid;
     }
 
     .legend {
@@ -79,7 +40,7 @@ Text Domain: rine2
     }
 
     .input {
-      @apply font-annuario border-b border-mydarkblue placeholder:text-mydarkblue capitalize text-xl sm:text-2xl bg-myyellow text-mydarkblue font-semibold active:outline-none focus:outline-none focus:border-b-2 focus:border-mydarkblue;
+      @apply font-annuario border-b border-mydarkblue rounded-none placeholder:text-mydarkblue text-xl sm:text-2xl bg-myyellow dark:bg-mylightblue text-mydarkblue font-semibold active:outline-none focus:outline-none focus:border-b-2 focus:border-mydarkblue;
     }
 
     #navbar li > a {
