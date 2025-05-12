@@ -25,8 +25,8 @@ Template Name: contact
                 <input type="text" name="socialName" id="socialName" placeholder="<?php esc_html_e('Social Username', 'rine2'); ?>" class="transform-none input mr-0 md:mr-7 w-[37%]">
                 <textarea name="content" id="content" placeholder="<?php esc_html_e('Your Message', 'rine2'); ?>" class="rounded-none capitalize input mr-4 md:mr-7 max-h-max w-[95%]" required></textarea>
                 <button type="submit" name="sending" value="send">
-                    <img class="absolute md:right-20 md:top-96 top-40 right-24 h-16 md:h-auto hover:scale-110 transition-all duration-300 dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/send.svg" alt="send button">
-                    <img class="absolute md:right-20 md:top-96 top-40 right-24 h-16 md:h-auto hover:scale-110 transition-all duration-300 hidden dark:block" src="<?php echo get_template_directory_uri(); ?>/assets/icons/darksend.svg" alt="send button">
+                    <img class="absolute md:right-20 md:top-[30rem] top-44 right-24 h-16 md:h-auto hover:scale-110 transition-all duration-300 dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/send.svg" alt="send button">
+                    <img class="absolute md:right-20 md:top-[30rem] top-44 right-24 h-16 md:h-auto hover:scale-110 transition-all duration-300 hidden dark:block" src="<?php echo get_template_directory_uri(); ?>/assets/icons/darksend.svg" alt="send button">
                 </button>
                 <?php wp_nonce_field('contact_form_nonce_action', 'contact_form_nonce_field'); ?> 
                 <!-- sécurité contre hacker -->
