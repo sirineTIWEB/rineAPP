@@ -1,14 +1,14 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17"
-  },
   "scripts": {
     "tw": "npx tailwindcss -i ./src/CSS/input.css -o ./src/CSS/output.css --watch",
     "build": "npx tailwindcss -i ./src/CSS/input.css -o ./src/style.css --watch"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001713"
+    "browserslist": "^4.25.0",
+    "caniuse-lite": "^1.0.30001720"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^3.4.17"
   }
 }

@@ -9,7 +9,6 @@ Text Domain: rine2
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
     .condensed {
         font-variation-settings: "wdth" 20, "wght" 700;

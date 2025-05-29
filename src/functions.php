@@ -77,10 +77,9 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu {
 
 // enqueue js
 function my_theme_enqueue_scripts() {
-    wp_enqueue_script('jquery'); // Enqueue jQuery
     wp_enqueue_script(
-        'mobilemenu', // Unique handle
-        get_template_directory_uri() . '/js/scripts.js', // Path to JS file
+        'slidetoolbox', // Unique handle
+        get_template_directory_uri() . '/assets/js/slideshow.js', // Path to JS file
         array(), // Dependencies, e.g. array('jquery')
         false // Load in header or footer (true for footer)
     );
