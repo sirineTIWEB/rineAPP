@@ -1,29 +1,45 @@
+let currentSlide = 0;
+const enfants = document.querySelectorAll('.childslide');
+
 document.addEventListener('DOMContentLoaded', () => {
-    
-    document.querySelectorAll('.parentslide').forEach(parentslide => {
-        const children = parentslide.querySelectorAll('.childslide');
-        const nextBtn = parentslide.querySelector('.next');
-        const prevBtn = parentslide.querySelector('.prev');
-
-        parentslide.currentIndex = 0;
-
-        parentslide.showSlide = function(index) {
-            children.forEach((child, i) => {
-                child.style.display = (i === index) ? 'block' : 'none';
-            });
-        };
-
-        parentslide.showSlide(parentslide.currentIndex);
-
-        nextBtn?.addEventListener('click', () => {
-            parentslide.currentIndex = (parentslide.currentIndex + 1) % children.length;
-            parentslide.showSlide(parentslide.currentIndex);
-        });
-    
-        prevBtn?.addEventListener('click', () => {
-            parentslide.currentIndex = (parentslide.currentIndex - 1 + children.length) % children.length;
-            parentslide.showSlide(parentslide.currentIndex);
-        });
+    // Afficher uniquement le premier enfant de chaque section .parentslide
+    document.querySelectorAll('.parentslide').forEach(section => {
+        section.dataset.currentIndex = currentSlide; // Définir l'index initial
+        showSlide(section, currentSlide);
     });
-
 });
+
+function showSlide(parentSection, index) {
+    const enfants = parentSection.querySelectorAll('.childslide');
+    enfants.forEach((enfant, i) => {
+        if (i === index) {
+            enfant.classList.remove('hidden');
+            enfant.classList.add('block');  // optional, to explicitly show
+          } else {
+            enfant.classList.add('hidden');
+            enfant.classList.remove('block');
+          }
+
+        enfant.classList.toggle('active', i === index);
+    });
+}
+
+function showNext() {
+    const button = event.currentTarget; // Récupérer le bouton cliqué
+    const parentSection = button.closest('.parentslide');
+    const currentIndex = parseInt(parentSection.dataset.currentIndex) || 0;
+    const enfants = parentSection.querySelectorAll('.childslide');
+    const nextIndex = (currentIndex + 1) % enfants.length;
+    showSlide(parentSection, nextIndex);
+    parentSection.dataset.currentIndex = nextIndex;
+}
+
+function showPrev() {
+    const button = event.currentTarget; // Récupérer le bouton cliqué
+    const parentSection = button.closest('.parentslide');
+    const currentIndex = parseInt(parentSection.dataset.currentIndex) || 0;
+    const enfants = parentSection.querySelectorAll('.childslide');
+    const prevIndex = (currentIndex - 1 + enfants.length) % enfants.length;
+    showSlide(parentSection, prevIndex);
+    parentSection.dataset.currentIndex = prevIndex;
+}

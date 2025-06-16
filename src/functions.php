@@ -76,15 +76,16 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu {
 }
 
 // enqueue js
-function my_theme_enqueue_scripts() {
+function slides_toolbox_scripts() {
     wp_enqueue_script(
         'slidetoolbox', // Unique handle
         get_template_directory_uri() . '/assets/js/slideshow.js', // Path to JS file
         array(), // Dependencies, e.g. array('jquery')
-        false // Load in header or footer (true for footer)
+        null, // Version number (null for no version)
+        true // Load in header or footer (true for footer)
     );
 }
-add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'slides_toolbox_scripts');
 
 // contact form
 function handle_contact_form_submission() {
@@ -157,3 +158,9 @@ function handle_contact_form_submission() {
     }
 }
 add_action('init', 'handle_contact_form_submission');
+
+function enqueue_font_awesome_kit() {
+    wp_enqueue_script( 'font-awesome-kit', 'https://kit.fontawesome.com/916225c0a4.js', array(), null, false );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome_kit' );
+// Add icons
