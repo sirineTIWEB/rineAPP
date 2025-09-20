@@ -14,7 +14,7 @@ get_header(); ?>
     <section class="flex flex-col items-center mb-16 md:mb-52">
         <h1 class="titre text-myyellow mb-6 md:mb-8 flex-wrap w-2/3 text-center"><?php esc_html_e('work experiences', 'rine2'); ?></h1>
         <div class="flex overflow-x-auto overflow-y-hidden max-w-full pl-6 md:pl-12 pb-3">
-            <article class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
+            <article class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.webp')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
               
@@ -27,7 +27,7 @@ get_header(); ?>
                   </div>
                 </div>
             </article>
-            <article class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
+            <article class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.webp')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
               
@@ -40,7 +40,7 @@ get_header(); ?>
                   </div>
                 </div>
             </article>
-            <article class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.png')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
+            <article class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-[url('../assets/images/mockups/rine.webp')] bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
               
@@ -61,11 +61,11 @@ get_header(); ?>
         <h1 class="titre text-mydarkblue dark:text-mybeige bg-mybeige dark:bg-mydarkblue h-fit w-fit"><?php esc_html_e('My skills', 'rine2'); ?></h1>
         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/skills.svg" alt="gribouillis" class="absolute h-10 md:h-auto left-1/3 bottom-0">
 
-        <div id="flowerZone1" class="absolute top-5 left-4 md:top-10 md:left-5"> <img class="md:h-auto h-36" src="<?php echo get_template_directory_uri(); ?>/assets/icons/fleur1.svg" alt="yellow flower TL corner"></div>
+        <!-- <div id="flowerZone1" class="absolute top-5 left-4 md:top-10 md:left-5"> <img class="md:h-auto h-36" src="<?php echo get_template_directory_uri(); ?>/assets/icons/fleur1.svg" alt="yellow flower TL corner"></div>
         <div id="flowerZone2" class="absolute top-1/3 left-1/3 md:top-1/3 md:right-1/3"> <img class="md:h-auto h-44" src="<?php echo get_template_directory_uri(); ?>/assets/icons/fleur2.svg" alt="big yellow flower"></div>
         <div id="flowerZone3" class="absolute top-28 md:bottom-1/4 md:left-96"> <img class="md:h-auto h-32" src="<?php echo get_template_directory_uri(); ?>/assets/icons/fleur4.svg" alt="little dark blue flower"></div>
         <div id="flowerZone4" class="absolute bottom-28 left-1 md:top-1 md:right-1/4"> <img class="md:h-auto h-36" src="<?php echo get_template_directory_uri(); ?>/assets/icons/fleur3.svg" alt="mid light blue flower"></div>
-        <div id="flowerZone5" class="absolute bottom-28 right-1  md:bottom-1 md:right-10"> <img class="md:h-auto h-36" src="<?php echo get_template_directory_uri(); ?>/assets/icons/fleur5.svg" alt="yellow B mid"></div>
+        <div id="flowerZone5" class="absolute bottom-28 right-1  md:bottom-1 md:right-10"> <img class="md:h-auto h-36" src="<?php echo get_template_directory_uri(); ?>/assets/icons/fleur5.svg" alt="yellow B mid"></div> -->
     </section>
     <section class="w-full h-[50vh] flex flex-col md:flex-row md:mb-56 mb-20">
         <div class="bg-mylightblue h-1/2 md:h-auto md:w-1/2 flex flex-col justify-end items-end pr-6 md:pb-40 pb-6 bg-moiPC bg-cover bg-center">

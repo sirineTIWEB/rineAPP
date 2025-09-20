@@ -731,8 +731,8 @@ video {
   grid-column: span 2 / span 2;
 }
 
-.col-span-1 {
-  grid-column: span 1 / span 1;
+.col-span-3 {
+  grid-column: span 3 / span 3;
 }
 
 .row-span-1 {
@@ -745,6 +745,10 @@ video {
 
 .row-span-3 {
   grid-row: span 3 / span 3;
+}
+
+.row-span-4 {
+  grid-row: span 4 / span 4;
 }
 
 .mx-1 {
@@ -1202,6 +1206,10 @@ video {
   background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/susana.jpg');
 }
 
+.bg-\[url\(\'\.\.\/assets\/images\/mockups\/rine\.webp\'\)\] {
+  background-image: url('../assets/images/mockups/rine.webp');
+}
+
 .bg-\[size\:20px_20px\] {
   background-size: 20px 20px;
 }
@@ -1243,9 +1251,19 @@ video {
   padding: 1.75rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .px-5 {
@@ -1552,12 +1570,13 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:opacity-5:hover {
-  opacity: 0.05;
+.hover\:text-2xl:hover {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
-.active\:block:active {
-  display: block;
+.hover\:opacity-5:hover {
+  opacity: 0.05;
 }
 
 .active\:h-52:active {

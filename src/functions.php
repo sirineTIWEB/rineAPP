@@ -1,23 +1,26 @@
 <?php
 // enqueue style
-function ajouter_style() {
-    wp_enqueue_style( 'monstyle', get_stylesheet_uri() );
+function ajouter_style()
+{
+    wp_enqueue_style('monstyle', get_stylesheet_uri());
 
 }
-add_action( 'wp_enqueue_scripts', 'ajouter_style', PHP_INT_MAX );
+add_action('wp_enqueue_scripts', 'ajouter_style', PHP_INT_MAX);
 
 //activer image mise en avant
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 //créer des propres tailles
-add_image_size( 'images-moyennes', 312, 255, true );
-add_image_size( 'images-grandes', 527, 390, true );
+add_image_size('images-moyennes', 312, 255, true);
+add_image_size('images-grandes', 527, 390, true);
 
-register_nav_menu( 'primary', __( 'Navigation Menu' ) );
+register_nav_menu('primary', __('Navigation Menu'));
 
 // personnalise li menu
-class Custom_Walker_headNav_Menu extends Walker_Nav_Menu {
-    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+class Custom_Walker_headNav_Menu extends Walker_Nav_Menu
+{
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+    {
         $classes = empty($item->classes) ? array() : (array) $item->classes;
         $classes[] = 'menu-item'; // tu peux ajouter d'autres classes ici pour <li>
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
@@ -25,10 +28,10 @@ class Custom_Walker_headNav_Menu extends Walker_Nav_Menu {
 
         $output .= '<li' . $class_names . '>';
 
-        $attributes  = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
-        $attributes .= !empty($item->target)     ? ' target="' . esc_attr($item->target) . '"' : '';
-        $attributes .= !empty($item->xfn)        ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-        $attributes .= !empty($item->url)        ? ' href="' . esc_attr($item->url) . '"' : '';
+        $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+        $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+        $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
         // Ajoute ici tes classes sur les <a>
         $attributes .= ' class="capitalize p-2 legend"';
@@ -46,8 +49,10 @@ class Custom_Walker_headNav_Menu extends Walker_Nav_Menu {
 }
 
 // personnalise li menu footer
-class Custom_Walker_footNav_Menu extends Walker_Nav_Menu {
-    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+class Custom_Walker_footNav_Menu extends Walker_Nav_Menu
+{
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+    {
         $classes = empty($item->classes) ? array() : (array) $item->classes;
         $classes[] = 'menu-item'; // tu peux ajouter d'autres classes ici pour <li>
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
@@ -55,10 +60,10 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu {
 
         $output .= '<li' . $class_names . '>';
 
-        $attributes  = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
-        $attributes .= !empty($item->target)     ? ' target="' . esc_attr($item->target) . '"' : '';
-        $attributes .= !empty($item->xfn)        ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-        $attributes .= !empty($item->url)        ? ' href="' . esc_attr($item->url) . '"' : '';
+        $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+        $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+        $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
         // Ajoute ici tes classes sur les <a>
         $attributes .= ' class="capitalize p-0 sm:p-2 legend"';
@@ -76,7 +81,8 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu {
 }
 
 // enqueue js
-function slides_toolbox_scripts() {
+function slides_toolbox_scripts()
+{
     wp_enqueue_script(
         'slidetoolbox', // Unique handle
         get_template_directory_uri() . '/assets/js/slideshow.js', // Path to JS file
@@ -88,12 +94,13 @@ function slides_toolbox_scripts() {
 add_action('wp_enqueue_scripts', 'slides_toolbox_scripts');
 
 // contact form
-function handle_contact_form_submission() {
+function handle_contact_form_submission()
+{
     // recup mon bouton
-    if ( isset($_POST['sending']) ) {
+    if (isset($_POST['sending'])) {
 
         // Verify nonce for security contre hacker etc. que ce form vient de moi et pas exeterieur
-        if ( ! isset($_POST['contact_form_nonce_field']) || ! wp_verify_nonce($_POST['contact_form_nonce_field'], 'contact_form_nonce_action') ) {
+        if (!isset($_POST['contact_form_nonce_field']) || !wp_verify_nonce($_POST['contact_form_nonce_field'], 'contact_form_nonce_action')) {
             wp_die('Security check failed.');
         }
 
@@ -107,7 +114,7 @@ function handle_contact_form_submission() {
         $message = sanitize_textarea_field($_POST['content']);
 
         // Validate required fields
-        if ( empty($name) || empty($email) || !is_email($email) || empty($social_network) || empty($social_name) || empty($message) ) {
+        if (empty($name) || empty($email) || !is_email($email) || empty($social_network) || empty($social_name) || empty($message)) {
             wp_die('Please fill in all required fields correctly.');
         }
 
@@ -119,14 +126,14 @@ function handle_contact_form_submission() {
             'From: ' . $name . ' <' . $email . '>'
         ];
 
-        
+
         // Map social networks to URL patterns
         $social_urls = [
-            'facebook'  => 'https://facebook.com/%s',
-            'twitter'   => 'https://twitter.com/%s',
+            'facebook' => 'https://facebook.com/%s',
+            'twitter' => 'https://twitter.com/%s',
             'instagram' => 'https://instagram.com/%s',
-            'linkedin'  => 'https://linkedin.com/in/%s',
-            'web'       => '%s' // For custom URLs, use as-is
+            'linkedin' => 'https://linkedin.com/in/%s',
+            'web' => '%s' // For custom URLs, use as-is
         ];
 
         // Build the social profile URL safely
@@ -159,8 +166,35 @@ function handle_contact_form_submission() {
 }
 add_action('init', 'handle_contact_form_submission');
 
-function enqueue_font_awesome_kit() {
-    wp_enqueue_script( 'font-awesome-kit', 'https://kit.fontawesome.com/916225c0a4.js', array(), null, false );
+function enqueue_font_awesome_kit()
+{
+    wp_enqueue_script('font-awesome-kit', 'https://kit.fontawesome.com/916225c0a4.js', array(), null, false);
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome_kit' );
+add_action('wp_enqueue_scripts', 'enqueue_font_awesome_kit');
 // Add icons
+
+
+function get_time_ago_acf($date)
+{
+    // Convert ACF date format (Ymd or Y-m-d) to timestamp
+    $timestamp = strtotime($date);
+    $time_diff = time() - $timestamp;
+
+    if ($time_diff < 60) {
+        return intval($time_diff) . ' seconds ago';
+    } elseif ($time_diff < 3600) {
+        return intval($time_diff / 60) . ' minutes ago';
+    } elseif ($time_diff < 86400) {
+        return intval($time_diff / 3600) . ' hours ago';
+    } elseif ($time_diff < 604800) {
+        return intval($time_diff / 86400) . ' days ago';
+    } elseif ($time_diff < 2592000) { // Less than 30 days
+        return intval($time_diff / 604800) . ' weeks ago';
+    } elseif ($time_diff < 31556926) { // Less than a year
+        return intval($time_diff / 2592000) . ' months ago'; // 30 days per month
+    } else {
+        return intval($time_diff / 31556926) . ' years ago';
+    }
+}
+
+// time expression

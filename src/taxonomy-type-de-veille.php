@@ -11,6 +11,7 @@
 
         if ( $types && ! is_wp_error( $types ) ) : ?>
             <div class="flex flex-col items-center justify-start gap-4">
+                <a class="texte text-mydarkblue bouton" href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e('All', 'rine2'); ?></a>
                 <?php foreach ( $types as $type ) : ?>
                     <a class="texte text-mydarkblue bouton" href="<?php echo esc_url( get_term_link( $type ) ); ?>">
                         <?php echo esc_html( $type->name ); ?>
@@ -19,7 +20,7 @@
             </div>
         <?php endif; ?>
             <div class="flex flex-col items-center">
-                <h1 class="soustitre text-mylightblue">Tags</h1>
+                <h1 class="soustitre text-mylightblue"><?php esc_html_e('Tags', 'rine2'); ?></h1>
         <?php
         $tags = get_terms( array(
             'taxonomy' => 'tags',
@@ -48,13 +49,13 @@
                     $classes = 'bg-mylightblue rounded-lg'; // default classes
 
                     if ( $post_type === 'articles-en' || $post_type === 'articles-fr' || $post_type === 'script-fr' || $post_type === 'script-en' ) {
-                        $classes .= ' col-span-2 row-span-3';
+                        $classes .= ' col-span-3 row-span-4';
                     } elseif ( $post_type === 'capture-en' || $post_type === 'capture-fr' || $post_type === 'tuto-fr' || $post_type === 'tuto-en' ) {
                         $classes .= ' row-span-2';
                     }
                     // Add more conditions as needed
                     ?>
-                    <article class="<?php echo esc_attr( $classes ); ?>">
+                    <article class="<?php echo esc_attr( $classes ); ?> px-4">
                         <h1 class="soustitre w-full text-center text-mybeige dark:text-mydarkblue"><?php single_term_title(); ?></h1> 
                         <h2 class="legend text-mydarkblue"> <?php the_title(); ?> </h2>
                         <?php the_field('scripts') ?>

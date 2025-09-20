@@ -15,6 +15,7 @@ get_header(); ?>
 
         if ( $types && ! is_wp_error( $types ) ) : ?>
             <div class="flex flex-col items-center justify-start gap-4">
+                <a class="texte text-mydarkblue bouton" href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e('All', 'rine2'); ?></a>
                 <?php foreach ( $types as $type ) : ?>
                     <a class="texte text-mydarkblue bouton" href="<?php echo esc_url( get_term_link( $type ) ); ?>">
                         <?php echo esc_html( $type->name ); ?>
@@ -23,7 +24,7 @@ get_header(); ?>
             </div>
         <?php endif; ?>
             <div class="flex flex-col items-center">
-                <h1 class="soustitre text-mylightblue">Tags</h1>
+                <h1 class="soustitre text-mylightblue"><?php esc_html_e('Tags', 'rine2'); ?></h1>
         <?php
         $tags = get_terms( array(
             'taxonomy' => 'tags',
@@ -79,11 +80,11 @@ get_header(); ?>
                     </div>
                 </article>
             </section>
-            <section class="bg-mylightblue col-span-2 row-span-1 rounded-lg">
+            <!-- <section class="bg-mylightblue col-span-2 row-span-1 rounded-lg">
                 <h1 class="soustitre w-full text-center text-mybeige dark:text-mydarkblue">Recherche précise ?</h1>
-            </section>
-            <section class="bg-mylightblue rounded-lg col-span-2 row-span-3 parentslide relative">
-                <h1 class="soustitre w-full text-center text-mybeige dark:text-mydarkblue">scripts</h1>
+            </section> -->
+            <section class="bg-mylightblue rounded-lg col-span-2 row-span-4 parentslide relative">
+                <h1 class="soustitre w-full text-center text-mybeige dark:text-mydarkblue"><?php esc_html_e('scripts', 'rine2'); ?></h1>
                 <?php
                 // 1) définir les arguments/filtres de la requête
                 $args = array(
@@ -105,7 +106,7 @@ get_header(); ?>
                 ?>
                 <article class="childslide px-5 hidden">
                     <h2 class="legend text-mydarkblue"> <?php the_title(); ?> </h2>
-                    <?php the_field('scripts') ?>
+                    <?php echo wp_kses_post( get_field('scripts') ); ?>
                     <?php
                         $terms = get_the_terms( get_the_ID(), 'tags' ); // Replace 'post_tag' with your taxonomy slug
 
@@ -125,11 +126,11 @@ get_header(); ?>
                 } // end while
                 } // end if
                 wp_reset_query(); ?>
-                <button class="absolute left-0 top-0 fa-2xl bg-mylightblue rounded-lg h-full opacity-0 hover:opacity-5" onclick="showPrev()" data-section="scripts">
-                    <i class="fa-solid fa-caret-left text-myyellow"></i>
+                <button class="px-1 absolute left-0 top-0 fa-xl hover:text-2xl rounded-lg h-full" onclick="showPrev()" data-section="scripts">
+                    <i class="fa-solid fa-caret-left" style="color: #f2da91;"></i>
                 </button>
-                <button class="absolute right-0 top-0 fa-2xl bg-mylightblue rounded-lg h-full opacity-0 hover:opacity-5" onclick="showNext()" data-section="scripts">
-                    <i class="fa-solid fa-caret-right text-myyellow"></i>
+                <button class="px-1 absolute right-0 top-0 fa-xl hover:text-2xl rounded-lg h-full" onclick="showNext()" data-section="scripts">
+                    <i class="fa-solid fa-caret-right" style="color: #f2da91;"></i>
                 </button>
             </section>
             <section class="bg-mylightblue rounded-lg row-span-2">

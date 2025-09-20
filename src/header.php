@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RINE</title>
-    <link rel="stylesheet" href="https://use.typekit.net/imo5mqr.css">
+    <link rel="stylesheet" href="https://use.typekit.net/imo5mqr.css" defer>
     <link rel="stylesheet" href="CSS/output.css">
     <?php wp_head(); ?>
 </head>
