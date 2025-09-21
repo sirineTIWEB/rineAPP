@@ -178,23 +178,48 @@ function get_time_ago_acf($date)
 {
     // Convert ACF date format (Ymd or Y-m-d) to timestamp
     $timestamp = strtotime($date);
+    // transform en secondes
     $time_diff = time() - $timestamp;
+    // calcule en fonction de l'heure actuel
 
     if ($time_diff < 60) {
-        return intval($time_diff) . ' seconds ago';
+        $count = max(1, intval($time_diff));
+        return sprintf(_n('%s second ago', '%s seconds ago', $count, 'rine2'), $count);
     } elseif ($time_diff < 3600) {
-        return intval($time_diff / 60) . ' minutes ago';
+        $count = max(1, intval($time_diff / 60));
+        return sprintf(_n('%s minute ago', '%s minutes ago', $count, 'rine2'), $count);
     } elseif ($time_diff < 86400) {
-        return intval($time_diff / 3600) . ' hours ago';
+        $count = max(1, intval($time_diff / 3600));
+        return sprintf(_n('%s hour ago', '%s hours ago', $count, 'rine2'), $count);
     } elseif ($time_diff < 604800) {
-        return intval($time_diff / 86400) . ' days ago';
-    } elseif ($time_diff < 2592000) { // Less than 30 days
-        return intval($time_diff / 604800) . ' weeks ago';
-    } elseif ($time_diff < 31556926) { // Less than a year
-        return intval($time_diff / 2592000) . ' months ago'; // 30 days per month
+        $count = max(1, intval($time_diff / 86400));
+        return sprintf(_n('%s day ago', '%s days ago', $count, 'rine2'), $count);
+    } elseif ($time_diff < 2592000) {
+        $count = max(1, intval($time_diff / 604800));
+        return sprintf(_n('%s week ago', '%s weeks ago', $count, 'rine2'), $count);
+    } elseif ($time_diff < 31556926) {
+        $count = max(1, intval($time_diff / 2592000));
+        return sprintf(_n('%s month ago', '%s months ago', $count, 'rine2'), $count);
     } else {
-        return intval($time_diff / 31556926) . ' years ago';
+        return $date;
     }
 }
+
+function rine2_register_time_strings() {
+    __('%s second ago', 'rine2');
+    __('%s seconds ago', 'rine2');
+    __('%s minute ago', 'rine2');
+    __('%s minutes ago', 'rine2');
+    __('%s hour ago', 'rine2');
+    __('%s hours ago', 'rine2');
+    __('%s day ago', 'rine2');
+    __('%s days ago', 'rine2');
+    __('%s week ago', 'rine2');
+    __('%s weeks ago', 'rine2');
+    __('%s month ago', 'rine2');
+    __('%s months ago', 'rine2');
+}
+add_action('init', 'rine2_register_time_strings');
+
 
 // time expression

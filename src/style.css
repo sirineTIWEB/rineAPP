@@ -912,10 +912,6 @@ video {
   height: 11rem;
 }
 
-.h-56 {
-  height: 14rem;
-}
-
 .h-6 {
   height: 1.5rem;
 }
@@ -1037,6 +1033,10 @@ video {
 
 .shrink-0 {
   flex-shrink: 0;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .transform-none {
@@ -1198,16 +1198,12 @@ video {
   background-image: linear-gradient(to right,#F2DA91 1.5px,transparent 1.5px),linear-gradient(to bottom,#F2DA91 1.5px,transparent 1.5px);
 }
 
-.bg-\[url\(\'\.\.\/assets\/images\/mockups\/rine\.png\'\)\] {
-  background-image: url('../assets/images/mockups/rine.png');
+.bg-\[url\(\'\.\.\/assets\/images\/mockups\/rine\.webp\'\)\] {
+  background-image: url('../assets/images/mockups/rine.webp');
 }
 
 .bg-moiPC {
   background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/susana.jpg');
-}
-
-.bg-\[url\(\'\.\.\/assets\/images\/mockups\/rine\.webp\'\)\] {
-  background-image: url('../assets/images/mockups/rine.webp');
 }
 
 .bg-\[size\:20px_20px\] {
@@ -1228,11 +1224,6 @@ video {
 
 .bg-no-repeat {
   background-repeat: no-repeat;
-}
-
-.object-contain {
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 
 .p-0 {
@@ -1814,10 +1805,6 @@ video {
     height: 15rem;
   }
 
-  .md\:h-96 {
-    height: 24rem;
-  }
-
   .md\:h-\[455px\] {
     height: 455px;
   }
@@ -1844,10 +1831,6 @@ video {
 
   .md\:w-52 {
     width: 13rem;
-  }
-
-  .md\:w-64 {
-    width: 16rem;
   }
 
   .md\:w-\[300px\] {

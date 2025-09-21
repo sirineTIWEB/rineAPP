@@ -5,7 +5,8 @@
     class="flex flex-col justify-end pb-5 px-2 md:px-12 md:pb-32 h-[487px] md:h-[80vh] mx-4 md:mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
     <h1 class="titre text-myyellow"><?php esc_html_e('Rine’s portfolio', 'rine2'); ?></h1>
     <h2 class="font-bold condensed texte text-mybeige max-w-52 md:max-w-none">
-      <?php esc_html_e('Discover all projects I’ve done during my academic and free times.', 'rine2'); ?> </h2>
+      <?php esc_html_e('Discover all projects I’ve done during my academic and free times.', 'rine2'); ?>
+    </h2>
     <a href="#"
       class="bouton text-mybeige border-mydarkblue dark:border-mybeige"><?php esc_html_e('explore my projects', 'rine2'); ?></a>
   </div>
@@ -17,10 +18,22 @@
   </h1>
   <div class="flex overflow-x-auto overflow-y-hidden max-w-full pl-6 md:pl-12 pb-3">
 
-    <?php
+  <?php
+    $today = date('Ymd');
+    $last_year = date('Ymd', strtotime('-1 year'));
     // 1) définir les arguments/filtres de la requête
     $args = array(
-      'post_type' => 'project'
+      'post_type' => 'project',
+      'meta_query' => array(
+        array(
+          'key' => 'date', // Set to your ACF date field name
+          'value' => array($last_year, $today),
+          'compare' => 'BETWEEN',
+          'type' => 'DATE'
+        ),
+      ),
+      'orderby' => 'date',
+      'order' => 'DESC',
     );
 
     // 2) exécuter la requête et lancer la boucle
@@ -30,23 +43,27 @@
         $the_query->the_post();
         ?>
 
-    <article style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.webp')"
-      class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
-      <!-- Overlay pour étendre la zone cliquable -->
-      <div class="absolute inset-0 z-10"></div>
+        <article
+          style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.webp')"
+          class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
+          <!-- Overlay pour étendre la zone cliquable -->
+          <div class="absolute inset-0 z-10"></div>
 
-      <!-- Détails du projet -->
-      <div
-        class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-left">
-        <h2 class="soustitre text-mylightblue text-end "><?php the_title(); ?></h2>
-        <div class="flex justify-end">
-          <p class="texte font-bold lowercase text-mylightblue text-end "><?php echo wp_kses_post( get_field('pr_category') ); ?></p>
-          <p class="texte font-bold lowercase text-mylightblue text-end "> <?php echo wp_kses_post( get_field('date') ); ?></p>
-        </div>
-      </div>
-    </article>
+          <!-- Détails du projet -->
+          <div
+            class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-left">
+            <h2 class="soustitre text-mylightblue text-end "><?php the_title(); ?></h2>
+            <div class="flex justify-end">
+              <p class="texte font-bold lowercase text-mylightblue text-end ">
+                <?php echo wp_kses_post(get_field('pr_category')); ?></p>
+              <p class="texte font-bold lowercase text-mylightblue text-end "><?php $acf_date = get_field('date'); // Replace with your field name
+                  echo get_time_ago_acf($acf_date);
+                  ?></p>
+            </div>
+          </div>
+        </article>
 
-    <?php
+        <?php
       } // end while
     } // end if
     wp_reset_query(); ?>
@@ -97,7 +114,8 @@
       src="<?php echo get_template_directory_uri(); ?>/assets/icons/etoile.svg" alt="gribouilli4">
   </a>
   <h1 class="right-8 mt-11 md:mt-12 titre absolute text-mydarkblue dark:text-mybeige md:right-80">
-    <?php esc_html_e('want to know more?', 'rine2'); ?></h1>
+    <?php esc_html_e('want to know more?', 'rine2'); ?>
+  </h1>
 </section>
 
 <?php get_footer(); ?>
