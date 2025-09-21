@@ -81,7 +81,7 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu
 }
 
 // enqueue js
-function slides_toolbox_scripts()
+function dynamic_scripts()
 {
     wp_enqueue_script(
         'scripts', // Unique handle
@@ -166,13 +166,16 @@ function handle_contact_form_submission()
 }
 add_action('init', 'handle_contact_form_submission');
 
+// Add icons
 function enqueue_font_awesome_kit()
 {
     wp_enqueue_script('font-awesome-kit', 'https://kit.fontawesome.com/916225c0a4.js', array(), null, false);
 }
 add_action('wp_enqueue_scripts', 'enqueue_font_awesome_kit');
-// Add icons
 
+
+
+// time expression
 
 function get_time_ago_acf($date)
 {
@@ -221,5 +224,13 @@ function rine2_register_time_strings() {
 }
 add_action('init', 'rine2_register_time_strings');
 
-
-// time expression
+// enqueue isotope
+function enqueue_isotope_assets() {
+    // Only load scripts on your portfolio template
+    if ( is_page_template('portfolio-template.php') ) {
+        wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), null, true);
+        wp_enqueue_script('imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array('jquery'), null, true);
+        wp_enqueue_script('isotope-init', get_template_directory_uri() . '/js/isotope-init.js', array('isotope', 'imagesloaded'), null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_isotope_assets');

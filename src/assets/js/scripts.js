@@ -48,16 +48,20 @@ function showPrev() {
 
 
 // Filtrage des projets
-
-document.querySelectorAll('.category-filter').forEach(button => {
-    button.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
-        document.querySelectorAll('.project-card').forEach(card => {
-            if (!filter || card.getAttribute('data-filter') === filter) {
-                card.style.display = '';
-            } else {
-                card.style.display = 'none';
+jQuery(document).ready(function($) {
+    var $grid = $('.grid').imagesLoaded(function() {
+        $grid.isotope({
+            itemSelector: '.grid-item',
+            // layout mode options
+            masonry: {
+              columnWidth: 200
             }
         });
+    });
+
+    // Filter items on button click
+    $('.filter-btns').on('click', 'button', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
     });
 });
