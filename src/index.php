@@ -51,6 +51,7 @@
 
           <!-- Détails du projet -->
           <div
+          
             class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-left">
             <h2 class="soustitre text-mylightblue text-end "><?php the_title(); ?></h2>
             <div class="flex justify-end">

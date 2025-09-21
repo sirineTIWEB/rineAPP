@@ -1,3 +1,5 @@
+// slide de la toolbox
+
 let currentSlide = 0;
 const enfants = document.querySelectorAll('.childslide');
 
@@ -43,3 +45,19 @@ function showPrev() {
     showSlide(parentSection, prevIndex);
     parentSection.dataset.currentIndex = prevIndex;
 }
+
+
+// Filtrage des projets
+
+document.querySelectorAll('.category-filter').forEach(button => {
+    button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.project-card').forEach(card => {
+            if (!filter || card.getAttribute('data-filter') === filter) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});

@@ -18,15 +18,16 @@ get_header(); ?>
 <section class="md:ml-12 ml-6 mb-20">
     <h1 class="titre text-mydarkblue dark:text-mybeige"><?php esc_html_e('Categories', 'rine2'); ?></h1>
     <div class="flex gap-5">
-        <article class="flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4">
-            <h2 class="soustitre text-mybeige">WEB</h2>
-        </article>
-        <article class="flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4">
-            <h2 class="soustitre text-mybeige">WEB</h2>
-        </article>
-        <article class="flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4">
-            <h2 class="soustitre text-mybeige">WEB</h2>
-        </article>
+        <?php
+        $categories = get_terms([
+            'taxonomy' => 'pr_category',
+            'hide_empty' => true
+        ]);
+        foreach ($categories as $category): ?>
+            <article data-filter="<?php echo esc_attr($category->slug); ?>" class="category-filter flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4">
+                <h2 class="soustitre text-mybeige"><?php echo esc_html($category->name); ?></h2>
+            </article>
+        <?php endforeach; ?>
     </div>
 </section>
 <section
@@ -45,14 +46,14 @@ get_header(); ?>
             $the_query->the_post();
             ?>
 
-            <article
+            <article data-filter="<?php echo esc_attr(get_field('pr_category', get_the_ID())); ?>"
                 style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.webp')"
                 class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
 
                 <!-- Détails du projet -->
-                <div
+                <div data-filter="<?php echo esc_attr(get_field('pr_category')); ?>"
                     class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-left">
                     <h2 class="soustitre text-mylightblue text-end "><?php the_title(); ?></h2>
                     <div class="flex justify-end">
@@ -61,8 +62,8 @@ get_header(); ?>
                         </p>
                         <p class="texte font-bold lowercase text-mylightblue text-end ">
                             <?php $acf_date = get_field('date'); // Replace with your field name
-                                echo get_time_ago_acf($acf_date);
-                            ?>
+                                    echo get_time_ago_acf($acf_date);
+                                    ?>
                         </p>
                     </div>
                 </div>

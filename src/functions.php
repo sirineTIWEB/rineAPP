@@ -84,14 +84,14 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu
 function slides_toolbox_scripts()
 {
     wp_enqueue_script(
-        'slidetoolbox', // Unique handle
-        get_template_directory_uri() . '/assets/js/slideshow.js', // Path to JS file
+        'scripts', // Unique handle
+        get_template_directory_uri() . '/assets/js/scripts.js', // Path to JS file
         array(), // Dependencies, e.g. array('jquery')
         null, // Version number (null for no version)
         true // Load in header or footer (true for footer)
     );
 }
-add_action('wp_enqueue_scripts', 'slides_toolbox_scripts');
+add_action('wp_enqueue_scripts', 'dynamic_scripts');
 
 // contact form
 function handle_contact_form_submission()
