@@ -7,7 +7,7 @@
     <h2 class="font-bold condensed texte text-mybeige max-w-52 md:max-w-none">
       <?php esc_html_e('Discover all projects I’ve done during my academic and free times.', 'rine2'); ?>
     </h2>
-    <a href="#"
+    <a href="<?php echo esc_url(site_url('/projets')); ?>"
       class="bouton text-mybeige border-mydarkblue dark:border-mybeige"><?php esc_html_e('explore my projects', 'rine2'); ?></a>
   </div>
   <!-- <img class="h-20 absolute bottom-[-5%] right-[7%] md:h-36 dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/gribouilli1.svg" alt="gribouilli1">

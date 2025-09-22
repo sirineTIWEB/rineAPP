@@ -111,7 +111,7 @@ get_header(); ?>
     <h2 class="texte text-mybeige dark:text-mylightblue w-2/3">
       <?php esc_html_e('During my studies, I worked on several fictional projects — some I liked, some I didn’t, some finished, others unfinished. On the projects page, you’ll find a selection of them all.', 'rine2'); ?>
     </h2>
-    <a href="#"
+    <a href="<?php echo esc_url(site_url('/portfolio')); ?>"
       class="bouton text-mydarkblue border-myyellow dark:border-mybeige md:my-10 my-5"><?php esc_html_e('explore my projects', 'rine2'); ?></a>
   </div>
 </section>
