@@ -54,11 +54,20 @@ jQuery(document).ready(function($) {
             itemSelector: '.grid-item',
             layoutMode: 'fitRows'
         });
+        $grid.isotope();
     });
 
     // Filter items on button click
-    $('.filter-btns').on('click', 'button', function() {
+    $('.filter-btns').on('click', 'button', function(e) {
+        e.preventDefault(); //
         var filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
+
+        $grid.isotope({ filter: filterValue });
+        
+        // Fix: Force recalculation after each filter to prevent glitch
+        setTimeout(function() {
+            $grid.isotope();
+        }, 50);
     });
 });
