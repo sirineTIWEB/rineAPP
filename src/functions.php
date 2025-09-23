@@ -224,13 +224,15 @@ function rine2_register_time_strings() {
 }
 add_action('init', 'rine2_register_time_strings');
 
-// enqueue isotope
 function enqueue_isotope_assets() {
-    // Only load scripts on your portfolio template
-    if ( is_page_template('portfolio-template.php') ) {
-        wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), null, true);
-        wp_enqueue_script('imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array('jquery'), null, true);
-        wp_enqueue_script('isotope-init', get_template_directory_uri() . '/js/isotope-init.js', array('isotope', 'imagesloaded'), null, true);
+    // Fix: Use the actual Template Name from the header
+
+    if ( is_page_template('projects.php') || is_page_template('Portfolio') ) {
+        // array means it needs to load first before loading
+        wp_enqueue_script('imagesloaded', get_template_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', array('jquery'), null, true);
+        wp_enqueue_script('isotope', get_template_directory_uri() . '/assets/js/isotope.pkgd.min.js', array('jquery', 'imagesloaded'), null, true);
+        // Add your custom scripts.js file
+        wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery', 'imagesloaded', 'isotope'), null, true);
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_isotope_assets');

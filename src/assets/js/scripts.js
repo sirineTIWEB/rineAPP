@@ -52,10 +52,7 @@ jQuery(document).ready(function($) {
     var $grid = $('.grid').imagesLoaded(function() {
         $grid.isotope({
             itemSelector: '.grid-item',
-            // layout mode options
-            masonry: {
-              columnWidth: 200
-            }
+            layoutMode: 'fitRows'
         });
     });
 
