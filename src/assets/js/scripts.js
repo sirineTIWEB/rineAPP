@@ -71,3 +71,43 @@ jQuery(document).ready(function($) {
         }, 50);
     });
 });
+
+// menu burger 
+
+// Burger menu functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const burgerButton = document.getElementById('burger');
+    const mobileMenu = document.querySelector('.mobilemenu');
+    
+    if (burgerButton && mobileMenu) {
+        // Fonction pour toggle le menu
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('h-0');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('h-0');
+                mobileMenu.classList.add('h-auto');
+                burgerButton.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.remove('h-auto');
+                mobileMenu.classList.add('h-0');
+                burgerButton.setAttribute('aria-expanded', 'false');
+            }
+        }
+        
+        // Écouter BOTH click ET touch events
+        burgerButton.addEventListener('click', toggleMenu);
+        burgerButton.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Évite le double déclenchement
+            toggleMenu();
+        });
+    }
+});
+
+// Add keyboard support for div-based buttons
+$('.filter-btns').on('keydown', '.filter-btn', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        $(this).click(); // Trigger the click handler
+    }
+});

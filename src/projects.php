@@ -18,9 +18,13 @@ get_header(); ?>
 <section class="md:ml-12 ml-6 mb-20">
     <h1 class="titre text-mydarkblue dark:text-mybeige"><?php esc_html_e('Categories', 'rine2'); ?></h1>
     <div class="flex gap-5 filter-btns">
-        <button data-filter="*" class="flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4">
+        <a
+            role="button"
+            tabindex="0"
+            data-filter="*"
+            class="flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4 hover:w-40 md:hover:w-72 transition-all duration-300 ease-in-out">
             <h2 class="soustitre text-mybeige"><?php esc_html_e('All', 'rine2'); ?></h2>
-        </button>
+        </a>
         <?php
         $categories = get_terms([
             'taxonomy' => 'pr_category',
@@ -28,10 +32,14 @@ get_header(); ?>
         ]);
         if (!is_wp_error($categories) && !empty($categories)) {
             foreach ($categories as $category): ?>
-                <button data-filter=".<?php echo esc_attr($category->slug); ?>"
-                    class="flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4">
-                    <h2 class="soustitre text-mybeige"><?php echo esc_html($category->name); ?></h2>
-                </button>
+                <a
+                    role="button" 
+                    tabindex="0"
+                    data-filter=".<?php echo esc_attr($category->slug); ?>"
+                    class="group flex flex-col bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4 md:hover:w-72 hover:w-40 transition-all duration-300 ease-in-out">
+                    <h2 class="soustitre text-mybeige text-right"><?php echo esc_html($category->name); ?></h2>
+                    <h2 class="hidden group-hover:block texte text-mybeige"><?php echo esc_html($category->description); ?></h2>
+                </a>
             <?php endforeach;
         } ?>
 

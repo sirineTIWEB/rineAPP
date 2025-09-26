@@ -32,7 +32,7 @@
             'theme_location' => 'primary',
             'container' => 'nav',
             'container_class' => 'mobilemenu overflow-hidden flex h-0 w-full justify-center md:hidden my-4',  // classe sur <nav>
-            'menu_class' => 'flex gap-8', // classe sur <ul>
+            'menu_class' => 'flex flex-col', // classe sur <ul>
             'menu_id' => 'mobilemenu',                   // id sur <ul>
             'walker' => new Custom_Walker_headNav_Menu(), // classe personnalisée pour le menu
         ));
