@@ -36,9 +36,9 @@ get_header(); ?>
                     role="button" 
                     tabindex="0"
                     data-filter=".<?php echo esc_attr($category->slug); ?>"
-                    class="group flex flex-col bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4 md:hover:w-72 hover:w-40 transition-all duration-300 ease-in-out">
+                    class="group flex flex-col bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4 md:hover:w-96 hover:w-40 transition-all duration-300 ease-in-out">
                     <h2 class="soustitre text-mybeige text-right"><?php echo esc_html($category->name); ?></h2>
-                    <h2 class="hidden group-hover:block texte text-mybeige"><?php echo esc_html($category->description); ?></h2>
+                    <h2 class="hidden group-hover:block texte text-mybeige text-right"><?php echo esc_html($category->description); ?></h2>
                 </a>
             <?php endforeach;
         } ?>
@@ -46,7 +46,7 @@ get_header(); ?>
     </div>
 </section>
 <section
-    class="grid bg-[linear-gradient(to_right,#F2DA91_1.5px,transparent_1.5px),linear-gradient(to_bottom,#F2DA91_1.5px,transparent_1.5px)] md:bg-[size:30px_30px] bg-[size:20px_20px] z-[-1] border-b-[1.5px] border-myyellow md:p-14 p-7 mb-11 relative">
+    class="grid bg-[linear-gradient(to_right,#F2DA91_1.5px,transparent_1.5px),linear-gradient(to_bottom,#F2DA91_1.5px,transparent_1.5px)] md:bg-[size:30px_30px] bg-[size:20px_20px] z-[-1] border-b-[1.5px] border-myyellow md:p-14 p-7 mb-11 relative gap-5">
 
     <?php
     // 1) définir les arguments/filtres de la requête
