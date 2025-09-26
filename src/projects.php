@@ -15,9 +15,9 @@ get_header(); ?>
     <img class="absolute md:right-1/4 md:top-[30rem] top-80 right-24 h-16 md:h-auto hidden dark:block"
         src="<?php echo get_template_directory_uri(); ?>/assets/icons/darkprojects.svg" alt="gribouilli4">
 </section>
-<section class="md:ml-12 ml-6 mb-20">
+<section class="md:ml-12 ml-6 mb-10 md:mb-20">
     <h1 class="titre text-mydarkblue dark:text-mybeige"><?php esc_html_e('Categories', 'rine2'); ?></h1>
-    <div class="flex gap-5 filter-btns">
+    <div class="flex gap-5 filter-btns flex-wrap">
         <a
             role="button"
             tabindex="0"
@@ -72,7 +72,7 @@ get_header(); ?>
 
             <article
                 style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.png')"
-                class="grid-item group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96 float-left <?php echo esc_attr($slug); ?>">
+                class="grid-item group relative md:mb-10 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96 <?php echo esc_attr($slug); ?>">
                 <!-- Overlay pour étendre la zone cliquable -->
                 <div class="absolute inset-0 z-10"></div>
 

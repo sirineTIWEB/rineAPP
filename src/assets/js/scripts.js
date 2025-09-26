@@ -52,18 +52,35 @@ jQuery(document).ready(function($) {
     var $grid = $('.grid').imagesLoaded(function() {
         $grid.isotope({
             itemSelector: '.grid-item',
-            layoutMode: 'fitRows'
+            layoutMode: 'fitRows',
+            fitRows: {
+                gutter: 10
+            }
         });
         $grid.isotope();
     });
 
+    // state actif pour bouton tout
+    $('.filter-btns a[data-filter="*"]').attr('aria-current', 'true');
+
+
     // Filter items on button click
-    $('.filter-btns').on('click', 'button', function(e) {
-        e.preventDefault(); //
+    $('.filter-btns').on('click', 'a', function(e) {
+        e.preventDefault();
+
+        // retirer classes actif à tous
+
+        $('.filter-btns a').attr('aria-current', 'false');
+
+        $(this).attr('aria-current', 'true');
+
+
+
+        // recuperer la valeur et filtrer
         var filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
 
-        $grid.isotope({ filter: filterValue });
+        $(this).attr('aria-current', 'true');
         
         // Fix: Force recalculation after each filter to prevent glitch
         setTimeout(function() {

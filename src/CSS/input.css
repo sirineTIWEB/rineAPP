@@ -50,5 +50,9 @@ Text Domain: rine2
   .lang-item {
     display: inline;
   }
+
+  .aria-[current=true] {
+    @apply md:w-40 w-96;
+  }
   
 }
