@@ -1,1 +1,19 @@
-/node_modules
+# FICHIERS SENSIBLES - NE JAMAIS COMMITER !
+.env
+.env.local
+.env.production
+deploy.js
+.vscode/
+
+# Node modules - Très lourd, jamais sur Git
+node_modules/
+package-lock.json
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.log
+*.sql
+*.zip
+
+postcss.config.js

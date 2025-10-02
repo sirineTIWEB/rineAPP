@@ -1,58 +1,154 @@
-/*
-Theme Name: RINE2.1
-Author: El Alami Sirine
-Version: 2.1
-Text Domain: rine2
-*/
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Theme customization - Tailwind v4 way */
+@theme {
+  /* Custom colors */
+  --color-mydarkblue: #415b68;
+  --color-mylightblue: #93b5c9;
+  --color-myyellow: #f2da91;
+  --color-mybeige: #fcfcf5;
 
-@layer utilities {
-    .condensed {
-        font-variation-settings: "wdth" 20, "wght" 700;
-    }
+  /* Custom font families */
+  --font-family-annuario: "annuario-variable", sans-serif;
+  --font-family-aqva: "rl-aqva", sans-serif;
 
-    .extended {
-        font-variation-settings: "wdth" 400, "wght" 700;
-    }
+  /* Custom font sizes */
+  --font-size-legend: clamp(0.625rem, 0.4167rem + 1.0417vw, 1rem);
+  --font-size-titre: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
+  --font-size-texte: clamp(0.875rem, 0.7rem + 0.875vw, 1.25rem);
+  --font-size-bouton: clamp(0.625rem, 0.525rem + 0.5vw, 0.875rem);
+  --font-size-soustitre: clamp(1rem, 0.625rem + 1.3333vw, 1.75rem);
 
-    .titre {
-      @apply font-aqva font-bold uppercase text-titre;
-    }
+  /* Custom breakpoints */
+  --breakpoint-sm: 36rem; /* 576px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 62rem; /* 992px */
+  --breakpoint-xl: 75rem; /* 1200px */
+  --breakpoint-2xl: 87.5rem; /* 1400px */
+}
 
-    .soustitre {
-      @apply font-annuario font-bold capitalize text-soustitre;
-    }
+/* Custom utilities */
+@utility condensed {
+  font-variation-settings: "wdth" 20, "wght" 700;
+}
 
-    .texte {
-      @apply font-annuario text-texte;
-    }
+@utility extended {
+  font-variation-settings: "wdth" 400, "wght" 700;
+}
 
-    .bouton {
-      @apply font-annuario font-bold text-bouton rounded-2xl bg-mybeige dark:bg-mydarkblue px-3 uppercase extended text-mydarkblue dark:text-mybeige w-fit py-2 border-x-2 border-t-2 border-b-4 border-solid;
-    }
+@utility titre {
+  font-family: var(--font-family-aqva);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--font-size-titre);
+}
 
-    .legend {
-      @apply font-annuario text-base font-bold text-legend;
-    }
+@utility soustitre {
+  font-family: var(--font-family-annuario);
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: var(--font-size-soustitre);
+}
 
-    .input {
-      @apply font-annuario border-b border-mydarkblue rounded-none placeholder:text-mydarkblue text-xl sm:text-2xl bg-myyellow dark:bg-mylightblue text-mydarkblue font-semibold active:outline-none focus:outline-none focus:border-b-2 focus:border-mydarkblue;
-    }
+@utility texte {
+  font-family: var(--font-family-annuario);
+  font-size: var(--font-size-texte);
+}
 
-    #navbar li > a {
-      /* Ajoute ici tes styles Tailwind si tu utilises @apply */
-      @apply capitalize p-2 legend;
+@utility bouton {
+  font-family: var(--font-family-annuario);
+  font-weight: 700;
+  font-size: var(--font-size-bouton);
+  border-radius: 1rem;
+  background-color: var(--color-mybeige);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-variation-settings: "wdth" 400, "wght" 700;
+  color: var(--color-mydarkblue);
+  width: fit-content;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  border-top-width: 2px;
+  border-bottom-width: 4px;
+  border-style: solid;
+  border-color: var(--color-mydarkblue);
+}
+
+/* Dark mode variant - handled separately */
+@media (prefers-color-scheme: dark) {
+  .bouton {
+    background-color: var(--color-mydarkblue);
+    color: var(--color-mybeige);
   }
+}
 
-  .lang-item {
-    display: inline;
-  }
+@utility legend {
+  font-family: var(--font-family-annuario);
+  font-size: 1rem;
+  font-weight: 700;
+  font-size: var(--font-size-legend);
+}
 
-  .aria-[current=true] {
-    @apply md:w-40 w-96;
+@utility input {
+  font-family: var(--font-family-annuario);
+  border-bottom-width: 1px;
+  border-color: var(--color-mydarkblue);
+  border-radius: 0;
+  background-color: var(--color-myyellow);
+  color: var(--color-mydarkblue);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* Input placeholder styles - handled separately */
+.input::placeholder {
+  color: var(--color-mydarkblue);
+}
+
+/* Input focus styles - handled separately */
+.input:focus {
+  outline: none;
+  border-bottom-width: 2px;
+  border-color: var(--color-mydarkblue);
+}
+
+/* Dark mode for input - handled separately */
+@media (prefers-color-scheme: dark) {
+  .input {
+    background-color: var(--color-mylightblue);
   }
-  
+}
+
+/* Responsive font size - handled separately */
+@media (min-width: 36rem) {
+  .input {
+    font-size: 1.5rem;
+  }
+}
+
+/* Custom component styles */
+#navbar li > a {
+  text-transform: capitalize;
+  padding: 0.5rem;
+  font-family: var(--font-family-annuario);
+  font-size: 1rem;
+  font-weight: 700;
+  font-size: var(--font-size-legend);
+}
+
+@utility lang-item {
+  display: inline;
+}
+
+[aria-current="true"] {
+  width: 24rem;
+}
+
+@media (min-width: 48rem) {
+  [aria-current="true"] {
+    width: 10rem;
+  }
 }
