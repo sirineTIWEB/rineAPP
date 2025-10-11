@@ -246,3 +246,19 @@ function enqueue_isotope_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_isotope_assets');
+
+
+// plugin components tailwind
+
+// functions.php
+add_action('wp_enqueue_scripts', function () {
+  // Adjust path if theme is a child; use get_stylesheet_directory_uri() for child themes
+  $preline_src = get_stylesheet_directory_uri() . '/node_modules/preline/dist/preline.js'; // or get_template_directory_uri()
+  wp_enqueue_script(
+    'preline',
+    $preline_src,
+    [],        // add dependencies here if needed, e.g. ['jquery']
+    '2.x',     // set to your installed Preline version
+    true       // load in footer
+  );
+});

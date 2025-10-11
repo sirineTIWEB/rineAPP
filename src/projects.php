@@ -71,7 +71,8 @@ get_header(); ?>
                 $slug = implode(' ', $slugs); // Join all slugs with spaces
             } ?>
 
-            <article
+            <a
+                href="<?php echo esc_url(site_url('/project')); ?>"
                 style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.png')"
                 class="grid-item group relative md:mb-10 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96 <?php echo esc_attr($slug); ?>">
                 <!-- Overlay pour étendre la zone cliquable -->
@@ -92,7 +93,7 @@ get_header(); ?>
                         </p>
                     </div>
                 </div>
-            </article>
+            </a>
 
             <?php
         } // end while

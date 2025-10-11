@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@source "./node_modules/preline/dist/*.js";
+@import "preline/variants.css";
+
 /* Theme customization - Tailwind v4 way */
 @theme {
   /* Custom colors */

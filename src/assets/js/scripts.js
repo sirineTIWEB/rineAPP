@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.querySelector('.flex.overflow-x-auto');
 
     if (projectsContainer) {
-        const projectArticles = projectsContainer.querySelectorAll('article');
+        const projectArticles = projectsContainer.querySelectorAll('.grid-item');
 
         projectArticles.forEach(article => {
             // Mouse enter - scale down and fade other cards
