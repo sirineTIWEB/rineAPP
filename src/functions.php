@@ -3,7 +3,8 @@
 function ajouter_style()
 {
     wp_enqueue_style('monstyle', get_stylesheet_uri());
-
+    // Add Tailwind CSS output
+    wp_enqueue_style('tailwind-output', get_template_directory_uri() . '/CSS/output.css', array(), null);
 }
 add_action('wp_enqueue_scripts', 'ajouter_style', PHP_INT_MAX);
 
@@ -247,18 +248,14 @@ function enqueue_isotope_assets() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_isotope_assets');
 
-
-// plugin components tailwind
-
-// functions.php
-add_action('wp_enqueue_scripts', function () {
-  // Adjust path if theme is a child; use get_stylesheet_directory_uri() for child themes
-  $preline_src = get_stylesheet_directory_uri() . '/node_modules/preline/dist/preline.js'; // or get_template_directory_uri()
-  wp_enqueue_script(
-    'preline',
-    $preline_src,
-    [],        // add dependencies here if needed, e.g. ['jquery']
-    '2.x',     // set to your installed Preline version
-    true       // load in footer
-  );
-});
+// Embla Carousel
+function enqueue_embla_carousel() {
+    wp_enqueue_script(
+        'embla-carousel',
+        'https://unpkg.com/embla-carousel@8.6.0/embla-carousel.umd.js',
+        array(),
+        '8.6.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_embla_carousel');

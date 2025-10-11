@@ -1,3 +1,29 @@
+// Embla Carousel initialization
+document.addEventListener('DOMContentLoaded', () => {
+    const emblaNode = document.querySelector('.embla');
+    if (emblaNode && window.EmblaCarousel) {
+        const emblaApi = window.EmblaCarousel(emblaNode, {
+            align: 'center',
+            loop: true,
+            slidesToScroll: 1
+        });
+
+        // Previous button
+        const prevBtn = document.querySelector('.embla__prev');
+        const nextBtn = document.querySelector('.embla__next');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => emblaApi.scrollPrev());
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => emblaApi.scrollNext());
+        }
+
+        console.log('Embla Carousel initialized');
+    }
+});
+
 // slide de la toolbox
 
 let currentSlide = 0;
