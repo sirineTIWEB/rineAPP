@@ -144,11 +144,11 @@
 }
 
 [aria-current="true"] {
-  width: 24rem;
+  width: 10rem;
 }
 
 @media (min-width: 48rem) {
   [aria-current="true"] {
-    width: 10rem;
+    width: 24rem;
   }
 }

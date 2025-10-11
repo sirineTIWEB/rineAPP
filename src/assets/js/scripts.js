@@ -49,44 +49,50 @@ function showPrev() {
 
 // Filtrage des projets
 jQuery(document).ready(function($) {
-    var $grid = $('.grid').imagesLoaded(function() {
-        $grid.isotope({
-            itemSelector: '.grid-item',
-            layoutMode: 'fitRows',
-            fitRows: {
-                gutter: 10
-            }
-        });
-        $grid.isotope();
-    });
-
-    // state actif pour bouton tout
-    $('.filter-btns a[data-filter="*"]').attr('aria-current', 'true');
-
-
-    // Filter items on button click
-    $('.filter-btns').on('click', 'a', function(e) {
-        e.preventDefault();
-
-        // retirer classes actif à tous
-
-        $('.filter-btns a').attr('aria-current', 'false');
-
-        $(this).attr('aria-current', 'true');
-
-
-
-        // recuperer la valeur et filtrer
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-
-        $(this).attr('aria-current', 'true');
-        
-        // Fix: Force recalculation after each filter to prevent glitch
-        setTimeout(function() {
+    // Only run this code on the projects page where .grid exists
+    if ($('.grid').length > 0) {
+        var $grid = $('.grid').imagesLoaded(function() {
+            $grid.isotope({
+                itemSelector: '.grid-item',
+                layoutMode: 'fitRows',
+                fitRows: {
+                    gutter: 10
+                }
+            });
             $grid.isotope();
-        }, 50);
-    });
+        });
+
+        // state actif pour bouton tout
+        $('.filter-btns a[data-filter="*"]').attr('aria-current', 'true');
+        $('.filter-btns').removeClass('md:w-96 w-40').addClass('w-28 md:w-52');
+
+
+        // Filter items on button click
+        $('.filter-btns').on('click', 'a', function(e) {
+            e.preventDefault();
+
+            // retirer classes actif à tous
+
+            $('.filter-btns a').attr('aria-current', 'false');
+
+
+            $(this).attr('aria-current', 'true');
+            $(this).removeClass('w-28 md:w-52').addClass('md:w-96 w-40');
+
+
+
+            // recuperer la valeur et filtrer
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+
+            $(this).attr('aria-current', 'true');
+
+            // Fix: Force recalculation after each filter to prevent glitch
+            setTimeout(function() {
+                $grid.isotope();
+            }, 50);
+        });
+    }
 });
 
 // menu burger 
@@ -122,9 +128,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Add keyboard support for div-based buttons
-$('.filter-btns').on('keydown', '.filter-btn', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        $(this).click(); // Trigger the click handler
+jQuery(document).ready(function($) {
+    $('.filter-btns').on('keydown', '.filter-btn', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            $(this).click(); // Trigger the click handler
+        }
+    });
+});
+
+// Hover effect for recent projects - scale up hovered, scale down others
+document.addEventListener('DOMContentLoaded', () => {
+    const projectsContainer = document.querySelector('.flex.overflow-x-auto');
+
+    if (projectsContainer) {
+        const projectArticles = projectsContainer.querySelectorAll('article');
+
+        projectArticles.forEach(article => {
+            // Mouse enter - scale up current, scale down others
+            article.addEventListener('mouseenter', () => {
+                projectArticles.forEach(otherArticle => {
+                    if (otherArticle !== article) {
+                        otherArticle.classList.add('scale-90', 'opacity-70');
+                    } else {
+                        otherArticle.classList.add('scale-105');
+                    }
+                });
+            });
+
+            // Mouse leave - reset all to normal
+            article.addEventListener('mouseleave', () => {
+                projectArticles.forEach(otherArticle => {
+                    otherArticle.classList.remove('scale-90', 'opacity-70', 'scale-105');
+                });
+            });
+        });
     }
 });

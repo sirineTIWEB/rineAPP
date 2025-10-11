@@ -86,7 +86,7 @@ function dynamic_scripts()
     wp_enqueue_script(
         'scripts', // Unique handle
         get_template_directory_uri() . '/assets/js/scripts.js', // Path to JS file
-        array(), // Dependencies, e.g. array('jquery')
+        array('jquery'), // Dependencies - jQuery is required
         null, // Version number (null for no version)
         true // Load in header or footer (true for footer)
     );
