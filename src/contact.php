@@ -5,8 +5,8 @@ Template Name: contact
  get_header(); ?>
     <section class="flex flex-col justify-evenly md:flex-row text-mydarkblue bg-myyellow dark:bg-mylightblue h-[60vh] mb-[10vh] md:mb-[20vh]">
         <div class="flex flex-col md:justify-center items-start md:w-1/2 pl-10 md:pl-20">
-            <h1 class="text-3xl md:text-6xl w-1/2 font-aqva uppercase md:w-[60%]"><?php esc_html_e('get in touch with me!', 'rine2'); ?></h1>
-            <p class="texte md:w-1/2 w-2/3"><?php esc_html_e('Got a project or question in mind? Reach out — every message is reviewed and answered as quickly as possible.', 'rine2'); ?></p>
+            <h1 class="text-3xl md:text-6xl w-1/2 font-family-aqva uppercase md:w-[60%]"><?php esc_html_e('get in touch with me!', 'rine2'); ?></h1>
+            <p class="font-bold condensed texte md:w-1/2 w-2/3"><?php esc_html_e('Got a project or question in mind? Reach out — every message is reviewed and answered as quickly as possible.', 'rine2'); ?></p>
         </div>
         <div class="flex relative pl-4 md:pl-0 flex-col justify-center md:w-1/2">
             <!-- le ONSUBMIT c pour qu'il commence d'abord par JS puis php -->

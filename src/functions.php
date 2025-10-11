@@ -177,52 +177,62 @@ add_action('wp_enqueue_scripts', 'enqueue_font_awesome_kit');
 
 // time expression
 
-function get_time_ago_acf($date)
-{
-    // Convert ACF date format (Ymd or Y-m-d) to timestamp
-    $timestamp = strtotime($date);
-    // transform en secondes
-    $time_diff = time() - $timestamp;
-    // calcule en fonction de l'heure actuel
-
-    if ($time_diff < 60) {
-        $count = max(1, intval($time_diff));
-        return sprintf(_n('%s second ago', '%s seconds ago', $count, 'rine2'), $count);
-    } elseif ($time_diff < 3600) {
-        $count = max(1, intval($time_diff / 60));
-        return sprintf(_n('%s minute ago', '%s minutes ago', $count, 'rine2'), $count);
-    } elseif ($time_diff < 86400) {
-        $count = max(1, intval($time_diff / 3600));
-        return sprintf(_n('%s hour ago', '%s hours ago', $count, 'rine2'), $count);
-    } elseif ($time_diff < 604800) {
-        $count = max(1, intval($time_diff / 86400));
-        return sprintf(_n('%s day ago', '%s days ago', $count, 'rine2'), $count);
-    } elseif ($time_diff < 2592000) {
-        $count = max(1, intval($time_diff / 604800));
-        return sprintf(_n('%s week ago', '%s weeks ago', $count, 'rine2'), $count);
-    } elseif ($time_diff < 31556926) {
-        $count = max(1, intval($time_diff / 2592000));
-        return sprintf(_n('%s month ago', '%s months ago', $count, 'rine2'), $count);
-    } else {
-        return $date;
+function get_time_ago_acf( $date ) {
+    $timestamp = is_string( $date ) ? strtotime( $date ) : 0;
+    if ( ! $timestamp ) {
+        return esc_html( $date );
     }
+
+    $now       = time();
+    $time_diff = max( 0, $now - $timestamp );
+
+    if ( $time_diff < 60 ) {
+        $count = max( 1, (int) $time_diff );
+        $text  = _n( '%s second ago', '%s seconds ago', $count, 'rine2' );
+    } elseif ( $time_diff < 3600 ) {
+        $count = max( 1, (int) floor( $time_diff / 60 ) );
+        $text  = _n( '%s minute ago', '%s minutes ago', $count, 'rine2' );
+    } elseif ( $time_diff < 86400 ) {
+        $count = max( 1, (int) floor( $time_diff / 3600 ) );
+        $text  = _n( '%s hour ago', '%s hours ago', $count, 'rine2' );
+    } elseif ( $time_diff < 604800 ) {
+        $count = max( 1, (int) floor( $time_diff / 86400 ) );
+        $text  = _n( '%s day ago', '%s days ago', $count, 'rine2' );
+    } elseif ( $time_diff < 2592000 ) {
+        $count = max( 1, (int) floor( $time_diff / 604800 ) );
+        $text  = _n( '%s week ago', '%s weeks ago', $count, 'rine2' );
+    } elseif ( $time_diff < 31556926 ) {
+        $count = max( 1, (int) floor( $time_diff / 2592000 ) );
+        $text  = _n( '%s month ago', '%s months ago', $count, 'rine2' );
+    } else {
+        $count = max( 1, (int) floor( $time_diff / 31556926 ) );
+        $text  = _n( '%s year ago', '%s years ago', $count, 'rine2' );
+    }
+
+    // Keep the placeholder for translators and inject a locale-formatted number.
+    $formatted = sprintf( $text, number_format_i18n( $count ) );
+    return esc_html( $formatted );
 }
+
 
 function rine2_register_time_strings() {
-    __('%s second ago', 'rine2');
-    __('%s seconds ago', 'rine2');
-    __('%s minute ago', 'rine2');
-    __('%s minutes ago', 'rine2');
-    __('%s hour ago', 'rine2');
-    __('%s hours ago', 'rine2');
-    __('%s day ago', 'rine2');
-    __('%s days ago', 'rine2');
-    __('%s week ago', 'rine2');
-    __('%s weeks ago', 'rine2');
-    __('%s month ago', 'rine2');
-    __('%s months ago', 'rine2');
+    __( '%s second ago', 'rine2' );
+    __( '%s seconds ago', 'rine2' );
+    __( '%s minute ago', 'rine2' );
+    __( '%s minutes ago', 'rine2' );
+    __( '%s hour ago', 'rine2' );
+    __( '%s hours ago', 'rine2' );
+    __( '%s day ago', 'rine2' );
+    __( '%s days ago', 'rine2' );
+    __( '%s week ago', 'rine2' );
+    __( '%s weeks ago', 'rine2' );
+    __( '%s month ago', 'rine2' );
+    __( '%s months ago', 'rine2' );
+    __( '%s year ago', 'rine2' );
+    __( '%s years ago', 'rine2' );
 }
-add_action('init', 'rine2_register_time_strings');
+add_action( 'init', 'rine2_register_time_strings' );
+
 
 function enqueue_isotope_assets() {
     // Fix: Use the actual Template Name from the header

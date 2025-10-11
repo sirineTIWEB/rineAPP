@@ -3,12 +3,13 @@
 <section class="bg-myyellow dark:bg-mylightblue w-full box-border relative pb-16 mb-36 md:mb-60">
   <div
     class="flex flex-col justify-end pb-5 px-2 md:px-12 md:pb-32 h-[487px] md:h-[80vh] mx-4 md:mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
-    <h1 class="titre text-myyellow"><?php esc_html_e('Rine’s portfolio', 'rine2'); ?></h1>
+    <h1 class="titre dark:text-myyellow text-mydarkblue"><?php esc_html_e('Welcome to my portfolio', 'rine2'); ?></h1>
     <h2 class="font-bold condensed texte text-mybeige max-w-52 md:max-w-none">
       <?php esc_html_e('Discover all projects I’ve done during my academic and free times.', 'rine2'); ?>
     </h2>
-    <a href="<?php echo esc_url(site_url('/projets')); ?>"
-      class="bouton text-mybeige border-mydarkblue dark:border-mybeige"><?php esc_html_e('explore my projects', 'rine2'); ?></a>
+    <a href="<?php echo esc_url(site_url('/portfolio')); ?>"
+      class="bouton dark:text-mybeige text-mydarkblue border-mydarkblue dark:border-mybeige"><?php esc_html_e('explore my projects', 'rine2'); ?>
+    </a>
   </div>
   <!-- <img class="h-20 absolute bottom-[-5%] right-[7%] md:h-36 dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/gribouilli1.svg" alt="gribouilli1">
         <img class="h-20 absolute bottom-[-5%] right-[7%] md:h-36 hidden dark:block" src="<?php echo get_template_directory_uri(); ?>/assets/icons/darkaccueil.svg" alt="gribouilli1"> -->

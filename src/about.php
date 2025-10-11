@@ -6,7 +6,7 @@ get_header(); ?>
 <section class="md:h-[500px] h-[25vh] bg-myyellow dark:bg-mylightblue flex items-end md:mb-64 mb-32">
   <div class="pl-10 md:pl-20 pb-10 md:pb-20">
     <h1 class="text-mybeige dark:text-mydarkblue titre"><?php esc_html_e('Rine’s profile', 'rine2'); ?></h1>
-    <h2 class="texte text-mybeige dark:text-mydarkblue max-w-56">
+    <h2 class="font-bold condensed texte text-mybeige dark:text-mydarkblue max-w-56">
       <?php esc_html_e('My full name is El Alami Sirine, I’m a student at HEFF, Belgium studying infographie as web designer/developper.', 'rine2'); ?>
     </h2>
   </div>

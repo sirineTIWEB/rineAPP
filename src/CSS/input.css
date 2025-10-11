@@ -143,12 +143,23 @@
   display: inline;
 }
 
-[aria-current="true"] {
-  width: 10rem;
+/* Filter button active state - expands to show description */
+/* Base sizes: mobile w-28 h-14 (7rem x 3.5rem), desktop md:w-52 md:h-24 (13rem x 6rem) */
+/* Active state: width + height expand to fit title + description */
+/* Using !important to override Tailwind utility classes */
+.filter-btns [aria-current="true"] {
+  width: 10rem !important; /* mobile active: 10rem (was 7rem) */
+  min-height: calc(var(--spacing) * 34) !important;
+  height: fit-content !important; /* Auto-size height to fit content */
 }
 
 @media (min-width: 48rem) {
-  [aria-current="true"] {
-    width: 24rem;
+  .filter-btns [aria-current="true"] {
+    width: 24rem !important; /* desktop active: 24rem (was 13rem) */
   }
+}
+
+/* Show description when filter is active */
+.filter-btns [aria-current="true"] .texte {
+  display: block !important;
 }

@@ -5,8 +5,8 @@ Template Name: Portfolio
 get_header(); ?>
 <section class="md:h-[500px] h-[25vh] bg-myyellow dark:bg-mylightblue flex items-end md:mb-64 mb-32">
     <div class="pl-10 md:pl-20 pb-10 md:pb-20">
-        <h1 class="text-mybeige dark:text-mydarkblue titre"><?php esc_html_e('rine’s projects', 'rine2'); ?></h1>
-        <h2 class="texte text-mybeige dark:text-mydarkblue max-w-56">
+        <h1 class="text-mybeige dark:text-mydarkblue titre"><?php esc_html_e('Rine\'s portfolio', 'rine2'); ?></h1>
+        <h2 class="font-bold condensed texte text-mybeige dark:text-mydarkblue max-w-56">
             <?php esc_html_e('You\'re about to explore some of my academic and personal projects.', 'rine2'); ?>
         </h2>
     </div>
@@ -22,8 +22,9 @@ get_header(); ?>
             role="button"
             tabindex="0"
             data-filter="*"
-            class="flex justify-end bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4 hover:w-40 md:hover:w-72 transition-all duration-300 ease-in-out">
-            <h2 class="soustitre text-mybeige"><?php esc_html_e('All', 'rine2'); ?></h2>
+            class="flex flex-col justify-between items-end bg-mylightblue w-28 md:w-52 md:h-34 h-24 px-4 transition-all duration-300 ease-in-out overflow-hidden cursor-pointer">
+            <h2 class="soustitre text-mybeige text-right"><?php esc_html_e('All', 'rine2'); ?></h2>
+            <p class="texte text-mybeige text-right hidden"><?php esc_html_e('Show all projects', 'rine2'); ?></p>
         </a>
         <?php
         $categories = get_terms([
@@ -33,12 +34,12 @@ get_header(); ?>
         if (!is_wp_error($categories) && !empty($categories)) {
             foreach ($categories as $category): ?>
                 <a
-                    role="button" 
+                    role="button"
                     tabindex="0"
                     data-filter=".<?php echo esc_attr($category->slug); ?>"
-                    class="group flex flex-col bg-mylightblue w-28 md:w-52 md:h-24 h-14 pr-4 md:hover:w-96 hover:w-40 transition-all duration-300 ease-in-out">
+                    class="flex flex-col justify-between items-end bg-mylightblue w-28 md:w-52 md:h-34 h-24 px-4 transition-all duration-300 ease-in-out overflow-hidden cursor-pointer">
                     <h2 class="soustitre text-mybeige text-right"><?php echo esc_html($category->name); ?></h2>
-                    <h2 class="hidden group-hover:block texte text-mybeige text-right"><?php echo esc_html($category->description); ?></h2>
+                    <p class="texte text-mybeige text-right hidden"><?php echo esc_html($category->description); ?></p>
                 </a>
             <?php endforeach;
         } ?>

@@ -62,32 +62,33 @@ jQuery(document).ready(function($) {
             $grid.isotope();
         });
 
-        // state actif pour bouton tout
+        // Set the "All" button as active when page loads
+        // aria-current="true" triggers CSS that widens the button and shows the description
         $('.filter-btns a[data-filter="*"]').attr('aria-current', 'true');
-        $('.filter-btns').removeClass('md:w-96 w-40').addClass('w-28 md:w-52');
 
-
-        // Filter items on button click
+        // Handle filter button clicks
         $('.filter-btns').on('click', 'a', function(e) {
             e.preventDefault();
 
-            // retirer classes actif à tous
-
+            // Step 1: Remove active state from ALL filter buttons
+            // This resets all buttons to their narrow state (width defined in HTML classes)
             $('.filter-btns a').attr('aria-current', 'false');
 
-
+            // Step 2: Add active state to the clicked button
+            // aria-current="true" triggers the CSS rules that:
+            // - Expand the button width (w-40 on mobile, w-52 on desktop)
+            // - Show the description text (.texte becomes visible)
             $(this).attr('aria-current', 'true');
-            $(this).removeClass('w-28 md:w-52').addClass('md:w-96 w-40');
 
-
-
-            // recuperer la valeur et filtrer
+            // Step 3: Get the filter value from data-filter attribute
+            // Examples: "*" (all), ".web-design" (specific category)
             var filterValue = $(this).attr('data-filter');
+
+            // Step 4: Apply the filter using Isotope
             $grid.isotope({ filter: filterValue });
 
-            $(this).attr('aria-current', 'true');
-
-            // Fix: Force recalculation after each filter to prevent glitch
+            // Step 5: Force Isotope to recalculate layout after a brief delay
+            // This prevents visual glitches when items are filtered
             setTimeout(function() {
                 $grid.isotope();
             }, 50);
@@ -137,7 +138,7 @@ jQuery(document).ready(function($) {
     });
 });
 
-// Hover effect for recent projects - scale up hovered, scale down others
+// Hover effect for recent projects - scale down others when one is hovered
 document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.querySelector('.flex.overflow-x-auto');
 
@@ -145,13 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectArticles = projectsContainer.querySelectorAll('article');
 
         projectArticles.forEach(article => {
-            // Mouse enter - scale up current, scale down others
+            // Mouse enter - scale down and fade other cards
             article.addEventListener('mouseenter', () => {
                 projectArticles.forEach(otherArticle => {
                     if (otherArticle !== article) {
-                        otherArticle.classList.add('scale-90', 'opacity-70');
-                    } else {
-                        otherArticle.classList.add('scale-105');
+                        otherArticle.classList.add('scale-90', 'opacity-60');
                     }
                 });
             });
@@ -159,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Mouse leave - reset all to normal
             article.addEventListener('mouseleave', () => {
                 projectArticles.forEach(otherArticle => {
-                    otherArticle.classList.remove('scale-90', 'opacity-70', 'scale-105');
+                    otherArticle.classList.remove('scale-90', 'opacity-60');
                 });
             });
         });
