@@ -44,16 +44,13 @@
         $the_query->the_post();
         ?>
 
-        <article
+        <a href="<?php echo esc_url(get_permalink()); ?>"
           style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.png')"
-          class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96">
-          <!-- Overlay pour étendre la zone cliquable -->
-          <div class="absolute inset-0 z-10"></div>
+          class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96 block">
 
           <!-- Détails du projet -->
           <div
-          
-            class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-left">
+            class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 text-left">
             <h2 class="soustitre text-mylightblue text-end "><?php the_title(); ?></h2>
             <div class="flex justify-end">
               <p class="texte font-bold lowercase text-mylightblue text-end ">
@@ -63,7 +60,7 @@
                   ?></p>
             </div>
           </div>
-        </article>
+        </a>
 
         <?php
       } // end while

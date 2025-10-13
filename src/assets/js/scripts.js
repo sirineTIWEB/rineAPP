@@ -1,26 +1,68 @@
 // Embla Carousel initialization
 document.addEventListener('DOMContentLoaded', () => {
     const emblaNode = document.querySelector('.embla');
-    if (emblaNode && window.EmblaCarousel) {
-        const emblaApi = window.EmblaCarousel(emblaNode, {
+    const viewportNode = emblaNode ? emblaNode.querySelector('.embla__viewport') : null;
+
+    if (viewportNode && window.EmblaCarousel) {
+        const emblaApi = window.EmblaCarousel(viewportNode, {
             align: 'center',
-            loop: true,
-            slidesToScroll: 1
+            loop: true
         });
 
-        // Previous button
-        const prevBtn = document.querySelector('.embla__prev');
-        const nextBtn = document.querySelector('.embla__next');
+        // Navigation buttons
+        const prevBtn = emblaNode.querySelector('.embla__prev');
+        const nextBtn = emblaNode.querySelector('.embla__next');
 
         if (prevBtn) {
-            prevBtn.addEventListener('click', () => emblaApi.scrollPrev());
+            prevBtn.addEventListener('click', emblaApi.scrollPrev, false);
         }
 
         if (nextBtn) {
-            nextBtn.addEventListener('click', () => emblaApi.scrollNext());
+            nextBtn.addEventListener('click', emblaApi.scrollNext, false);
         }
 
-        console.log('Embla Carousel initialized');
+        // Pagination dots
+        const dotsNode = emblaNode.querySelector('.embla__dots');
+        const setupDots = () => {
+            dotsNode.innerHTML = '';
+            const scrollSnaps = emblaApi.scrollSnapList();
+
+            scrollSnaps.forEach((snap, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'embla__dot';
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+
+                dot.addEventListener('click', () => emblaApi.scrollTo(index), false);
+                dotsNode.appendChild(dot);
+            });
+        };
+
+        const updateDots = () => {
+            const dots = dotsNode.querySelectorAll('.embla__dot');
+            const selectedIndex = emblaApi.selectedScrollSnap();
+
+            dots.forEach((dot, index) => {
+                if (index === selectedIndex) {
+                    dot.classList.add('embla__dot--selected');
+                } else {
+                    dot.classList.remove('embla__dot--selected');
+                }
+            });
+        };
+
+        setupDots();
+        updateDots();
+
+        emblaApi.on('select', updateDots);
+        emblaApi.on('reInit', () => {
+            setupDots();
+            updateDots();
+        });
+
+        console.log('Embla Carousel initialized successfully');
+    } else {
+        console.error('Embla Carousel or viewport not found');
     }
 });
 
@@ -169,22 +211,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.querySelector('.flex.overflow-x-auto');
 
     if (projectsContainer) {
-        const projectArticles = projectsContainer.querySelectorAll('.grid-item');
+        const projectCards = projectsContainer.querySelectorAll('a.group');
 
-        projectArticles.forEach(article => {
+        projectCards.forEach(card => {
             // Mouse enter - scale down and fade other cards
-            article.addEventListener('mouseenter', () => {
-                projectArticles.forEach(otherArticle => {
-                    if (otherArticle !== article) {
-                        otherArticle.classList.add('scale-90', 'opacity-60');
+            card.addEventListener('mouseenter', () => {
+                projectCards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.add('scale-90', 'opacity-60');
                     }
                 });
             });
 
             // Mouse leave - reset all to normal
-            article.addEventListener('mouseleave', () => {
-                projectArticles.forEach(otherArticle => {
-                    otherArticle.classList.remove('scale-90', 'opacity-60');
+            card.addEventListener('mouseleave', () => {
+                projectCards.forEach(otherCard => {
+                    otherCard.classList.remove('scale-90', 'opacity-60');
                 });
             });
         });
