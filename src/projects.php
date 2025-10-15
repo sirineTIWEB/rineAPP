@@ -47,7 +47,7 @@ get_header(); ?>
     </div>
 </section>
 <section
-    class="grid bg-[linear-gradient(to_right,#F2DA91_1.5px,transparent_1.5px),linear-gradient(to_bottom,#F2DA91_1.5px,transparent_1.5px)] md:bg-[size:30px_30px] bg-[size:20px_20px] z-[-1] border-b-[1.5px] border-myyellow md:p-14 p-7 mb-11 relative gap-5">
+    class="grid bg-[linear-gradient(to_right,#F2DA91_1.5px,transparent_1.5px),linear-gradient(to_bottom,#F2DA91_1.5px,transparent_1.5px)] md:bg-[size:30px_30px] bg-[size:20px_20px] border-b-[1.5px] border-myyellow md:p-14 p-7 mb-11 relative gap-5">
 
     <?php
     // 1) définir les arguments/filtres de la requête
@@ -72,15 +72,12 @@ get_header(); ?>
             } ?>
 
             <a
-                href="<?php echo esc_url(site_url('/project')); ?>"
-                style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.png')"
-                class="grid-item group relative md:mb-10 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96 <?php echo esc_attr($slug); ?>">
-                <!-- Overlay pour étendre la zone cliquable -->
-                <div class="absolute inset-0 z-10"></div>
-
+                href="<?php echo esc_url(get_permalink()); ?>"
+                style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"
+                class="grid-item group relative md:mb-10 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out md:h-[455px] block <?php echo esc_attr($slug); ?>">
                 <!-- Détails du projet -->
                 <div
-                    class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-left">
+                    class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 text-left">
                     <h2 class="soustitre text-mylightblue text-end "><?php the_title(); ?></h2>
                     <div class="flex justify-end">
                         <p class="texte font-bold lowercase text-mylightblue text-end ">
@@ -88,8 +85,8 @@ get_header(); ?>
                         </p>
                         <p class="texte font-bold lowercase text-mylightblue text-end ">
                             <?php $acf_date = get_field('date'); // Replace with your field name
-                                    echo get_time_ago_acf($acf_date);
-                                    ?>
+                                echo get_time_ago_acf($acf_date);
+                            ?>
                         </p>
                     </div>
                 </div>

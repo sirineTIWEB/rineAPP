@@ -45,7 +45,7 @@
         ?>
 
         <a href="<?php echo esc_url(get_permalink()); ?>"
-          style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rine.png')"
+          style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"
           class="group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96 block">
 
           <!-- Détails du projet -->

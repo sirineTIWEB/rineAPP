@@ -3,6 +3,7 @@
 .env.local
 .env.production
 deploy.js
+.deploy-cache.json
 .vscode/
 
 # Node modules - Très lourd, jamais sur Git
@@ -17,3 +18,4 @@ Thumbs.db
 *.zip
 
 postcss.config.js
+CLAUDE.md

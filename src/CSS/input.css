@@ -247,3 +247,7 @@
     background: var(--color-mybeige);
   }
 }
+
+.current_page_item {
+  color: var(--color-myyellow);
+}

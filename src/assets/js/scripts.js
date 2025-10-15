@@ -214,11 +214,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectCards = projectsContainer.querySelectorAll('a.group');
 
         projectCards.forEach(card => {
-            // Mouse enter - scale down and fade other cards
+            // Mouse enter - scale down other cards
             card.addEventListener('mouseenter', () => {
                 projectCards.forEach(otherCard => {
                     if (otherCard !== card) {
-                        otherCard.classList.add('scale-90', 'opacity-60');
+                        otherCard.classList.add('scale-90');
                     }
                 });
             });
@@ -226,7 +226,34 @@ document.addEventListener('DOMContentLoaded', () => {
             // Mouse leave - reset all to normal
             card.addEventListener('mouseleave', () => {
                 projectCards.forEach(otherCard => {
-                    otherCard.classList.remove('scale-90', 'opacity-60');
+                    otherCard.classList.remove('scale-90');
+                });
+            });
+        });
+    }
+});
+
+// Hover effect for projects page (grid layout) - scale down others when one is hovered
+document.addEventListener('DOMContentLoaded', () => {
+    const projectsGrid = document.querySelector('.grid');
+
+    if (projectsGrid) {
+        const projectCards = projectsGrid.querySelectorAll('a.grid-item');
+
+        projectCards.forEach(card => {
+            // Mouse enter - scale down other cards
+            card.addEventListener('mouseenter', () => {
+                projectCards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.add('scale-95');
+                    }
+                });
+            });
+
+            // Mouse leave - reset all to normal
+            card.addEventListener('mouseleave', () => {
+                projectCards.forEach(otherCard => {
+                    otherCard.classList.remove('scale-95');
                 });
             });
         });
