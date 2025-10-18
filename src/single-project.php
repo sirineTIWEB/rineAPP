@@ -8,12 +8,7 @@ get_header(); ?>
 
 <section class="bg-myyellow dark:bg-mydarkblue py-0 md:py-16">
 
-    <a href="/projects" onclick="event.preventDefault();
-    if (document.referrer && new URL(document.referrer).origin === location.origin){
-        history.back();
-    } else {
-        location.href=this.getAttribute('href');
-    }" class="bouton ml-10 dark:text-mybeige text-mydarkblue border-mydarkblue dark:border-mybeige">
+    <a href="<?php echo esc_url(site_url('/portfolio')); ?>" onclick="event.preventDefault(); if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) { history.back(); } else { window.location.href = this.href; }" class="bouton ml-10 dark:text-mybeige text-mydarkblue border-mydarkblue dark:border-mybeige">
         <?php esc_html_e('← Back', 'rine2'); ?>
     </a>
 
