@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Theme customization - Tailwind v4 way */
 @theme {
   /* Custom colors */
-  --color-mydarkblue: #415b68;
-  --color-mylightblue: #93b5c9;
-  --color-myyellow: #f2da91;
-  --color-mybeige: #fcfcf5;
+  --color-mydarkgreen: #264414;
+  --color-mypink: #f683a0;
+  --color-mygreen: #e0d976;
+  --color-mybeige: #fbebcf;
 
   /* Custom font families */
   --font-family-annuario: "annuario-variable", sans-serif;

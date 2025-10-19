@@ -214,10 +214,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectCards = projectsContainer.querySelectorAll('a.group');
 
         projectCards.forEach(card => {
-            // Mouse enter - scale down other cards
+            // Mouse enter - scale down and add shadow effect to other cards
             card.addEventListener('mouseenter', () => {
                 projectCards.forEach(otherCard => {
                     if (otherCard !== card) {
+                        otherCard.style.opacity = '0.5';
                         otherCard.classList.add('scale-90');
                     }
                 });
@@ -226,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Mouse leave - reset all to normal
             card.addEventListener('mouseleave', () => {
                 projectCards.forEach(otherCard => {
+                    otherCard.style.opacity = '1';
                     otherCard.classList.remove('scale-90');
                 });
             });
