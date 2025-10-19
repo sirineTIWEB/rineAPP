@@ -8,10 +8,9 @@ html {
 /* Theme customization - Tailwind v4 way */
 @theme {
   /* Custom colors */
-  --color-mydarkgreen: #264414;
-  --color-mypink: #f683a0;
-  --color-mygreen: #e0d976;
-  --color-mybeige: #fbebcf;
+  --color-mydarkgreen: #161616;
+  --color-mypink: #838f6f;
+  --color-mybeige: #f2f1ed;
 
   /* Custom font families */
   --font-family-annuario: "annuario-variable", sans-serif;

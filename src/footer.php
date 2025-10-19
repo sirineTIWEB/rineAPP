@@ -27,17 +27,19 @@ get_header();
           class="input mr-4 md:mr-7 w-1/2" required>
         <input type="text" name="business" id="business" placeholder="<?php esc_html_e('Business Name', 'rine2'); ?>"
           class="input mr-4 md:mr-7 w-1/3">
-        <select id="socialNetwork" name="socialNetwork" class="rounded-none mr-0 capitalize input w-fit mt-1">
-          <option value="" disabled selected hidden><?php esc_html_e('Select', 'rine2'); ?></option>
-          <option value="facebook">Facebook</option>
-          <option value="twitter">Twitter</option>
-          <option value="instagram">Instagram</option>
-          <option value="linkedin">LinkedIn</option>
-          <option value="web">Web link</option>
-        </select>
-        <input type="text" name="socialName" id="socialName"
-          placeholder="<?php esc_html_e('Social Username', 'rine2'); ?>"
-          class="transform-none input mr-0 md:mr-7 w-[37%]">
+        <div class="flex flex-wrap items-end gap-2 md:gap-4 w-1/3">
+          <select id="socialNetwork" name="socialNetwork" class="rounded-none capitalize input flex-shrink-0 w-auto">
+            <option value="" disabled selected hidden><?php esc_html_e('Select', 'rine2'); ?></option>
+            <option value="facebook">Facebook</option>
+            <option value="twitter">Twitter</option>
+            <option value="instagram">Instagram</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="web">Web link</option>
+          </select>
+          <input type="text" name="socialName" id="socialName"
+            placeholder="<?php esc_html_e('Social Username', 'rine2'); ?>"
+            class="input flex-1 min-w-0 md:mr-7">
+        </div>
         <textarea name="content" id="content" placeholder="<?php esc_html_e('Your Message', 'rine2'); ?>"
           class="rounded-none input mr-4 md:mr-7 max-h-max w-[95%]" required></textarea>
         <button type="submit" name="sending" value="send">
