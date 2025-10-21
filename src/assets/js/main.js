@@ -1,0 +1,29 @@
+// Main entry point - imports all modules
+import { initCarousel } from './modules/carousel.js';
+import { initToolboxSlider } from './modules/toolbox-slider.js';
+import { initIsotopeFilter } from './modules/isotope-filter.js';
+import { initBurgerMenu } from './modules/burger-menu.js';
+import { initRecentProjectsHover, initProjectsGridHover } from './modules/hover-effects.js';
+import { initKeyboardSupport } from './modules/keyboard.js';
+
+// Initialize all modules when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Core functionality
+    initCarousel();
+    initToolboxSlider();
+    initBurgerMenu();
+
+    // Hover effects
+    initRecentProjectsHover();
+    initProjectsGridHover();
+
+    console.log('All modules initialized');
+});
+
+// jQuery-dependent modules - wait for jQuery
+if (window.jQuery) {
+    jQuery(document).ready(function() {
+        initIsotopeFilter();
+        initKeyboardSupport();
+    });
+}

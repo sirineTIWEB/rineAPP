@@ -1,25 +1,24 @@
 <?php get_header(); ?>
 
-<section class="bg-mybeige dark:bg-mydarkgreen w-full box-border relative pb-16 rounded-3xl">
+<section class="w-full box-border relative pb-16 rounded-3xl">
   <div
     class="flex flex-col justify-end pb-5 px-2 md:px-12 md:pb-32 h-[487px] md:h-[80vh] mx-4 md:mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
-    <h1 class="titre dark:text-mybeige text-mydarkgreen"><?php esc_html_e('Welcome to my portfolio', 'rine2'); ?></h1>
-    <h2 class="font-bold condensed texte dark:text-mybeige text-mydarkgreen max-w-52 md:max-w-none">
+    <h1 class="titre"><?php esc_html_e('Welcome to my portfolio', 'rine2'); ?></h1>
+    <h2 class="font-bold condensed texte max-w-52 md:max-w-none">
       <?php esc_html_e('Discover all projects I’ve done during my academic and free times.', 'rine2'); ?>
     </h2>
-    <a href="<?php echo esc_url(site_url('/portfolio')); ?>"
-      class="bouton dark:text-mybeige text-mydarkblue border-mydarkblue dark:border-mybeige"><?php esc_html_e('explore my projects', 'rine2'); ?>
+    <a href="<?php echo esc_url(site_url('/portfolio')); ?>" c
+      lass="bouton"><?php esc_html_e('explore my projects', 'rine2'); ?>
     </a>
   </div>
-  <!-- <img class="h-20 absolute bottom-[-5%] right-[7%] md:h-36 dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/gribouilli1.svg" alt="gribouilli1">
-        <img class="h-20 absolute bottom-[-5%] right-[7%] md:h-36 hidden dark:block" src="<?php echo get_template_directory_uri(); ?>/assets/icons/darkaccueil.svg" alt="gribouilli1"> -->
 </section>
-<section class="relative flex flex-col items-center my-10 bg-mybeige dark:bg-mydarkgreen rounded-3xl py-20">
-  <h1 class="titre text-mydarkgreen dark:text-mybeige mb-6 md:mb-8"><?php esc_html_e('RECENT PROJECTS', 'rine2'); ?>
+<section class="projets flex flex-col my-10 gap-7">
+  <h1 class="titre dark:text-mybeige text-myblack">
+    <span class="highlight">// </span><?php esc_html_e('MY RECENT PROJECTS', 'rine2'); ?>
   </h1>
-  <div class="flex overflow-x-auto overflow-y-hidden max-w-full pl-6 md:pl-12 pb-3">
+  <div class="flex max-w-full md:ml-15">
 
-  <?php
+    <?php
     $today = date('Ymd');
     $last_year = date('Ymd', strtotime('-1 year'));
     // 1) définir les arguments/filtres de la requête
@@ -46,18 +45,21 @@
 
         <a href="<?php echo esc_url(get_permalink()); ?>"
           style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"
-          class="rounded-2xl group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 active:w-[170px] md:h-[455px] md:hover:w-96 block">
+          class=" group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 md:h-[455px] block dark:border dark:border-mybeige rounded-2xl">
 
           <!-- Détails du projet -->
           <div
             class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 text-left">
-            <h2 class="soustitre text-mydarkgreen text-end "><?php the_title(); ?></h2>
+            <h2 class="soustitre text-end text-mybeige"><?php the_title(); ?></h2>
             <div class="flex justify-end">
-              <p class="texte font-bold lowercase text-mydarkgreen text-end ">
-                <?php echo wp_kses_post(get_field('pr_category')); ?></p>
-              <p class="texte font-bold lowercase text-mydarkgreen text-end "><?php $acf_date = get_field('date'); // Replace with your field name
+              <p class="texte font-bold lowercase text-end text-mybeige">
+                <?php echo wp_kses_post(get_field('pr_category')); ?>
+              </p>
+              <p class="texte font-bold lowercase text-end text-mybeige">
+                <?php $acf_date = get_field('date'); // Replace with your field name
                   echo get_time_ago_acf($acf_date);
-                  ?></p>
+                ?>
+              </p>
             </div>
           </div>
         </a>
@@ -68,14 +70,12 @@
     wp_reset_query(); ?>
 
   </div>
-  <img class="h-24 absolute md:top-[-7%] top-[-3%] left-[2%] md:h-40 dark:block"
-    src="<?php echo get_template_directory_uri(); ?>/assets/icons/gribouilli2.svg" alt="gribouilli2">
-  <img class="h-24 absolute md:top-[-7%] top-[-3%] left-[2%] md:h-40 hidden dark:block"
-    src="<?php echo get_template_directory_uri(); ?>/assets/icons/darkworm.svg" alt="gribouilli2">
 </section>
-<section class="flex flex-col items-center my-10 bg-mybeige dark:bg-mydarkgreen rounded-3xl px-6">
-  <h1 class="titre dark:text-mybeige text-mydarkgreen py-6"><?php esc_html_e('services', 'rine2'); ?></h1>
-  <div class="z-10 md:z-0 flex justify-center flex-wrap gap-6 md:gap-20 w-full pb-14 md:pb-16">
+<section class="flex my-10 justify-between">
+  <h1 class="titre w-fit dark:text-mybeige text-myblack">
+    <span class="highlight">// </span><?php esc_html_e('my services', 'rine2'); ?>
+  </h1>
+  <div class="w-1/2">
     <?php
     // 1) définir les arguments/filtres de la requête
     $args = array(
@@ -85,36 +85,29 @@
     // 2) exécuter la requête et lancer la boucle
     $the_query = new WP_Query($args);
     if ($the_query->have_posts()) {
+      $index = 0;
       while ($the_query->have_posts()) {
         $the_query->the_post();
         ?>
+        <div class="collapse text-myblack dark:text-mybeige">
+          <input type="radio" name="my-accordion-2" <?php echo ($index === 0) ? 'checked="checked"' : ''; ?> />
 
-        <article
-          class="group w-96 md:w-5/12 h-32 md:h-52 bg-mydarkgreen dark:bg-mybeige hover:h-52 md:hover:h-60 active:h-52 rounded-3xl px-6 py-6 flex flex-col justify-end items-end text-mydarkblue dark:text-mybeige duration-300 ease-in-out transition-all">
-          <h2 class="texte font-bold text-end dark:text-mydarkgreen text-mybeige"> <?php the_title(); ?> </h2>
-          <div
-            class="opacity-0 hidden duration-300 group-hover:opacity-100 group-hover:block group-active:opacity-100 group-active:block transition-all">
-            <p class="texte text-end font-medium dark:text-mydarkgreen text-mybeige"> <?php echo wp_kses_post(get_the_content()); ?> </p>
+          <div class="collapse-title soustitre border-b border-myblack dark:border-mybeige">
+            <?php the_title(); ?>
           </div>
-        </article>
+          <div class="collapse-content texte my-2.5">
+            <?php echo wp_kses_post(get_the_content()); ?>
+          </div>
+
+        </div>
+
 
         <?php
+        $index++;
       } // end while
     } // end if
     wp_reset_query(); ?>
   </div>
-  <!-- <img class="bottom-15 left-1 h-32 md:h-60 absolute md:bottom-64 md:right-[40rem] dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/icons/algue.svg" alt="gribouilli3">
-      <img class="bottom-15 left-1 h-32 md:h-60 absolute md:bottom-64 md:right-[40rem] hidden dark:block" src="<?php echo get_template_directory_uri(); ?>/assets/icons/darkservice.svg" alt="gribouilli3"> -->
-</section>
-<section class="flex justify-end relative my-10 h-[12vh] z-20">
-  <a href="#">
-    <img
-      class="absolute right-3 -top-3 h-36 md:h-60 md:right-32 md:-top-10 active:scale-110 hover:scale-110 transition-all duration-300 z-10"
-      src="<?php echo get_template_directory_uri(); ?>/assets/icons/etoile.svg" alt="gribouilli4">
-  </a>
-  <h1 class="right-8 mt-11 md:mt-12 titre absolute text-mybeige dark:text-mydarkgreen md:right-80">
-    <?php esc_html_e('want to know more?', 'rine2'); ?>
-  </h1>
 </section>
 
 <?php get_footer(); ?>

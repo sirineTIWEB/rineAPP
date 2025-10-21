@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
 @import "tailwindcss";
 
 /* Smooth scrolling for anchor links */
@@ -8,13 +9,13 @@ html {
 /* Theme customization - Tailwind v4 way */
 @theme {
   /* Custom colors */
-  --color-mydarkgreen: #161616;
-  --color-mypink: #838f6f;
-  --color-mybeige: #f2f1ed;
+  --color-myblue: #092EFF;
+  --color-myblack: #1E1E1E;
+  --color-mybeige: #FCFCF5;
 
   /* Custom font families */
-  --font-family-annuario: "annuario-variable", sans-serif;
-  --font-family-aqva: "rl-aqva", sans-serif;
+  --font-family-alexandria: "Alexandria", sans-serif;
+  --font-family-annuario: "Annuario", sans-serif;
 
   /* Custom font sizes */
   --font-size-legend: clamp(0.625rem, 0.4167rem + 1.0417vw, 1rem);
@@ -32,6 +33,11 @@ html {
 }
 
 /* Custom utilities */
+@utility highlight {
+  color: var(--color-myblue);
+  font-family: 'Courier New'
+}
+
 @utility condensed {
   font-variation-settings: "wdth" 20, "wght" 700;
 }
@@ -40,53 +46,67 @@ html {
   font-variation-settings: "wdth" 400, "wght" 700;
 }
 
+/* Style collapse title to display flex for arrow positioning */
+.collapse > .collapse-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Add custom arrow */
+.collapse > .collapse-title::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/icons/arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Rotate arrow when accordion is open */
+.collapse input[type="radio"]:checked ~ .collapse-title::after {
+  transform: rotate(180deg);
+}
+
+
 @utility titre {
-  font-family: var(--font-family-aqva);
+  font-family: var(--font-family-annuario);
   font-weight: 700;
   text-transform: uppercase;
   font-size: var(--font-size-titre);
 }
 
 @utility soustitre {
-  font-family: var(--font-family-annuario);
+  font-family: var(--font-family-alexandria);
   font-weight: 700;
   text-transform: capitalize;
   font-size: var(--font-size-soustitre);
 }
 
 @utility texte {
-  font-family: var(--font-family-annuario);
+  font-family: var(--font-family-alexandria);
+  font-weight: 400;
   font-size: var(--font-size-texte);
 }
 
 @utility bouton {
-  font-family: var(--font-family-annuario);
+  font-family: var(--font-family-alexandria);
   font-weight: 700;
   font-size: var(--font-size-bouton);
   border-radius: 1rem;
-  background-color: var(--color-mybeige);
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-transform: uppercase;
   font-variation-settings: "wdth" 400, "wght" 700;
-  color: var(--color-mydarkblue);
+  color: var(--color-myblack);
   width: fit-content;
-  border-left-width: 2px;
-  border-right-width: 2px;
-  border-top-width: 2px;
-  border-bottom-width: 4px;
-  border-style: solid;
-  border-color: var(--color-mydarkblue);
-}
-
-/* Dark mode variant - handled separately */
-@media (prefers-color-scheme: dark) {
-  .bouton {
-    background-color: var(--color-mydarkblue);
-    color: var(--color-mybeige);
-  }
 }
 
 @utility legend {
@@ -96,34 +116,97 @@ html {
   font-size: var(--font-size-legend);
 }
 
-@utility input {
-  font-family: var(--font-family-annuario);
-  border-bottom-width: 1px;
-  border-color: var(--color-mydarkblue);
-  border-radius: 0;
-  background-color: var(--color-myyellow);
-  color: var(--color-mydarkblue);
-  font-weight: 600;
-  font-size: 1.25rem;
+input,
+textarea {
+  font-family: var(--font-family-alexandria);
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: var(--font-size-texte);
+  padding-bottom: 20px;
+  margin: 20px 0;
+  border: none;
+  border-bottom: 1px solid var(--color-mybeige);
 }
 
-/* Input placeholder styles - handled separately */
-.input::placeholder {
-  color: var(--color-mydarkblue);
-}
-
-/* Input focus styles - handled separately */
-.input:focus {
+input:focus,
+textarea:focus {
+  border: none;
+  border-color: var(--color-myblue);
   outline: none;
-  border-bottom-width: 2px;
-  border-color: var(--color-mydarkblue);
 }
 
-/* Dark mode for input - handled separately */
-@media (prefers-color-scheme: dark) {
-  .input {
-    background-color: var(--color-mylightblue);
-  }
+.input-wrapper::before {
+  content: "$";
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--color-myblue);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--font-size-texte);
+}
+
+/* Textarea wrapper with // prefix */
+.textarea-wrapper {
+  position: relative;
+  display: block;
+}
+
+.textarea-wrapper::before {
+  content: "$";
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--color-myblue);
+  font-weight: 700;
+  font-size: var(--font-size-texte);
+  position: absolute;
+  left: 0;
+  top: 22px; /* margin (20px) + 2px adjustment for smaller text alignment */
+  pointer-events: none;
+}
+
+.textarea-wrapper textarea {
+  padding-left: 2.5rem; /* Make room for the // prefix */
+}
+
+/* Hide social username input by default */
+.social-username-wrapper {
+  display: none;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+/* Show social username input when any radio button is checked */
+.social-checkboxes:has(input[type="radio"]:checked) + .social-username-wrapper {
+  display: block;
+  opacity: 1;
+  max-height: 200px; /* Adjust based on your input height */
+}
+
+/* Hover circle animation - reusable class with stroke-dashoffset */
+.hover-circle {
+  position: relative;
+  overflow: visible;
+}
+
+.hover-circle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 20px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hover-circle svg path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+.hover-circle:hover svg path {
+  stroke-dashoffset: 0;
 }
 
 /* Responsive font size - handled separately */

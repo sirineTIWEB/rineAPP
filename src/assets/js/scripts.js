@@ -208,7 +208,7 @@ jQuery(document).ready(function($) {
 
 // Hover effect for recent projects - scale down others when one is hovered
 document.addEventListener('DOMContentLoaded', () => {
-    const projectsContainer = document.querySelector('.flex.overflow-x-auto');
+    const projectsContainer = document.querySelector('.projets');
 
     if (projectsContainer) {
         const projectCards = projectsContainer.querySelectorAll('a.group');

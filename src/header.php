@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/imo5mqr.css" defer>
     <?php wp_head(); ?>
 </head>
-<body class="overflow-x-hidden mx-5 my-5 bg-mypink">
+<body class="overflow-x-hidden px-10 py-5 bg-mybeige dark:bg-myblack">
     <header class="w-[calc(100%-2.5rem)] fixed flex justify-between items-center text-mydarkgreen py-5 px-5 flex-wrap z-50 box-border">
         <img class="md:h-14 h-6 dark:hidden" src="<?php echo get_template_directory_uri(); ?>/assets/logo/courtBclair.svg" alt="-RINE">
         <img class="md:h-14 h-6 hidden dark:block" src="<?php echo get_template_directory_uri(); ?>/assets/logo/courtBfonce.svg" alt="-RINE">

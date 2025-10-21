@@ -5,6 +5,10 @@ function ajouter_style()
     wp_enqueue_style('monstyle', get_stylesheet_uri());
     // Add Tailwind CSS output
     wp_enqueue_style('tailwind-output', get_template_directory_uri() . '/CSS/output.css', array(), null);
+    // Add DaisyUI
+    wp_enqueue_style('daisyui', 'https://cdn.jsdelivr.net/npm/daisyui@5', array(), null);
+    // Add Tailwind CSS browser script
+    wp_enqueue_script('tailwind-browser', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4', array(), null, false);
 }
 add_action('wp_enqueue_scripts', 'ajouter_style', PHP_INT_MAX);
 
@@ -84,13 +88,22 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu
 // enqueue js
 function dynamic_scripts()
 {
+    // Enqueue main.js as a module
     wp_enqueue_script(
-        'scripts', // Unique handle
-        get_template_directory_uri() . '/assets/js/scripts.js', // Path to JS file
+        'main-module', // Unique handle
+        get_template_directory_uri() . '/assets/js/main.js', // Path to main JS file
         array('jquery'), // Dependencies - jQuery is required
         null, // Version number (null for no version)
-        true // Load in header or footer (true for footer)
+        true // Load in footer
     );
+
+    // Add type="module" attribute to the script tag
+    add_filter('script_loader_tag', function($tag, $handle) {
+        if ('main-module' === $handle) {
+            $tag = str_replace('<script ', '<script type="module" ', $tag);
+        }
+        return $tag;
+    }, 10, 2);
 }
 add_action('wp_enqueue_scripts', 'dynamic_scripts');
 
