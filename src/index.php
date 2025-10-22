@@ -71,11 +71,11 @@
 
   </div>
 </section>
-<section class="flex my-10 justify-between">
+<section class="flex md:flex-row flex-col my-10 md:justify-between">
   <h1 class="titre w-fit dark:text-mybeige text-myblack">
     <span class="highlight">// </span><?php esc_html_e('my services', 'rine2'); ?>
   </h1>
-  <div class="w-1/2">
+  <div class="w-full md:w-1/2">
     <?php
     // 1) définir les arguments/filtres de la requête
     $args = array(

@@ -109,6 +109,13 @@ html {
   width: fit-content;
 }
 
+/* Dark mode variant - handled separately */
+@media (prefers-color-scheme: dark) {
+  .bouton {
+    color: var(--color-mybeige);
+  }
+}
+
 @utility legend {
   font-family: var(--font-family-annuario);
   font-size: 1rem;
@@ -206,6 +213,12 @@ textarea:focus {
 }
 
 .hover-circle:hover svg path {
+  stroke-dashoffset: 0;
+}
+
+/* Active menu item - show circle effect */
+.current_page_item a.hover-circle svg path,
+.current-menu-item a.hover-circle svg path {
   stroke-dashoffset: 0;
 }
 
@@ -333,8 +346,4 @@ textarea:focus {
   .embla__dot:after {
     background: var(--color-mybeige);
   }
-}
-
-.current_page_item {
-  color: var(--color-myyellow);
 }

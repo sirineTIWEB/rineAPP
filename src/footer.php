@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<footer class="flex my-10 gap-14">
+<footer class="flex md:flex-row flex-col my-10 gap-14">
   <section id="contact"
     class="bg-myblack text-mybeige dark:border-2 dark:border-mybeige w-full rounded-3xl p-10 md:p-20">
     <h1 class="titre">

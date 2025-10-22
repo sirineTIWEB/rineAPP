@@ -13,7 +13,8 @@ assets/js/
 │   ├── isotope-filter.js  # Projects filtering with Isotope
 │   ├── burger-menu.js     # Mobile menu toggle
 │   ├── hover-effects.js   # Project card hover effects
-│   └── keyboard.js        # Keyboard accessibility support
+│   ├── keyboard.js        # Keyboard accessibility support
+│   └── gsap-scroll.js     # GSAP scroll effects & scroll-to-top button
 ├── main.js                # Main entry point (imports all modules)
 └── scripts.js             # Legacy file (kept as backup)
 ```
