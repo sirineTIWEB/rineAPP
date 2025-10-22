@@ -131,6 +131,51 @@ get_header();
   </section>
 
 </footer>
+
+        </div><!-- Close pt-20 px-10 py-5 div -->
+    </div><!-- Close drawer-content -->
+
+    <!-- Mobile sidebar drawer -->
+    <div class="drawer-side z-50">
+        <!-- Overlay - clicking it closes the drawer -->
+        <label for="mobile-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+
+        <!-- Sidebar content -->
+        <div class="min-h-full w-80 bg-mybeige dark:bg-myblack p-10">
+            <!-- Logo in sidebar -->
+            <div class="mb-8">
+                <img class="dark:hidden h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoB.svg" alt="-RINE">
+                <img class="hidden dark:block h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoW.svg" alt="-RINE">
+            </div>
+
+            <!-- Mobile navigation menu -->
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'primary',
+                'container' => 'nav',
+                'container_class' => 'text-myblack dark:text-mybeige',
+                'menu_class' => 'flex flex-col gap-4',
+                'menu_id' => 'mobilemenu',
+                'walker' => new Custom_Walker_headNav_Menu(),
+            ));
+            ?>
+
+            <!-- Contact & Dark mode buttons in sidebar -->
+            <ul class="flex flex-col gap-4 mt-8">
+                <li>
+                    <a href="#contact" class="bouton border dark:border-mybeige border-myblack w-full text-center">
+                        <?php esc_html_e('contact me', 'rine2'); ?>
+                    </a>
+                </li>
+                <li>
+                    <button id="darkModeToggleMobile" class="cursor-pointer bouton border dark:border-mybeige border-myblack w-full" aria-label="<?php esc_attr_e('Toggle dark mode', 'rine2'); ?>">
+                        <span class="highlight" id="modeTextMobile">dark:</span> <?php esc_html_e('mode', 'rine2'); ?>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 <?php wp_footer(); ?>
 </body>
 

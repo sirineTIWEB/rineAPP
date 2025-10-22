@@ -1,16 +1,6 @@
 <?php get_header(); ?>
 
-<section class="w-full box-border relative pb-16 rounded-3xl">
-  <div
-    class="flex flex-col justify-end pb-5 px-2 md:px-12 md:pb-32 h-[487px] md:h-[80vh] mx-4 md:mx-8 bg-moiPC bg-cover bg-center bg-no-repeat rounded-3xl">
-    <h1 class="titre"><?php esc_html_e('Welcome to my portfolio', 'rine2'); ?></h1>
-    <h2 class="font-bold condensed texte max-w-52 md:max-w-none">
-      <?php esc_html_e('Discover all projects I’ve done during my academic and free times.', 'rine2'); ?>
-    </h2>
-    <a href="<?php echo esc_url(site_url('/portfolio')); ?>" c
-      lass="bouton"><?php esc_html_e('explore my projects', 'rine2'); ?>
-    </a>
-  </div>
+<section class="">
 </section>
 <section class="projets flex flex-col my-10 gap-7">
   <h1 class="titre dark:text-mybeige text-myblack">

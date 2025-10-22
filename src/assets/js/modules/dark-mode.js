@@ -1,60 +1,70 @@
 // Dark Mode Toggle Module
 export function initDarkMode() {
     const toggleButton = document.getElementById('darkModeToggle');
+    const toggleButtonMobile = document.getElementById('darkModeToggleMobile');
     const modeText = document.getElementById('modeText');
+    const modeTextMobile = document.getElementById('modeTextMobile');
     const htmlElement = document.documentElement;
 
-    if (!toggleButton) {
-        console.warn('Dark mode toggle button not found');
+    if (!toggleButton && !toggleButtonMobile) {
         return;
     }
 
-    // Check for saved user preference, otherwise check system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    // Initialize theme
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-        htmlElement.classList.add('dark');
-        updateButtonText(true);
-    } else {
-        htmlElement.classList.remove('dark');
-        updateButtonText(false);
-    }
-
-    // Toggle dark mode on button click
-    toggleButton.addEventListener('click', () => {
-        const isDark = htmlElement.classList.toggle('dark');
-
-        // Save preference to localStorage
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
-        // Update button text
-        updateButtonText(isDark);
-    });
-
     // Update button text to show the OPPOSITE mode (the one you can switch to)
     function updateButtonText(isDark) {
+        const text = isDark ? 'light:' : 'dark:';
         if (modeText) {
-            // If currently dark, show "light:" (can switch to light)
-            // If currently light, show "dark:" (can switch to dark)
-            modeText.textContent = isDark ? 'light:' : 'dark:';
+            modeText.textContent = text;
+        }
+        if (modeTextMobile) {
+            modeTextMobile.textContent = text;
         }
     }
 
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    // Function to apply theme based on preference
+    function applyTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Use saved preference, or fall back to system preference
+        const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+
+        if (shouldBeDark) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        updateButtonText(shouldBeDark);
+    }
+
+    // Initialize theme on page load
+    applyTheme();
+
+    // Toggle function for both buttons
+    function toggleTheme() {
+        const currentlyDark = htmlElement.classList.contains('dark');
+        const newTheme = currentlyDark ? 'light' : 'dark';
+
+        // Save user preference to localStorage (persists across sessions)
+        localStorage.setItem('theme', newTheme);
+
+        // Apply the new theme
+        applyTheme();
+    }
+
+    // Attach event listeners to both desktop and mobile buttons
+    if (toggleButton) {
+        toggleButton.addEventListener('click', toggleTheme);
+    }
+    if (toggleButtonMobile) {
+        toggleButtonMobile.addEventListener('click', toggleTheme);
+    }
+
+    // Listen for system theme changes - only apply if no manual preference is saved
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
         if (!localStorage.getItem('theme')) {
-            // Only auto-switch if user hasn't set a preference
-            if (e.matches) {
-                htmlElement.classList.add('dark');
-                updateButtonText(true);
-            } else {
-                htmlElement.classList.remove('dark');
-                updateButtonText(false);
-            }
+            applyTheme();
         }
     });
-
-    console.log('Dark mode initialized');
 }

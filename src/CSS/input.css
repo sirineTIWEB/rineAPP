@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
 @import "tailwindcss";
 
+/* Configure class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
@@ -109,11 +112,9 @@ html {
   width: fit-content;
 }
 
-/* Dark mode variant - handled separately */
-@media (prefers-color-scheme: dark) {
-  .bouton {
-    color: var(--color-mybeige);
-  }
+/* Dark mode text color for bouton utility */
+.dark .bouton {
+  color: var(--color-mybeige);
 }
 
 @utility legend {
@@ -342,8 +343,6 @@ textarea:focus {
   opacity: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  .embla__dot:after {
-    background: var(--color-mybeige);
-  }
+.dark .embla__dot:after {
+  background: var(--color-mybeige);
 }
