@@ -330,7 +330,7 @@ textarea:focus {
 }
 
 .embla__dot:after {
-  background: var(--color-mydarkblue);
+  background: var(--color-myblue);
   border-radius: 50%;
   width: 0.5rem;
   height: 0.5rem;
@@ -344,5 +344,5 @@ textarea:focus {
 }
 
 .dark .embla__dot:after {
-  background: var(--color-mybeige);
+  background: var(--color-myblue);
 }

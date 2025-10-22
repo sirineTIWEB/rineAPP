@@ -143,9 +143,9 @@ get_header();
         <!-- Sidebar content -->
         <div class="min-h-full w-80 bg-mybeige dark:bg-myblack p-10">
             <!-- Logo in sidebar -->
-            <div class="mb-8">
-                <img class="dark:hidden h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoB.svg" alt="-RINE">
-                <img class="hidden dark:block h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoW.svg" alt="-RINE">
+            <div class="mb-8 flex justify-center">
+                <img class="dark:hidden h-5 md:h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoB.svg" alt="-RINE">
+                <img class="hidden dark:block h-5 md:h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoW.svg" alt="-RINE">
             </div>
 
             <!-- Mobile navigation menu -->
@@ -161,16 +161,11 @@ get_header();
             ?>
 
             <!-- Contact & Dark mode buttons in sidebar -->
-            <ul class="flex flex-col gap-4 mt-8">
+            <ul class="flex flex-col items-center gap-4 mt-8">
                 <li>
                     <a href="#contact" class="bouton border dark:border-mybeige border-myblack w-full text-center">
                         <?php esc_html_e('contact me', 'rine2'); ?>
                     </a>
-                </li>
-                <li>
-                    <button id="darkModeToggleMobile" class="cursor-pointer bouton border dark:border-mybeige border-myblack w-full" aria-label="<?php esc_attr_e('Toggle dark mode', 'rine2'); ?>">
-                        <span class="highlight" id="modeTextMobile">dark:</span> <?php esc_html_e('mode', 'rine2'); ?>
-                    </button>
                 </li>
             </ul>
         </div>

@@ -14,7 +14,7 @@
     <!-- Main content area -->
     <div class="drawer-content">
         <!-- Fixed header/navbar -->
-        <header class="flex justify-between items-center self-stretch fixed top-0 right-0 left-0 px-10 py-5 z-50 bg-mybeige dark:bg-myblack">
+        <header class="flex justify-between items-start self-stretch fixed top-0 right-0 left-0 px-10 py-5 z-50 bg-mybeige dark:bg-myblack">
 
             <!-- Burger menu button for mobile (opens drawer) -->
             <label for="mobile-drawer" class="visible md:hidden cursor-pointer" aria-label="Open menu">
@@ -38,7 +38,7 @@
             <img class="hidden dark:block h-5 md:h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoW.svg" alt="-RINE">
 
             <!-- Contact & Dark mode buttons -->
-            <ul class="flex md:flex-row flex-col justify-center items-end gap-2.5 md:gap-8 md:justify-end md:items-center">
+            <ul class="flex md:flex-row flex-col justify-center items-end gap-2.5 md:gap-8 md:justify-end md:items-center flex-wrap">
                 <li>
                     <a href="#contact" class="bouton border dark:border-mybeige border-myblack">
                         <?php esc_html_e('contact me', 'rine2'); ?>
@@ -53,4 +53,4 @@
         </header>
 
         <!-- Page content starts here (with padding for fixed header) -->
-        <div class="md:pt-20 md:px-10 px-5 py-5 pt-8 md:py-5 ">
+        <div class="md:pt-20 md:px-10 px-5 py-5 pt-20 md:py-5 ">

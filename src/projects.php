@@ -9,7 +9,7 @@ get_header(); ?>
     <h1 class="titre dark:text-mybeige text-myblack">
         <span class="highlight">// </span><?php esc_html_e('MY PROJECTS', 'rine2'); ?>
     </h1>
-    <div class="filter-btns flex px-8 gap-9">
+    <div class="filter-btns flex px-8 gap-9 flex-wrap">
         <a
             role="button"
             tabindex="0"
@@ -39,7 +39,7 @@ get_header(); ?>
     </div>
 </section>
 <section
-    class="grid md:px-8 my-10 px-6 relative gap-5">
+    class="grid md:px-8 my-10 px-6 relative gap-x-15 gap-y-10">
 
     <?php
     // 1) définir les arguments/filtres de la requête
