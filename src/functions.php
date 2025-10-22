@@ -39,7 +39,7 @@ class Custom_Walker_headNav_Menu extends Walker_Nav_Menu
         $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
         // Ajoute ici tes classes sur les <a> - add hover-circle class for desktop menu
-        $attributes .= ' class="capitalize p-2 legend hover-circle"';
+        $attributes .= ' class="capitalize p-2 bouton hover-circle"';
 
         $title = apply_filters('the_title', $item->title, $item->ID);
 
@@ -75,7 +75,7 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu
         $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
         // Ajoute ici tes classes sur les <a>
-        $attributes .= ' class="capitalize p-0 sm:p-2 legend"';
+        $attributes .= ' class="capitalize p-0 sm:p-2 bouton"';
 
         $title = apply_filters('the_title', $item->title, $item->ID);
 

@@ -154,7 +154,7 @@ get_header();
                 'theme_location' => 'primary',
                 'container' => 'nav',
                 'container_class' => 'text-myblack dark:text-mybeige',
-                'menu_class' => 'flex flex-col gap-4',
+                'menu_class' => 'flex flex-col items-center gap-4',
                 'menu_id' => 'mobilemenu',
                 'walker' => new Custom_Walker_headNav_Menu(),
             ));

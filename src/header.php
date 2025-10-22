@@ -53,4 +53,4 @@
         </header>
 
         <!-- Page content starts here (with padding for fixed header) -->
-        <div class="pt-20 px-10 py-5">
+        <div class="md:pt-20 md:px-10 px-5 py-5 pt-8 md:py-5 ">
