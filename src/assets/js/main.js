@@ -6,6 +6,7 @@ import { initBurgerMenu } from './modules/burger-menu.js';
 import { initRecentProjectsHover, initProjectsGridHover } from './modules/hover-effects.js';
 import { initKeyboardSupport } from './modules/keyboard.js';
 import { initDarkMode } from './modules/dark-mode.js';
+import { initTextAnimator } from './modules/text-animator.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initToolboxSlider();
     initBurgerMenu();
     initDarkMode();
+    initTextAnimator();
 
     // Hover effects
     initRecentProjectsHover();

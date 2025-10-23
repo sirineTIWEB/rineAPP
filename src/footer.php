@@ -61,7 +61,7 @@ get_header();
             placeholder="<?php esc_html_e('< tell me more about your though > ', 'rine2'); ?>" class=""
             required></textarea>
         </div>
-        <button type="submit" name="sending" value="send" class="bouton hover-circle">
+        <button type="submit" name="sending" value="send" class="bouton hover-circle dark:textmybeige text-mybeige">
           send
           <svg xmlns="http://www.w3.org/2000/svg" width="97" height="44" viewBox="0 0 97 44" fill="none">
             <path

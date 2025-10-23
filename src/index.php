@@ -1,6 +1,11 @@
 <?php get_header(); ?>
 
-<section class="">
+<section class="animated-hero flex flex-col h-screen justify-center items-center lowercase">
+  <h1 class="primary-title text-myblack text-left dark:text-mybeige text-4xl md:text-8xl titre">
+    <span class="highlight">=> </span><?php esc_html_e(' Curious coder', 'rine2'); ?><span class="highlight">,{</span><br><?php esc_html_e('growing abilities', 'rine2'); ?><span class="highlight">;}</span>
+  </h1>
+
+  <h1 class="secondary-title text-myblack dark:text-mybeige text-3xl md:text-6xl font-family-alexandria font-bold"><span class="highlight"><</span><?php esc_html_e('Welcome to my portfolio', 'rine2'); ?><span class="highlight">/></span></h1>
 </section>
 <section class="projets flex flex-col my-10 gap-7">
   <h1 class="titre dark:text-mybeige text-myblack">

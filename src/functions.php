@@ -280,3 +280,25 @@ function enqueue_embla_carousel() {
     );
 }
 add_action('wp_enqueue_scripts', 'enqueue_embla_carousel');
+
+// GSAP - Animation library
+function enqueue_gsap() {
+    // Enqueue GSAP core library
+    wp_enqueue_script(
+        'gsap',
+        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js',
+        array(),
+        '3.12.5',
+        false // Load in header (before modules)
+    );
+
+    // Enqueue GSAP ScrollTrigger plugin
+    wp_enqueue_script(
+        'gsap-scrolltrigger',
+        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js',
+        array('gsap'),
+        '3.12.5',
+        false // Load in header
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_gsap');

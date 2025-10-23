@@ -4,8 +4,9 @@ Template Name: Portfolio
 */
 get_header(); ?>
 <section class="">
+    
 </section>
-<section class="flex flex-col my-10 gap-5">
+<section class="flex flex-col my-10 gap-5 pt-20">
     <h1 class="titre dark:text-mybeige text-myblack">
         <span class="highlight">// </span><?php esc_html_e('MY PROJECTS', 'rine2'); ?>
     </h1>
