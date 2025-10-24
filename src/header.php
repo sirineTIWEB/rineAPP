@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/imo5mqr.css" defer>
     <?php wp_head(); ?>
 </head>
-<body class="overflow-x-hidden bg-mybeige dark:bg-myblack drawer">
+<body class="overflow-x-hidden bg-mybeige dark:bg-myblack drawer" data-theme-url="<?php echo get_template_directory_uri(); ?>/assets/icons/">
     <!-- Drawer toggle checkbox (hidden, controls sidebar) -->
     <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
 

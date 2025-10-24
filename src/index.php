@@ -85,7 +85,7 @@
         $the_query->the_post();
         ?>
         <div class="collapse text-myblack dark:text-mybeige">
-          <input type="radio" name="my-accordion-2" <?php echo ($index === 0) ? 'checked="checked"' : ''; ?> />
+          <input type="checkbox" id="accordion-<?php echo $index; ?>" <?php echo ($index === 0) ? 'checked="checked"' : ''; ?> />
 
           <div class="collapse-title soustitre border-b border-myblack dark:border-mybeige">
             <?php the_title(); ?>

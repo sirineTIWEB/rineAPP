@@ -83,7 +83,8 @@ html {
 }
 
 /* Rotate arrow when accordion is open */
-.collapse input[type="radio"]:checked ~ .collapse-title::after {
+.collapse input[type="radio"]:checked ~ .collapse-title::after,
+.collapse input[type="checkbox"]:checked ~ .collapse-title::after {
   transform: rotate(180deg);
 }
 

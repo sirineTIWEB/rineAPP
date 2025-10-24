@@ -34,13 +34,8 @@ export function initMoodColorSwitcher() {
             path.setAttribute('fill', newColor);
         });
 
-        // Update accordion arrow colors (background-image SVG)
-        const collapseTitles = document.querySelectorAll('.collapse-title');
-        const encodedColor = encodeURIComponent(newColor);
-        const arrowSvg = `data:image/svg+xml;utf8,<svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00024 5.18785C2.27705 5.63076 2.55387 6.07367 3.80374 8.71014C5.05361 11.3466 7.26816 16.1632 8.46435 18.2847C9.66053 20.4061 9.77125 19.6864 9.91134 19.0665C10.1669 17.9356 11.5513 15.1097 13.4512 11.1713C14.1886 9.5582 14.4654 8.72775 15.0786 7.33108C15.6918 5.93441 16.633 3.99669 17.9382 2.00025" stroke="${encodedColor}" stroke-width="4" stroke-linecap="round"/></svg>`;
-        collapseTitles.forEach(title => {
-            title.style.setProperty('--arrow-color', `url('${arrowSvg}')`);
-        });
+        // Update accordion arrow colors by injecting a style tag
+        updateArrowColor(newColor);
 
         // Update any other elements with data-color-change attribute
         const colorChangeElements = document.querySelectorAll('[data-color-change]');
@@ -48,6 +43,37 @@ export function initMoodColorSwitcher() {
             const property = element.dataset.colorChange || 'background-color';
             element.style[property] = newColor;
         });
+    };
+
+    // Function to update arrow color via dynamic CSS
+    const updateArrowColor = (color) => {
+        // Map colors to arrow file names
+        const arrowFiles = {
+            '#23F80B': 'arrow-green.svg',
+            '#092EFF': 'arrow.svg',
+            '#B606FC': 'arrow-purple.svg'
+        };
+
+        // Get the arrow file for this color
+        const arrowFile = arrowFiles[color.toUpperCase()] || 'arrow.svg';
+
+        // Get the theme directory URL (WordPress function available globally)
+        const themeUrl = document.body.dataset.themeUrl || '../assets/icons/';
+        const arrowPath = `${themeUrl}${arrowFile}`;
+
+        // Remove existing arrow style if it exists
+        const existingStyle = document.getElementById('dynamic-arrow-color');
+        if (existingStyle) {
+            existingStyle.remove();
+        }
+
+        // Inject new style tag with updated arrow color
+        const styleTag = document.createElement('style');
+        styleTag.id = 'dynamic-arrow-color';
+        styleTag.textContent = `.collapse > .collapse-title::after { background-image: url("${arrowPath}") !important; }`;
+        document.head.appendChild(styleTag);
+
+        console.log(`Arrow color updated to: ${color} using ${arrowFile}`);
     };
 
     // Update button states (visual only, no localStorage)
@@ -101,6 +127,19 @@ export function initMoodColorSwitcher() {
             console.log(`Mood color changed to ${state}: ${newColor}`);
         });
     });
+
+    // Initialize arrow color on page load with current CSS variable color
+    const initArrowColor = () => {
+        const currentColor = getComputedStyle(document.documentElement)
+            .getPropertyValue('--color-myblue').trim();
+
+        if (currentColor) {
+            updateArrowColor(currentColor);
+        }
+    };
+
+    // Initialize arrow color
+    initArrowColor();
 
     console.log('Mood color switcher initialized');
 }

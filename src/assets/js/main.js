@@ -9,6 +9,7 @@ import { initDarkMode } from './modules/dark-mode.js';
 import { initTextAnimator } from './modules/text-animator.js';
 import { initFlowerAnimation } from './modules/flower-animation.js';
 import { initTimelineAnimation } from './modules/timeline-animation.js';
+import { initServicesAnimation } from './modules/services-animation.js';
 import { initMoodColorSwitcher } from './modules/mood-color-switcher.js';
 
 // Initialize all modules when DOM is ready
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTextAnimator();
     initFlowerAnimation();
     initTimelineAnimation();
+    initServicesAnimation();
     initMoodColorSwitcher();
 
     // Hover effects
