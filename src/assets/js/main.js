@@ -7,6 +7,8 @@ import { initRecentProjectsHover, initProjectsGridHover } from './modules/hover-
 import { initKeyboardSupport } from './modules/keyboard.js';
 import { initDarkMode } from './modules/dark-mode.js';
 import { initTextAnimator } from './modules/text-animator.js';
+import { initFlowerAnimation } from './modules/flower-animation.js';
+import { initTimelineAnimation } from './modules/timeline-animation.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initBurgerMenu();
     initDarkMode();
     initTextAnimator();
+    initFlowerAnimation();
+    initTimelineAnimation();
 
     // Hover effects
     initRecentProjectsHover();

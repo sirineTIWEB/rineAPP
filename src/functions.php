@@ -18,6 +18,7 @@ add_theme_support('post-thumbnails');
 //créer des propres tailles
 add_image_size('images-moyennes', 312, 255, true);
 add_image_size('images-grandes', 527, 390, true);
+add_image_size('image-500h', 0, 540, false); // hauteur de 500px, largeur proportionnelle
 
 register_nav_menu('primary', __('Navigation Menu'));
 

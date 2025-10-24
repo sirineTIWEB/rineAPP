@@ -9,6 +9,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom text selection color */
+::selection {
+  background-color: var(--color-myblue);
+  color: var(--color-mybeige);
+}
+
+::-moz-selection {
+  background-color: var(--color-myblue);
+  color: var(--color-mybeige);
+}
+
 /* Theme customization - Tailwind v4 way */
 @theme {
   /* Custom colors */
