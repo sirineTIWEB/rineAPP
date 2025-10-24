@@ -42,7 +42,7 @@ get_header(); ?>
       <p class="soustitre <?php echo (get_option('active_mood_state') === 'green' ? 'text-mybeige' : 'text-myblack dark:text-mybeige'); ?> uppercase text-center"><?php esc_html_e('focus and positivity', 'rine2'); ?></p>
     </button>
     <button
-      class="mood-state-btn w-full h-1/3 rounded-4xl flex justify-center items-center transition-all duration-300 hover:bg-myblue <?php echo (get_option('active_mood_state') === 'blue' || !get_option('active_mood_state') ? 'bg-myblue active' : 'bg-transparent border-2 border-myblack dark:border-mybeige'); ?>"
+      class="mood-state-btn w-full h-1/3 rounded-4xl flex justify-center items-center transition-all duration-300 hover:bg-[#092EFF] <?php echo (get_option('active_mood_state') === 'blue' || !get_option('active_mood_state') ? 'bg-[#092EFF] active' : 'bg-transparent border-2 border-myblack dark:border-mybeige'); ?>"
       data-color="#092EFF"
       data-state="blue"
       aria-pressed="<?php echo (get_option('active_mood_state') === 'blue' || !get_option('active_mood_state') ? 'true' : 'false'); ?>"
@@ -60,6 +60,12 @@ get_header(); ?>
   </div>
 </section>
 
+<?php
+// Get active mood color
+$active_state = get_option('active_mood_state', 'blue');
+$mood_colors = array('green' => '#23F80B', 'blue' => '#092EFF', 'purple' => '#B606FC');
+$active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state] : '#092EFF';
+?>
 <section class="w-full dark:text-mybeige text-myblack px-32">
   <h1 class="titre dark:text-mybeige text-myblack">
     <span class="highlight">// </span><?php esc_html_e('MY PARCOURS', 'rine2'); ?>
@@ -70,7 +76,7 @@ get_header(); ?>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
-        fill="#092EFF"
+        fill="<?php echo esc_attr($active_color); ?>"
         class="h-5 w-5"
       >
         <path
@@ -93,7 +99,7 @@ get_header(); ?>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
-        fill="#092EFF"
+        fill="<?php echo esc_attr($active_color); ?>"
         class="h-5 w-5"
       >
         <path
@@ -116,7 +122,7 @@ get_header(); ?>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
-        fill="#092EFF"
+        fill="<?php echo esc_attr($active_color); ?>"
         class="h-5 w-5"
       >
         <path
@@ -139,7 +145,7 @@ get_header(); ?>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
-        fill="#092EFF"
+        fill="<?php echo esc_attr($active_color); ?>"
         class="h-5 w-5"
       >
         <path
@@ -162,7 +168,7 @@ get_header(); ?>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
-        fill="#092EFF"
+        fill="<?php echo esc_attr($active_color); ?>"
         class="h-5 w-5"
       >
         <path
@@ -185,7 +191,7 @@ get_header(); ?>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
-        fill="#092EFF"
+        fill="<?php echo esc_attr($active_color); ?>"
         class="h-5 w-5"
       >
         <path
