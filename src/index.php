@@ -1,17 +1,17 @@
 <?php get_header(); ?>
 
 <section class="animated-hero flex flex-col h-screen justify-center items-center lowercase">
-  <h1 class="primary-title text-myblack text-left dark:text-mybeige text-4xl md:text-8xl titre">
+  <h1 class="primary-title text-myblack md:text-left dark:text-mybeige text-4xl lg:text-8xl titre">
     <span class="highlight">=> </span><?php esc_html_e(' Curious coder', 'rine2'); ?><span class="highlight">,{</span><br><?php esc_html_e('growing abilities', 'rine2'); ?><span class="highlight">;}</span>
   </h1>
 
-  <h1 class="secondary-title text-myblack dark:text-mybeige text-3xl md:text-6xl font-family-alexandria font-bold"><span class="highlight"><</span><?php esc_html_e('Welcome to my portfolio', 'rine2'); ?><span class="highlight">/></span></h1>
+  <h1 class="secondary-title text-myblack dark:text-mybeige text-3xl lg:text-6xl font-family-alexandria font-bold"><span class="highlight"><</span><?php esc_html_e('Welcome to my portfolio', 'rine2'); ?><span class="highlight">/></span></h1>
 </section>
 <section class="projets flex flex-col my-10 gap-7">
   <h1 class="titre dark:text-mybeige text-myblack">
     <span class="highlight">// </span><?php esc_html_e('MY RECENT PROJECTS', 'rine2'); ?>
   </h1>
-  <div class="flex max-w-full md:ml-15">
+  <div class="flex max-w-full lg:ml-15 overflow-x-scroll pt-5">
 
     <?php
     $today = date('Ymd');
@@ -40,17 +40,17 @@
 
         <a href="<?php echo esc_url(get_permalink()); ?>"
           style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"
-          class=" group relative mr-3 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 md:h-[455px] block dark:border dark:border-mybeige rounded-2xl">
+          class=" group relative mr-3 lg:mr-9 w-[243px] h-52 lg:w-[455px] lg:h-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 block dark:border dark:border-mybeige rounded-2xl">
 
           <!-- Détails du projet -->
           <div
-            class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 text-left">
+            class="absolute bottom-0 right-0 flex flex-col opacity-100 lg:opacity-0 transition-opacity duration-300 lg:group-hover:opacity-100 text-left lg:bg-transparent bg-myblack w-full p-3">
             <h2 class="soustitre text-end text-mybeige"><?php the_title(); ?></h2>
-            <div class="flex justify-end">
-              <p class="texte font-bold lowercase text-end text-mybeige">
+            <div class="flex justify-end gap-2">
+              <p class="small-text lowercase text-end text-mybeige">
                 <?php echo wp_kses_post(get_field('pr_category')); ?>
               </p>
-              <p class="texte font-bold lowercase text-end text-mybeige">
+              <p class="small-text lowercase text-end text-mybeige">
                 <?php $acf_date = get_field('date'); // Replace with your field name
                   echo get_time_ago_acf($acf_date);
                 ?>
@@ -66,11 +66,11 @@
 
   </div>
 </section>
-<section class="flex md:flex-row flex-col my-10 md:justify-between">
+<section class="flex lg:flex-row flex-col my-10 lg:justify-between">
   <h1 class="titre w-fit dark:text-mybeige text-myblack">
     <span class="highlight">// </span><?php esc_html_e('my services', 'rine2'); ?>
   </h1>
-  <div class="w-full md:w-1/2">
+  <div class="w-full lg:w-1/2">
     <?php
     // 1) définir les arguments/filtres de la requête
     $args = array(

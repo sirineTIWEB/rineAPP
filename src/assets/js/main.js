@@ -11,6 +11,8 @@ import { initFlowerAnimation } from './modules/flower-animation.js';
 import { initTimelineAnimation } from './modules/timeline-animation.js';
 import { initServicesAnimation } from './modules/services-animation.js';
 import { initMoodColorSwitcher } from './modules/mood-color-switcher.js';
+import { initInfoToggle } from './modules/info-toggle.js';
+import { initLightbox } from './modules/lightbox.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initTimelineAnimation();
     initServicesAnimation();
     initMoodColorSwitcher();
+    initInfoToggle();
+    initLightbox();
 
     // Hover effects
     initRecentProjectsHover();

@@ -4,16 +4,16 @@ Template Name: About V2
 */
 get_header(); ?>
 
-<section class="absolute z-20 animated-hero flex flex-col pt-30 h-[90vh] justify-left items-start lowercase pl-40">
-    <h1 class="secondary-title text-myblack dark:text-mybeige text-3xl md:text-6xl font-family-alexandria font-bold capitalize"><span class="highlight"><</span><?php esc_html_e('El Alami Sirine', 'rine2'); ?><span class="highlight">/></span></h1>
-  <h1 class="primary-title text-myblack text-left dark:text-mybeige text-4xl md:text-8xl titre">
+<section class="absolute z-20 animated-hero flex flex-col pt-30 h-[90vh] md:justify-left items-start lowercase md:pl-40">
+    <h1 class="secondary-title text-myblack dark:text-mybeige text-3xl lg:text-6xl font-family-alexandria font-bold capitalize"><span class="highlight"><</span><?php esc_html_e('El Alami Sirine', 'rine2'); ?><span class="highlight">/></span></h1>
+  <h1 class="primary-title text-myblack text-left dark:text-mybeige text-4xl lg:text-8xl titre">
     <?php esc_html_e('Student', 'rine2'); ?><span class="highlight">=> </span>HEFF<span class="highlight">() {</span><br><span class=" highlight underline"><?php esc_html_e('web', 'rine2'); ?></span>design/dev<span class="highlight">;}</span>
   </h1>
 </section>
-<section class="flex h-[90vh] justify-end items-end pr-30 pb-10">
+<section class="flex h-[90vh] md:justify-end md:items-end md:pr-30 pb-10">
     <?php if (has_post_thumbnail()) : ?>
         <div class="relative">
-            <?php the_post_thumbnail('image-500h', ['class' => 'md:h-auto border-8 border-myblue rounded-xl', 'alt' => get_the_title()]); ?>
+            <?php the_post_thumbnail('image-500h', ['class' => 'lg:h-auto border-8 border-myblue rounded-xl', 'alt' => get_the_title()]); ?>
 
             <!-- Purple flower: left middle, 50% out -->
             <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/purpleflower.svg" alt="purple flower" class="flower-animate absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 pointer-events-none" style="width: 87px; height: 93px;">
@@ -27,11 +27,34 @@ get_header(); ?>
     <?php endif; ?>
 </section>
 
-<section class="flex flex-col my-10 gap-8 h-screen">
-  <h1 class="titre dark:text-mybeige text-myblack">
-    <span class="highlight">// </span><?php esc_html_e('MY MOOD TRACKER', 'rine2'); ?>
-  </h1>
-  <h1 class="soustitre text-center text-myblack dark:text-mybeige"><?php esc_html_e(' creativity isn’t static — it moves with how we feel.', 'rine2'); ?></h1>
+<section class="flex flex-col my-10 gap-4 h-screen">
+  <div class="flex items-center gap-2">
+    <h1 class="titre dark:text-mybeige text-myblack">
+      <span class="highlight">// </span><?php esc_html_e('MY MOOD TRACKER', 'rine2'); ?>
+    </h1>
+    <button
+      id="mood-info-btn"
+      class="info-btn flex-shrink-0 w-5 h-5 rounded-full border-2 border-myblue flex items-center justify-center cursor-pointer hover:bg-myblue hover:text-mybeige transition-colors duration-200 text-myblue font-bold"
+      style="font-size: 0.625rem;"
+      aria-label="<?php esc_attr_e('More information', 'rine2'); ?>"
+      aria-expanded="false"
+    >
+      i
+    </button>
+  </div>
+  <div
+    id="mood-info-content"
+    class="mood-info-content overflow-hidden transition-all duration-500 ease-in-out"
+    style="max-height: 0; opacity: 0;"
+    aria-hidden="true"
+  >
+    <div class="bg-myblack dark:bg-mybeige/10 border border-myblue rounded-xl p-3 text-mybeige dark:text-mybeige w-fit mb-4">
+      <p class="text-xs opacity-80">
+        <?php esc_html_e('As the actual site color reflects my current emotion as the admin, the choice you make is experimental and for preview purposes only.', 'rine2'); ?>
+      </p>
+    </div>
+  </div>
+  <h1 class="soustitre text-center text-myblack dark:text-mybeige"><?php esc_html_e('creativity isn\'t static — it moves with how we feel.', 'rine2'); ?></h1>
   <div class="flex flex-col gap-9 h-full">
     <button
       class="mood-state-btn w-full h-1/3 rounded-4xl flex justify-center items-center transition-all duration-300 hover:bg-[#23F80B] <?php echo (get_option('active_mood_state') === 'green' ? 'bg-[#23F80B] active' : 'bg-transparent border-2 border-myblack dark:border-mybeige'); ?>"
@@ -70,7 +93,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
   <h1 class="titre dark:text-mybeige text-myblack">
     <span class="highlight">// </span><?php esc_html_e('MY PARCOURS', 'rine2'); ?>
   </h1>
-  <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+  <ul class="timeline timeline-snap-icon max-lg:timeline-compact timeline-vertical">
   <li>
     <div class="timeline-middle">
       <svg
@@ -86,7 +109,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
         />
       </svg>
     </div>
-    <div class="timeline-start mb-10 md:text-end dark:text-mybeige text-myblack texte">
+    <div class="timeline-start mb-10 lg:text-end dark:text-mybeige text-myblack texte">
       <time class="texte font-mono italic dark:text-mybeige text-myblack">2020</time>
       <div class="text-lg dark:text-mybeige text-myblack soustitre">Graduated</div>
       Cursus général, option langues modernes
@@ -109,7 +132,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
         />
       </svg>
     </div>
-    <div class="timeline-end md:mb-10 dark:text-mybeige text-myblack texte">
+    <div class="timeline-end lg:mb-10 dark:text-mybeige text-myblack texte">
       <time class="font-mono italic dark:text-mybeige text-myblack">2021</time>
       <div class="soustitre text-lg dark:text-mybeige text-myblack">1 year - Psychology</div>
       wanting something more practical.
@@ -132,7 +155,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
         />
       </svg>
     </div>
-    <div class="timeline-start mb-10 md:text-end dark:text-mybeige text-myblack texte">
+    <div class="timeline-start mb-10 lg:text-end dark:text-mybeige text-myblack texte">
       <time class="font-mono italic dark:text-mybeige text-myblack">2022</time>
       <div class="soustitre text-lg dark:text-mybeige text-myblack">B1 - Infography</div>
       Mix of 3D, edition, web. with the vision of going into 3D
@@ -155,7 +178,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
         />
       </svg>
     </div>
-    <div class="timeline-end md:mb-10 dark:text-mybeige text-myblack texte">
+    <div class="timeline-end lg:mb-10 dark:text-mybeige text-myblack texte">
       <time class="font-mono italic dark:text-mybeige text-myblack">2023</time>
       <div class="soustitre text-lg dark:text-mybeige text-myblack">B2 - Infography WEB</div>
       discovering abilities in coding so going for it.
@@ -178,7 +201,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
         />
       </svg>
     </div>
-    <div class="timeline-start mb-10 md:text-end dark:text-mybeige text-myblack texte">
+    <div class="timeline-start mb-10 lg:text-end dark:text-mybeige text-myblack texte">
       <time class="font-mono italic dark:text-mybeige text-myblack">2024</time>
       <div class="soustitre text-lg dark:text-mybeige text-myblack">B3 - Infography WEB</div>
       going by the year but letting internship aside
@@ -201,7 +224,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
         />
       </svg>
     </div>
-    <div class="timeline-end md:mb-10 dark:text-mybeige text-myblack texte">
+    <div class="timeline-end lg:mb-10 dark:text-mybeige text-myblack texte">
       <time class="font-mono italic dark:text-mybeige text-myblack">NOW</time>
       <div class="soustitre text-lg dark:text-mybeige text-myblack">B3² - Infography WEB</div>
       Hoping for a Great Opportunity for an internship in 2026

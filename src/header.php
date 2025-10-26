@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="https://use.typekit.net/imo5mqr.css" defer>
     <?php wp_head(); ?>
 </head>
-<body class="overflow-x-hidden bg-mybeige dark:bg-myblack drawer" data-theme-url="<?php echo get_template_directory_uri(); ?>/assets/icons/">
+<?php
+// Get active mood state for arrow color
+$active_state = get_option('active_mood_state', 'blue');
+?>
+<body class="overflow-x-hidden bg-mybeige dark:bg-myblack drawer" data-theme-url="<?php echo get_template_directory_uri(); ?>/assets/icons/" data-mood-color="<?php echo esc_attr($active_state); ?>">
     <!-- Drawer toggle checkbox (hidden, controls sidebar) -->
     <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
 
     <!-- Main content area -->
     <div class="drawer-content">
         <!-- Fixed header/navbar -->
-        <header class="flex justify-between items-start self-stretch fixed top-0 right-0 left-0 px-10 py-5 z-50 bg-mybeige dark:bg-myblack">
+        <header class="flex justify-between items-start self-stretch fixed top-0 right-0 left-0 px-5 lg:px-10 py-5 z-50 bg-mybeige dark:bg-myblack">
 
             <!-- Burger menu button for mobile (opens drawer) -->
-            <label for="mobile-drawer" class="visible md:hidden cursor-pointer" aria-label="Open menu">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" alt="Toggle menu">
+            <label for="mobile-drawer" class="visible lg:hidden cursor-pointer" aria-label="Open menu">
+                <img class="burger-icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" alt="Toggle menu">
             </label>
 
             <!-- Desktop navigation menu -->
@@ -26,7 +30,7 @@
             wp_nav_menu(array(
                 'theme_location' => 'primary',
                 'container' => 'nav',
-                'container_class' => 'hidden deskmenu md:flex rounded-2xl text-myblack dark:text-mybeige',
+                'container_class' => 'hidden deskmenu lg:flex rounded-2xl text-myblack dark:text-mybeige',
                 'menu_class' => 'flex gap-8',
                 'menu_id' => 'deskmenu',
                 'walker' => new Custom_Walker_headNav_Menu(),
@@ -34,11 +38,11 @@
             ?>
 
             <!-- Logo -->
-            <img class="dark:hidden h-5 md:h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoB.svg" alt="-RINE">
-            <img class="hidden dark:block h-5 md:h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoW.svg" alt="-RINE">
+            <img class="dark:block hidden h-5 lg:h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoB.svg" alt="-RINE">
+            <img class="dark:hidden h-5 lg:h-auto w-auto" src="<?php echo get_template_directory_uri(); ?>/assets/logo/logoW.svg" alt="-RINE">
 
             <!-- Contact & Dark mode buttons -->
-            <ul class="flex md:flex-row flex-col justify-center items-end gap-2.5 md:gap-8 md:justify-end md:items-center flex-wrap">
+            <ul class="flex lg:flex-row flex-col justify-center items-end gap-2.5 lg:gap-8 lg:justify-end lg:items-center flex-wrap">
                 <li>
                     <a href="#contact" class="bouton border dark:border-mybeige border-myblack">
                         <?php esc_html_e('contact me', 'rine2'); ?>
@@ -53,4 +57,4 @@
         </header>
 
         <!-- Page content starts here (with padding for fixed header) -->
-        <div class="md:px-10 px-5 py-5 md:py-5 ">
+        <div class="lg:px-10 px-5 py-5 lg:py-5 ">

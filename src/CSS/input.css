@@ -31,12 +31,23 @@ html {
   --font-family-alexandria: "Alexandria", sans-serif;
   --font-family-annuario: "Annuario", sans-serif;
 
-  /* Custom font sizes */
-  --font-size-legend: clamp(0.625rem, 0.4167rem + 1.0417vw, 1rem);
-  --font-size-titre: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
-  --font-size-texte: clamp(0.875rem, 0.7rem + 0.875vw, 1.25rem);
-  --font-size-bouton: clamp(0.625rem, 0.525rem + 0.5vw, 0.875rem);
-  --font-size-soustitre: clamp(1rem, 0.625rem + 1.3333vw, 1.75rem);
+  /* Typography Scale - Mobile to Desktop */
+  /* Main title/hero */
+  --font-size-h1: clamp(2rem, 1.5rem + 2.5vw, 4rem);      /* 32px → 64px */
+  /* Section headings */
+  --font-size-h2: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);     /* 24px → 40px */
+  /* Subsection headings */
+  --font-size-h3: clamp(1.25rem, 0.875rem + 1.875vw, 2rem); /* 20px → 32px */
+  /* Minor headings */
+  --font-size-h4: clamp(1rem, 0.625rem + 1.3333vw, 1.75rem); /* 16px → 28px */
+  /* Body text */
+  --font-size-body: clamp(0.875rem, 0.7rem + 0.875vw, 1.25rem); /* 14px → 20px */
+  /* Small text (captions, labels) */
+  --font-size-small: clamp(0.75rem, 0.5rem + 0.625vw, 1rem);   /* 12px → 16px */
+  /* Button text */
+  --font-size-button: clamp(0.625rem, 0.525rem + 0.5vw, 0.875rem); /* 10px → 14px */
+  /* Tiny text (legends, metadata) */
+  --font-size-legend: clamp(0.625rem, 0.4167rem + 1.0417vw, 1rem); /* 10px → 16px */
 
   /* Custom breakpoints */
   --breakpoint-sm: 36rem; /* 576px */
@@ -52,13 +63,7 @@ html {
   font-family: 'Courier New'
 }
 
-@utility condensed {
-  font-variation-settings: "wdth" 20, "wght" 700;
-}
-
-@utility extended {
-  font-variation-settings: "wdth" 400, "wght" 700;
-}
+/* Removed condensed and extended utilities - using normal width for all text */
 
 /* Style collapse title to display flex for arrow positioning */
 .collapse > .collapse-title {
@@ -88,38 +93,214 @@ html {
   transform: rotate(180deg);
 }
 
+/* Arrow color variants for mood states */
+body[data-mood-color="green"] .collapse > .collapse-title::after {
+  background-image: url('../assets/icons/arrow-green.svg');
+}
 
-@utility titre {
-  font-family: var(--font-family-annuario);
+body[data-mood-color="purple"] .collapse > .collapse-title::after {
+  background-image: url('../assets/icons/arrow-purple.svg');
+}
+
+body[data-mood-color="blue"] .collapse > .collapse-title::after {
+  background-image: url('../assets/icons/arrow.svg');
+}
+
+/* Burger menu icon color variants for mood states */
+body[data-mood-color="green"] .burger-icon {
+  content: url('../assets/icons/burger-green.svg');
+}
+
+body[data-mood-color="purple"] .burger-icon {
+  content: url('../assets/icons/burger-purple.svg');
+}
+
+body[data-mood-color="blue"] .burger-icon {
+  content: url('../assets/icons/burger.svg');
+}
+
+/* Footer icon color variants for mood states */
+/* Maps icon */
+body[data-mood-color="green"] .footer-icon-maps {
+  content: url('../assets/icons/maps-green.svg');
+}
+
+body[data-mood-color="purple"] .footer-icon-maps {
+  content: url('../assets/icons/maps-purple.svg');
+}
+
+body[data-mood-color="blue"] .footer-icon-maps {
+  content: url('../assets/icons/maps.svg');
+}
+
+/* LinkedIn icon */
+body[data-mood-color="green"] .footer-icon-linkedin {
+  content: url('../assets/icons/linkedin-green.svg');
+}
+
+body[data-mood-color="purple"] .footer-icon-linkedin {
+  content: url('../assets/icons/linkedin-purple.svg');
+}
+
+body[data-mood-color="blue"] .footer-icon-linkedin {
+  content: url('../assets/icons/linkedin.svg');
+}
+
+/* Instagram icon */
+body[data-mood-color="green"] .footer-icon-insta {
+  content: url('../assets/icons/insta-green.svg');
+}
+
+body[data-mood-color="purple"] .footer-icon-insta {
+  content: url('../assets/icons/insta-purple.svg');
+}
+
+body[data-mood-color="blue"] .footer-icon-insta {
+  content: url('../assets/icons/insta.svg');
+}
+
+/* TikTok icon */
+body[data-mood-color="green"] .footer-icon-tiktok {
+  content: url('../assets/icons/tiktok-green.svg');
+}
+
+body[data-mood-color="purple"] .footer-icon-tiktok {
+  content: url('../assets/icons/tiktok-purple.svg');
+}
+
+body[data-mood-color="blue"] .footer-icon-tiktok {
+  content: url('../assets/icons/tiktok.svg');
+}
+
+
+/* ===================================
+   TYPOGRAPHY UTILITIES
+   =================================== */
+
+/* Heading 1 - Main page titles, hero text */
+@utility h1-style {
+  font-family: var(--font-family-alexandria);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: var(--font-size-h1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Heading 2 - Section titles */
+@utility h2-style {
+  font-family: var(--font-family-alexandria);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: var(--font-size-titre);
+  font-size: var(--font-size-h2);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-@utility soustitre {
+/* Heading 3 - Subsection titles */
+@utility h3-style {
   font-family: var(--font-family-alexandria);
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
-  font-size: var(--font-size-soustitre);
+  font-size: var(--font-size-h3);
+  line-height: 1.3;
 }
 
-@utility texte {
+/* Heading 4 - Minor headings, card titles */
+@utility h4-style {
+  font-family: var(--font-family-alexandria);
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: var(--font-size-h4);
+  line-height: 1.4;
+}
+
+/* Body text - Paragraphs, descriptions */
+@utility body-text {
   font-family: var(--font-family-alexandria);
   font-weight: 400;
-  font-size: var(--font-size-texte);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
 }
 
-@utility bouton {
+/* Small text - Captions, labels */
+@utility small-text {
+  font-family: var(--font-family-alexandria);
+  font-weight: 400;
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+}
+
+/* Legend - Metadata, tags, tiny labels */
+@utility legend-text {
   font-family: var(--font-family-alexandria);
   font-weight: 700;
-  font-size: var(--font-size-bouton);
+  font-size: var(--font-size-legend);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Button styling */
+@utility button-text {
+  font-family: var(--font-family-alexandria);
+  font-weight: 700;
+  font-size: var(--font-size-button);
   border-radius: 1rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-transform: uppercase;
-  font-variation-settings: "wdth" 400, "wght" 700;
+  color: var(--color-myblack);
+  width: fit-content;
+  line-height: 1;
+}
+
+/* Dark mode text color for button utility */
+.dark .button-text {
+  color: var(--color-mybeige);
+}
+
+/* ===================================
+   LEGACY UTILITIES (for backward compatibility)
+   Keep these if you want to gradually migrate
+   =================================== */
+
+/* Old: titre -> Use h2-style instead */
+@utility titre {
+  font-family: var(--font-family-alexandria);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--font-size-h2);
+}
+
+/* Old: soustitre -> Use h3-style or h4-style instead */
+@utility soustitre {
+  font-family: var(--font-family-alexandria);
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: var(--font-size-h4);
+}
+
+/* Old: texte -> Use body-text instead */
+@utility texte {
+  font-family: var(--font-family-alexandria);
+  font-weight: 400;
+  font-size: var(--font-size-body);
+}
+
+/* Old: bouton -> Use button-text instead */
+@utility bouton {
+  font-family: var(--font-family-alexandria);
+  font-weight: 700;
+  font-size: var(--font-size-button);
+  border-radius: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
   color: var(--color-myblack);
   width: fit-content;
 }
@@ -129,9 +310,9 @@ html {
   color: var(--color-mybeige);
 }
 
+/* Old: legend -> Use legend-text instead */
 @utility legend {
-  font-family: var(--font-family-annuario);
-  font-size: 1rem;
+  font-family: var(--font-family-alexandria);
   font-weight: 700;
   font-size: var(--font-size-legend);
 }
@@ -206,6 +387,7 @@ textarea:focus {
 .hover-circle {
   position: relative;
   overflow: visible;
+  display: inline-block;
 }
 
 .hover-circle svg {
@@ -213,10 +395,21 @@ textarea:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(100% + 20px);
   height: auto;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
+}
+
+/* Mobile: smaller size */
+.hover-circle svg {
+  width: 80px;
+}
+
+/* Desktop: normal size */
+@media (min-width: 62rem) {
+  .hover-circle svg {
+    width: 97px;
+  }
 }
 
 .hover-circle svg path {
@@ -243,38 +436,31 @@ textarea:focus {
 }
 
 /* Custom component styles */
-#navbar li > a {
+/* Desktop menu */
+#deskmenu li > a {
   text-transform: capitalize;
   padding: 0.5rem;
-  font-family: var(--font-family-annuario);
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-family-alexandria);
   font-size: var(--font-size-legend);
+  font-weight: 700;
+}
+
+/* Mobile menu - larger, clearer text */
+#mobilemenu li > a {
+  text-transform: capitalize;
+  padding: 0.75rem;
+  font-family: var(--font-family-alexandria);
+  font-size: var(--font-size-h4);
+  font-weight: 600;
 }
 
 @utility lang-item {
   display: inline;
 }
 
-/* Filter button active state - expands to show description */
-/* Base sizes: mobile w-28 h-14 (7rem x 3.5rem), desktop md:w-52 md:h-24 (13rem x 6rem) */
-/* Active state: width + height expand to fit title + description */
-/* Using !important to override Tailwind utility classes */
-.filter-btns [aria-current="true"] {
-  width: 10rem !important; /* mobile active: 10rem (was 7rem) */
-  min-height: calc(var(--spacing) * 34) !important;
-  height: fit-content !important; /* Auto-size height to fit content */
-}
-
-@media (min-width: 48rem) {
-  .filter-btns [aria-current="true"] {
-    width: 24rem !important; /* desktop active: 24rem (was 13rem) */
-  }
-}
-
-/* Show description when filter is active */
-.filter-btns [aria-current="true"] .texte {
-  display: block !important;
+/* Filter chips - pill-style buttons */
+.filter-chip {
+  white-space: nowrap;
 }
 
 /* Embla Carousel Styles */
@@ -310,7 +496,7 @@ textarea:focus {
   object-fit: cover;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .embla {
     --slide-size: 50%;
   }
@@ -359,6 +545,67 @@ textarea:focus {
   background: var(--color-myblue);
 }
 
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  cursor: default;
+  animation: lightboxZoom 0.3s ease-in-out;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 10000;
+  transition: opacity 0.2s;
+}
+
+.lightbox-close:hover {
+  opacity: 0.7;
+}
+
+.lightbox-close svg {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes lightboxZoom {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Make carousel images clickable */
+.embla__slide img {
+  cursor: zoom-in;
+}
+
 /* Style for code/symbol highlighting */
 .code-style .symbol {
   color: var(--color-myblue);
@@ -374,4 +621,82 @@ textarea:focus {
 .code-style .space {
   /* Preserve spaces */
   display: inline;
+}
+
+/* ===================================
+   CUSTOM RADIO BUTTON STYLING
+   =================================== */
+
+/* Hide default radio button */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-myblue);
+  background-color: transparent;
+  box-shadow: 2px 2px 0 1px var(--color-myblue);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Radio button hover state */
+input[type="radio"]:hover {
+  transform: translateY(-1px);
+}
+
+/* Radio button checked state */
+input[type="radio"]:checked {
+  background-color: var(--color-myblue);
+  border-color: var(--color-myblue);
+}
+
+/* Checkmark inside radio button when checked */
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  width: 0.5rem;
+  height: 0.25rem;
+  border-left: 2px solid var(--color-mybeige);
+  border-bottom: 2px solid var(--color-mybeige);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%) rotate(-45deg);
+}
+
+/* Focus state for accessibility */
+input[type="radio"]:focus {
+  outline: 2px solid var(--color-myblue);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   INFO BUTTON STYLING
+   =================================== */
+
+/* Info button - adapts to mood color */
+.info-btn {
+  border-color: var(--color-myblue);
+  color: var(--color-myblue);
+}
+
+.info-btn:hover {
+  background-color: var(--color-myblue);
+  color: var(--color-mybeige);
+}
+
+/* When info is expanded */
+.info-btn.bg-myblue {
+  background-color: var(--color-myblue);
+}
+
+/* Info content box border adapts to mood color */
+.mood-info-content .border-myblue {
+  border-color: var(--color-myblue);
 }

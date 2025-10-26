@@ -10,14 +10,13 @@ get_header(); ?>
     <h1 class="titre dark:text-mybeige text-myblack">
         <span class="highlight">// </span><?php esc_html_e('MY PROJECTS', 'rine2'); ?>
     </h1>
-    <div class="filter-btns flex px-8 gap-9 flex-wrap">
+    <div class="filter-btns flex px-8 gap-3 flex-wrap">
         <a
             role="button"
             tabindex="0"
             data-filter="*"
-            class="w-3xs flex flex-col p-5 gap-5 rounded-2xl text-mybeige bg-myblack dark:bg-mybeige dark:text-myblack transition-all duration-300 ease-in-out overflow-hidden cursor-pointer opacity-50 [&.is-active]:opacity-100">
-            <h2 class="texte"><?php esc_html_e('All', 'rine2'); ?></h2>
-            <p class="legend hidden [.is-active_&]:block"><?php esc_html_e('Show all projects', 'rine2'); ?></p>
+            class="filter-chip px-4 py-2 rounded-full border-2 border-myblack dark:border-mybeige text-myblack dark:text-mybeige transition-all duration-200 cursor-pointer hover:bg-myblack hover:text-mybeige dark:hover:bg-mybeige dark:hover:text-myblack opacity-50 [&.is-active]:opacity-100 [&.is-active]:bg-myblack [&.is-active]:text-mybeige dark:[&.is-active]:bg-mybeige dark:[&.is-active]:text-myblack legend-text">
+            <?php esc_html_e('All', 'rine2'); ?>
         </a>
         <?php
         $categories = get_terms([
@@ -30,9 +29,8 @@ get_header(); ?>
                     role="button"
                     tabindex="0"
                     data-filter=".<?php echo esc_attr($category->slug); ?>"
-                    class="w-3xs flex flex-col p-5 gap-5 rounded-2xl text-mybeige bg-myblack dark:bg-mybeige dark:text-myblack transition-all duration-300 ease-in-out overflow-hidden cursor-pointer opacity-50 [&.is-active]:opacity-100">
-                    <h2 class="texte"><?php echo esc_html($category->name); ?></h2>
-                    <p class="hidden legend [.is-active_&]:block"><?php echo esc_html($category->description); ?></p>
+                    class="filter-chip px-4 py-2 rounded-full border-2 border-myblack dark:border-mybeige text-myblack dark:text-mybeige transition-all duration-200 cursor-pointer hover:bg-myblack hover:text-mybeige dark:hover:bg-mybeige dark:hover:text-myblack opacity-50 [&.is-active]:opacity-100 [&.is-active]:bg-myblack [&.is-active]:text-mybeige dark:[&.is-active]:bg-mybeige dark:[&.is-active]:text-myblack legend-text">
+                    <?php echo esc_html($category->name); ?>
                 </a>
             <?php endforeach;
         } ?>
@@ -40,7 +38,7 @@ get_header(); ?>
     </div>
 </section>
 <section
-    class="grid md:px-8 my-10 px-6 relative gap-x-15 gap-y-10">
+    class="grid lg:px-8 my-10 px-6 relative gap-x-15 gap-y-10">
 
     <?php
     // 1) définir les arguments/filtres de la requête
@@ -67,16 +65,16 @@ get_header(); ?>
             <a
                 href="<?php echo esc_url(get_permalink()); ?>"
                 style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"
-                class="rounded-2xl grid-item group relative md:mb-10 md:mr-9 h-[243px] w-40 md:w-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out md:h-[455px] block <?php echo esc_attr($slug); ?>">
+                class="rounded-2xl grid-item group relative lg:mb-10 mb-5 mr-4 lg:mr-9 w-[243px] h-40 lg:w-[455px] lg:h-[400px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out block <?php echo esc_attr($slug); ?>">
                 <!-- Détails du projet -->
                 <div
-                    class="mr-5 absolute bottom-0 right-0 flex flex-col opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 text-left text-mybeige">
-                    <h2 class="texte text-end "><?php the_title(); ?></h2>
-                    <div class="flex justify-end">
-                        <p class="sous-titre font-bold lowercase text-end ">
+                    class="absolute bottom-0 right-0 flex flex-col opacity-100 lg:opacity-0 transition-opacity duration-300 lg:group-hover:opacity-100 text-left text-mybeige lg:bg-transparent bg-myblack w-full p-3">
+                    <h2 class="soustitre text-end"><?php the_title(); ?></h2>
+                    <div class="flex justify-end gap-2">
+                        <p class="small-text lowercase text-end">
                             <?php echo wp_kses_post(get_field('pr_category')); ?>
                         </p>
-                        <p class="soustitre font-bold lowercase text-end ">
+                        <p class="small-text lowercase text-end">
                             <?php $acf_date = get_field('date'); // Replace with your field name
                                 echo get_time_ago_acf($acf_date);
                             ?>
@@ -91,4 +89,4 @@ get_header(); ?>
     wp_reset_query(); ?>
 </section>
 
-<?php get_footer(); ?>
+<?php get_footer(); ?> 

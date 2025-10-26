@@ -45,35 +45,25 @@ export function initMoodColorSwitcher() {
         });
     };
 
-    // Function to update arrow color via dynamic CSS
+    // Function to update arrow color via data attribute
     const updateArrowColor = (color) => {
-        // Map colors to arrow file names
-        const arrowFiles = {
-            '#23F80B': 'arrow-green.svg',
-            '#092EFF': 'arrow.svg',
-            '#B606FC': 'arrow-purple.svg'
+        // Map colors to mood state names
+        const colorToMood = {
+            '#23F80B': 'green',
+            '#092EFF': 'blue',
+            '#B606FC': 'purple'
         };
 
-        // Get the arrow file for this color
-        const arrowFile = arrowFiles[color.toUpperCase()] || 'arrow.svg';
+        // Normalize color format (remove spaces, uppercase)
+        const normalizedColor = color.trim().toUpperCase();
 
-        // Get the theme directory URL (WordPress function available globally)
-        const themeUrl = document.body.dataset.themeUrl || '../assets/icons/';
-        const arrowPath = `${themeUrl}${arrowFile}`;
+        // Get the mood state for this color
+        const moodState = colorToMood[normalizedColor] || 'blue';
 
-        // Remove existing arrow style if it exists
-        const existingStyle = document.getElementById('dynamic-arrow-color');
-        if (existingStyle) {
-            existingStyle.remove();
-        }
+        // Set data attribute on body
+        document.body.setAttribute('data-mood-color', moodState);
 
-        // Inject new style tag with updated arrow color
-        const styleTag = document.createElement('style');
-        styleTag.id = 'dynamic-arrow-color';
-        styleTag.textContent = `.collapse > .collapse-title::after { background-image: url("${arrowPath}") !important; }`;
-        document.head.appendChild(styleTag);
-
-        console.log(`Arrow color updated to: ${color} using ${arrowFile}`);
+        console.log(`Arrow color updated to: ${normalizedColor} (mood: ${moodState})`);
     };
 
     // Update button states (visual only, no localStorage)
