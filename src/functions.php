@@ -81,7 +81,7 @@ class Custom_Walker_footNav_Menu extends Walker_Nav_Menu
         $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
         // Ajoute ici tes classes sur les <a>
-        $attributes .= ' class="capitalize p-0 lg:p-2 bouton hover-circle"';
+        $attributes .= ' class="capitalize p-0 pl-2 lg:pl-0 lg:p-2 bouton hover-circle"';
 
         $title = apply_filters('the_title', $item->title, $item->ID);
 

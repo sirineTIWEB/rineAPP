@@ -395,20 +395,18 @@ textarea:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: auto;
+  height: 44px;
   pointer-events: none;
   z-index: 0;
+  width: calc(100% + 40px);
+  min-width: 97px;
 }
 
-/* Mobile: smaller size */
-.hover-circle svg {
-  width: 80px;
-}
-
-/* Desktop: normal size */
+/* Desktop: larger min-width for longer text */
 @media (min-width: 62rem) {
   .hover-circle svg {
-    width: 97px;
+    width: calc(100% + 60px);
+    min-width: 150px;
   }
 }
 

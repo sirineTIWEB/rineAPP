@@ -40,7 +40,7 @@
 
         <a href="<?php echo esc_url(get_permalink()); ?>"
           style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"
-          class=" group relative mr-3 lg:mr-9 w-[243px] h-52 lg:w-[455px] lg:h-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 block dark:border dark:border-mybeige rounded-2xl">
+          class=" group relative mr-3 lg:mr-9 w-[243px] h-60 lg:w-[455px] lg:h-[300px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out shrink-0 block dark:border dark:border-mybeige rounded-2xl">
 
           <!-- Détails du projet -->
           <div

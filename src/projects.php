@@ -38,12 +38,16 @@ get_header(); ?>
     </div>
 </section>
 <section
-    class="grid lg:px-8 my-10 px-6 relative gap-x-15 gap-y-10">
+    class="grid lg:px-4 my-10 px-6 relative gap-x-15 gap-y-10">
 
     <?php
     // 1) définir les arguments/filtres de la requête
     $args = array(
-        'post_type' => 'project'
+        'post_type' => 'project',
+        'meta_key' => 'date',
+        'orderby' => 'meta_value',
+        'order' => 'DESC',
+        'posts_per_page' => -1
     );
 
     // 2) exécuter la requête et lancer la boucle
@@ -65,10 +69,10 @@ get_header(); ?>
             <a
                 href="<?php echo esc_url(get_permalink()); ?>"
                 style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"
-                class="rounded-2xl grid-item group relative lg:mb-10 mb-5 mr-4 lg:mr-9 w-[243px] h-40 lg:w-[455px] lg:h-[400px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out block <?php echo esc_attr($slug); ?>">
+                class="rounded-2xl grid-item group relative lg:mb-10 mb-5 mr-4 lg:mr-6 w-[243px] h-60 lg:w-[455px] lg:h-[400px] overflow-hidden bg-cover bg-center transition-all duration-300 ease-in-out block <?php echo esc_attr($slug); ?>">
                 <!-- Détails du projet -->
                 <div
-                    class="absolute bottom-0 right-0 flex flex-col opacity-100 lg:opacity-0 transition-opacity duration-300 lg:group-hover:opacity-100 text-left text-mybeige lg:bg-transparent bg-myblack w-full p-3">
+                    class="absolute bottom-0 right-0 flex flex-col opacity-100 lg:opacity-0 transition-opacity duration-300 lg:group-hover:opacity-100 text-left text-mybeige bg-myblack w-full p-3">
                     <h2 class="soustitre text-end"><?php the_title(); ?></h2>
                     <div class="flex justify-end gap-2">
                         <p class="small-text lowercase text-end">

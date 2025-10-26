@@ -4,13 +4,13 @@ Template Name: About V2
 */
 get_header(); ?>
 
-<section class="absolute z-20 animated-hero flex flex-col pt-30 h-[90vh] md:justify-left items-start lowercase md:pl-40">
+<section class="absolute z-20 animated-hero flex flex-col pt-30 h-[90vh] justify-center md:justify-left items-start lowercase md:pl-40">
     <h1 class="secondary-title text-myblack dark:text-mybeige text-3xl lg:text-6xl font-family-alexandria font-bold capitalize"><span class="highlight"><</span><?php esc_html_e('El Alami Sirine', 'rine2'); ?><span class="highlight">/></span></h1>
   <h1 class="primary-title text-myblack text-left dark:text-mybeige text-4xl lg:text-8xl titre">
     <?php esc_html_e('Student', 'rine2'); ?><span class="highlight">=> </span>HEFF<span class="highlight">() {</span><br><span class=" highlight underline"><?php esc_html_e('web', 'rine2'); ?></span>design/dev<span class="highlight">;}</span>
   </h1>
 </section>
-<section class="flex h-[90vh] md:justify-end md:items-end md:pr-30 pb-10">
+<section class="flex h-[90vh] md:justify-end items-end md:pr-30 pb-10">
     <?php if (has_post_thumbnail()) : ?>
         <div class="relative">
             <?php the_post_thumbnail('image-500h', ['class' => 'lg:h-auto border-8 border-myblue rounded-xl', 'alt' => get_the_title()]); ?>

@@ -147,7 +147,7 @@ $active_color = isset($mood_colors[$active_state]) ? $mood_colors[$active_state]
 
                                 <tr>
                                     <td class="font-bold pr-4"><?php esc_html_e('Link:', 'rine2'); ?></td>
-                                    <td><a href="<?php echo get_field('lien'); ?>" class="hover-circle legend-text uppercase">
+                                    <td><a href="<?php echo get_field('lien'); ?>" target="_blank" rel="noopener noreferrer" class="hover-circle legend-text uppercase">
                                             <?php esc_html_e('GO TO PROJECT', 'rine2'); ?>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="97" height="44" viewBox="0 0 97 44"
                                                 fill="none">
